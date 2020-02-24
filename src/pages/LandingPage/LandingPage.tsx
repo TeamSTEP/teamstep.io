@@ -1,13 +1,13 @@
 import React from 'react';
 import TitleMastHead from './Sections/TitleMastHead';
-import Album from './Sections/Albums';
+import WhoAreWe from './Sections/WhoAreWe';
 
 const LandingPage = () => {
     return (
         <>
             <main>
                 <TitleMastHead />
-                <Album />
+                <WhoAreWe />
             </main>
         </>
     );

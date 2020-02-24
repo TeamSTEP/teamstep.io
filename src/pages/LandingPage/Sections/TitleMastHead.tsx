@@ -13,7 +13,7 @@ const TitleMastHead = () => {
     const useStyles = makeStyles(theme => ({
         logo: {
             width: '100%',
-            maxHeight: 230
+            maxHeight: 230,
         },
         heroContent: {
             padding: theme.spacing(8, 0, 6),
@@ -28,6 +28,7 @@ const TitleMastHead = () => {
         },
         textPrimary: {
             color: ThemeColors.white,
+            padding: theme.spacing(3),
         },
         textSecondary: {
             color: ThemeColors.lightGrey,
@@ -40,7 +41,7 @@ const TitleMastHead = () => {
         <>
             <CssBaseline />
             <SectionCard color='dark'>
-                <div className={classes.heroContent}>
+                <div className={classes.heroContent} id='title-masthead'>
                     <Container maxWidth="sm">
                         <img className={classes.logo} src={StepLogo} alt='' />
                         <Typography component="h1" variant="h2" align="center" className={classes.textPrimary} gutterBottom>
