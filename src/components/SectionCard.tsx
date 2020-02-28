@@ -8,7 +8,7 @@ interface Props {
     color: 'light' | 'dark';
 }
 
-const TitleMastHead: React.FC<Props> = ({ color, children }) => {
+const SectionCard: React.FC<Props> = ({ color, children }) => {
 
     const useStyles = makeStyles(theme => ({
         paper: {
@@ -31,4 +31,4 @@ const TitleMastHead: React.FC<Props> = ({ color, children }) => {
     );
 }
 
-export default TitleMastHead;
+export default SectionCard;
