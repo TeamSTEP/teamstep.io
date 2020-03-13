@@ -9,6 +9,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { ThemeColors } from '../styles/themes';
+import { Links } from '../data/links';
 
 function Copyright() {
     return (
@@ -32,10 +33,10 @@ const useStyles = makeStyles(theme => ({
     socialIcon: {
         color: 'white',
         fontSize: 60,
-        paddingLeft: theme.spacing(1)
+        paddingLeft: theme.spacing(1),
     },
     footerText: {
-        color: ThemeColors.lightGrey
+        color: ThemeColors.lightGrey,
     },
     footer: {
         padding: theme.spacing(3, 2),
@@ -55,17 +56,16 @@ export default function StickyFooter() {
                     <Typography variant="body1" component="h1" align="center" className={classes.footerText}>
                         Social media &amp; Contacts
                         <div className="col align-self-center">
-
-                            <a href="https://www.facebook.com/hoonsubin">
+                            <a href={Links.facebook} rel="noopener noreferrer" target="_blank">
                                 <FacebookIcon className={classes.socialIcon} />
                             </a>
-                            <a href="https://twitter.com/hoonsubin">
+                            <a href={Links.twitter} rel="noopener noreferrer" target="_blank">
                                 <TwitterIcon className={classes.socialIcon} />
                             </a>
-                            <a href="https://www.linkedin.com/in/hoon-kim-a95538168/">
+                            <a href={Links.linkedin} rel="noopener noreferrer" target="_blank">
                                 <LinkedInIcon className={classes.socialIcon} />
                             </a>
-                            <a href="https://github.com/hoonsubin">
+                            <a href={Links.github} rel="noopener noreferrer" target="_blank">
                                 <GitHubIcon className={classes.socialIcon} />
                             </a>
                         </div>
