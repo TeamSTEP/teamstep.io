@@ -1,4 +1,3 @@
-
 export const ThemeColors = {
     darkGrey: '#383838',
     lightGrey: '#999999',
@@ -6,9 +5,10 @@ export const ThemeColors = {
     darkBlue: '#2C3E50',
     orange: '#FF5838',
     darkRed: '#5c0f0f',
-}
+    black: '#000000',
+};
 
 export const ThemeFontFamily = {
     logo: 'sans',
-    paragraph: 'not sans'
-}
+    paragraph: 'not sans',
+};

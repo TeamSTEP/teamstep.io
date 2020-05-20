@@ -9,10 +9,9 @@ interface Props {
 }
 
 const SectionCard: React.FC<Props> = ({ color, children }) => {
-
-    const useStyles = makeStyles(theme => ({
+    const useStyles = makeStyles((theme) => ({
         paper: {
-            backgroundColor: color === 'dark' ? ThemeColors.darkGrey : ThemeColors.white,
+            backgroundColor: color === 'dark' ? ThemeColors.darkGrey : ThemeColors.lightGrey,
             padding: theme.spacing(8, 0, 6),
             margin: theme.spacing(1),
         },
@@ -22,13 +21,13 @@ const SectionCard: React.FC<Props> = ({ color, children }) => {
 
     return (
         <>
-            <Container maxWidth='lg'>
+            <Container maxWidth="lg">
                 <Paper elevation={5} className={classes.paper}>
                     {children}
                 </Paper>
             </Container>
         </>
     );
-}
+};
 
 export default SectionCard;
