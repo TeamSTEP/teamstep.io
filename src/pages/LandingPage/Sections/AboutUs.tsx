@@ -8,7 +8,7 @@ import { Divider } from '@material-ui/core';
 import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 
-const WhoAreWe = () => {
+const AboutUs = () => {
     const useStyles = makeStyles((theme) => ({
         content: {
             margin: 'auto',
@@ -34,7 +34,7 @@ const WhoAreWe = () => {
             <SectionCard color="light">
                 <Container maxWidth="md" className={classes.content}>
                     <Typography component="h1" variant="h2" align="center" className={classes.textPrimary}>
-                        Who are we?
+                        About Us
                     </Typography>
                     <Divider />
                     <VideogameAssetIcon className={classes.divIcon} />
@@ -52,4 +52,4 @@ const WhoAreWe = () => {
     );
 };
 
-export default WhoAreWe;
+export default AboutUs;
