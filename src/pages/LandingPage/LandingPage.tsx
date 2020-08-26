@@ -1,8 +1,8 @@
 import React from 'react';
 import TitleMastHead from './Sections/TitleMastHead';
-import AboutUs from './Sections/AboutUs';
+//import AboutUs from './Sections/AboutUs';
 import { CssBaseline } from '@material-ui/core';
-import WhatWeMake from './Sections/WhatWeMake';
+//import WhatWeMake from './Sections/WhatWeMake';
 
 const LandingPage = () => {
     return (
@@ -10,8 +10,8 @@ const LandingPage = () => {
             <CssBaseline />
             <TitleMastHead />
 
-            <AboutUs />
-            <WhatWeMake />
+            {/* <AboutUs />
+            <WhatWeMake /> */}
         </>
     );
 };
