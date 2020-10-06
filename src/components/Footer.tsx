@@ -1,78 +1,65 @@
-import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import { ThemeColors } from '../styles/themes';
-import { Links } from '../data/links';
+import React from "react"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import { Logo } from "./utils"
+import Navlinks from "./navigation-list"
+import {
+    FooterLinksQuery,
+    FooterLinksQuery_site_siteMetadata_footerLinks,
+} from "./__generated__/FooterLinksQuery"
 
-function Copyright() {
+export default function() {
+    const query = useStaticQuery<FooterLinksQuery>(graphql`
+        query FooterLinksQuery {
+            site {
+                siteMetadata {
+                    title
+                    footerLinks {
+                        name
+                        url
+                    }
+                }
+            }
+        }
+    `)
+
+    const footerLinks = query.site.siteMetadata.footerLinks.map((item, _) => (
+        <ListItem data={item} key={`footer-n-l-${_}`} />
+    ))
+
     return (
-        <Typography variant="body2">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Team STEP
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
+        <footer className="footer bg-bgalt py-12">
+            <div className="container mx-auto text-center">
+                <div className="flex justify-center my-3 mb-6">
+                    <Link to="/" title={query.site.siteMetadata.title}>
+                        <Logo className="w-24" />
+                    </Link>
+                </div>
+                <div className="text-color-2 my-3 footer-links animated-link-parent">
+                    <Navlinks
+                        className="flex items-center justify-center flex-wrap"
+                        withThemeSwitch={false}
+                    />
+                </div>
+                <div className="text-color-2 my-3">
+                    <ul>{footerLinks}</ul>
+                </div>
+                <p className="text-color-default text-lg">
+                    Copyright &copy; {query.site.siteMetadata.title}{" "}
+                    {new Date().getFullYear()}
+                </p>
+            </div>
+        </footer>
+    )
 }
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-    },
-    socialIcon: {
-        color: 'white',
-        fontSize: 60,
-        paddingLeft: theme.spacing(1),
-    },
-    footerText: {
-        color: ThemeColors.lightGrey,
-    },
-    footer: {
-        padding: theme.spacing(3, 2),
-        marginTop: 'auto',
-        backgroundColor: ThemeColors.darkGrey,
-    },
-}));
-
-export default function StickyFooter() {
-    const classes = useStyles();
-
+const ListItem: React.FC<{
+    data: FooterLinksQuery_site_siteMetadata_footerLinks
+}> = ({ data }) => {
     return (
-        <div className={classes.root}>
-            <CssBaseline />
-            <footer className={classes.footer}>
-                <Container maxWidth="sm">
-                    <Typography variant="body1" component="h1" align="center" className={classes.footerText}>
-                        Social media &amp; Contacts
-                        <div className="col align-self-center">
-                            <a href={Links.facebook} rel="noopener noreferrer" target="_blank">
-                                <FacebookIcon className={classes.socialIcon} />
-                            </a>
-                            <a href={Links.twitter} rel="noopener noreferrer" target="_blank">
-                                <TwitterIcon className={classes.socialIcon} />
-                            </a>
-                            <a href={Links.linkedin} rel="noopener noreferrer" target="_blank">
-                                <LinkedInIcon className={classes.socialIcon} />
-                            </a>
-                            <a href={Links.github} rel="noopener noreferrer" target="_blank">
-                                <GitHubIcon className={classes.socialIcon} />
-                            </a>
-                        </div>
-                        <Copyright />
-                    </Typography>
-                </Container>
-            </footer>
-        </div>
-    );
+        <li className="inline-block mx-3 animated-link-parent">
+            <Link to={data.url} title={data.name}>
+                <span>{data.name}</span>
+            </Link>
+        </li>
+    )
 }
