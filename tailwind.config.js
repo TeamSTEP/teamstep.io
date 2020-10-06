@@ -60,6 +60,9 @@ module.exports = {
             }
         },
     },
+    future: {
+        removeDeprecatedGapUtilities: true,
+    },
     variants: {},
     plugins: [require(`tailwind-theme-switcher`), gradient],
 }
