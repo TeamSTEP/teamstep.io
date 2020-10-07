@@ -62,7 +62,7 @@ const siteMetadata = {
         {
             name: "Twitter",
             icon: "/images/Twitter.svg",
-            url: "#",
+            url: "https://twitter.com/hoonsubin",
         },
         {
             name: "Instagram",
@@ -81,7 +81,7 @@ const siteMetadata = {
         description: `If you are interested about our team or want to help our project grow, please consider contacting us!`,
         mail: "hoonsubin11@gmail.com",
     },
-    disqus: "elemental-netlify-com",
+    disqus: "team-step.disqus.com",
 }
 
 const beforeContactFormSubmit = data => {
@@ -161,6 +161,7 @@ const defaults = {
     cookiePolicy: false,
 }
 
+// replaces empty metadata with the default value
 Object.keys(defaults).forEach(item => {
     if (siteMetadata[item] === undefined) {
         siteMetadata[item] = defaults[item]

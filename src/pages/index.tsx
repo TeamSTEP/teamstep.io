@@ -11,6 +11,8 @@ import ItemPortfolio from "../components/item-portfolio"
 import ItemBlog from "../components/item-blog"
 import { Form, Description as ContactDescription } from "../components/contact"
 import { IndexPageQuery } from "./__generated__/IndexPageQuery"
+import Particles from "react-tsparticles"
+import { particleConfigs } from "../../data"
 
 export default ({ data, location }: PageProps<IndexPageQuery>) => {
     const siteData = data.site.siteMetadata
@@ -114,13 +116,18 @@ const Wall = ({ data }) => {
                     <div
                         className="absolute left-0 top-0 w-full h-full lg:hidden"
                         style={{
-                            background: "rgba(0,0,0,.75)",
+                            background: "rgba(0,0,0,.5)",
                         }}
                     ></div>
-                    <img
+                    {/* <img
                         src={data.titleImage}
                         alt=""
                         className="h-full w-auto max-w-none lg:h-auto lg:w-full"
+                    /> */}
+                    <Particles
+                        className="h-full w-auto max-w-none lg:h-auto lg:w-full"
+                        id="tsparticles"
+                        options={particleConfigs.polygonMask}
                     />
                 </div>
                 <div className="flex-1 text-center p-3 relative z-10 lg:text-left lg:pl-8 text-white lg:text-color-default">

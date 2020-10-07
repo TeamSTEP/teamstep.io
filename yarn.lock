@@ -11874,6 +11874,11 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
+pathseg@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/pathseg/-/pathseg-1.2.0.tgz#22af051e28037671e7799e296fe96c5dcbe53acd"
+  integrity sha512-+pQS7lTaoVIXhaCW7R3Wd/165APzZHWzYVqe7dxzdupxQwebgpBaCmf0/XZwmoA/rkDq3qvzO0qv4d5oFVrBRw==
+
 pbkdf2@^3.0.3:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/pbkdf2/-/pbkdf2-3.1.1.tgz#cb8724b0fada984596856d1a6ebafd3584654b94"
@@ -12951,6 +12956,14 @@ react-style-singleton@^2.1.0:
     get-nonce "^1.0.0"
     invariant "^2.2.4"
     tslib "^1.0.0"
+
+react-tsparticles@^1.18.1:
+  version "1.18.1"
+  resolved "https://registry.yarnpkg.com/react-tsparticles/-/react-tsparticles-1.18.1.tgz#9657276d6694689491d7b055b271e6d036b904d7"
+  integrity sha512-Y52vTHnpenR6ogxbX4qdzIynAgccsdf/oxb4bQIaDL2gxC+0WVceShpnTUSoS7nlreg43MXa0DDnINgyIPyYmA==
+  dependencies:
+    lodash "^4.17.20"
+    tsparticles "^1.18.1"
 
 react@^16.12.0, react@^16.8.0:
   version "16.13.1"
@@ -15263,6 +15276,14 @@ tslib@^2.0.0, tslib@^2.0.1, tslib@~2.0.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.1.tgz#410eb0d113e5b6356490eec749603725b021b43e"
   integrity sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ==
 
+tsparticles@^1.18.1:
+  version "1.18.1"
+  resolved "https://registry.yarnpkg.com/tsparticles/-/tsparticles-1.18.1.tgz#70748eb97bc31d5bfea043b48f72939fa7001c8f"
+  integrity sha512-Zt93xLf0JQ4nYOvSAGv7q4th1Reuf+H0bAtuYJHryemAvbC0OfQn9jtlr8vT7nhgmZv0beZztn9aDu26Z9UB0g==
+  dependencies:
+    pathseg "^1.2.0"
+    tslib "^2.0.1"
+
 tsutils@^3.17.1:
   version "3.17.1"
   resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.17.1.tgz#ed719917f11ca0dee586272b2ac49e015a2dd759"
@@ -15349,7 +15370,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.8.3:
+typescript@^3.9.6:
   version "3.9.7"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
   integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
