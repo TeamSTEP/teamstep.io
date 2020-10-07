@@ -1,21 +1,48 @@
 const polygonMask = {
+    background: {
+        color: {
+            value: '',
+        },
+        image: '',
+        position: '',
+        repeat: '',
+        size: '',
+        opacity: 0,
+    },
+    backgroundMask: {
+        cover: {
+            color: {
+                value: '#fff',
+            },
+            opacity: 1,
+        },
+        enable: false,
+    },
     detectRetina: false,
     fpsLimit: 30,
+    infection: {
+        cure: false,
+        delay: 0,
+        enable: false,
+        infections: 0,
+        stages: [],
+    },
     interactivity: {
-        detectsOn: "canvas",
+        detectsOn: 'canvas',
         events: {
             onClick: {
                 enable: false,
-                mode: "push",
+                mode: 'push',
             },
             onDiv: {
-                elementId: "repulse-div",
+                ids: 'repulse-div',
                 enable: false,
-                mode: "repulse",
+                mode: 'repulse',
+                type: 'circle',
             },
             onHover: {
                 enable: true,
-                mode: "bubble",
+                mode: 'bubble',
                 parallax: {
                     enable: false,
                     force: 2,
@@ -25,23 +52,27 @@ const polygonMask = {
             resize: true,
         },
         modes: {
+            attract: {
+                distance: 200,
+                duration: 0.4,
+                speed: 1,
+            },
             bubble: {
                 distance: 40,
                 duration: 2,
                 opacity: 8,
                 size: 6,
-                speed: 3,
             },
             connect: {
                 distance: 80,
-                lineLinked: {
+                links: {
                     opacity: 0.5,
                 },
                 radius: 60,
             },
             grab: {
                 distance: 400,
-                lineLinked: {
+                links: {
                     opacity: 1,
                 },
             },
@@ -54,28 +85,55 @@ const polygonMask = {
             repulse: {
                 distance: 200,
                 duration: 0.4,
+                speed: 1,
             },
             slow: {
-                active: false,
-                radius: 0,
                 factor: 1,
+                radius: 0,
+            },
+            trail: {
+                delay: 1,
+                quantity: 1,
             },
         },
     },
     particles: {
-        color: {
-            value: ["#4285f4", "#34A853", "#FBBC05", "#EA4335"],
+        collisions: {
+            enable: false,
+            mode: 'bounce',
         },
-        lineLinked: {
+        color: {
+            value: '#ffffff',
+            animation: {
+                enable: false,
+                speed: 1,
+                sync: true,
+            },
+        },
+        links: {
             blink: false,
-            color: "random",
+            color: {
+                value: '#ffffff',
+            },
             consent: false,
-            distance: 40,
+            distance: 30,
             enable: true,
-            opacity: 0.8,
+            opacity: 0.4,
+            shadow: {
+                blur: 5,
+                color: {
+                    value: '#00ff00',
+                },
+                enable: false,
+            },
+            triangles: {
+                enable: false,
+            },
             width: 1,
+            warp: false,
         },
         move: {
+            angle: 90,
             attract: {
                 enable: false,
                 rotate: {
@@ -83,94 +141,178 @@ const polygonMask = {
                     y: 1200,
                 },
             },
-            bounce: false,
-            direction: "none",
+            direction: 'none',
             enable: true,
-            outMode: "bounce",
+            noise: {
+                delay: {
+                    random: {
+                        enable: false,
+                        minimumValue: 0,
+                    },
+                    value: 0,
+                },
+                enable: false,
+            },
+            outMode: 'bounce',
             random: false,
             speed: 1,
             straight: false,
+            trail: {
+                enable: false,
+                length: 10,
+                fillColor: {
+                    value: '#000000',
+                },
+            },
+            vibrate: false,
+            warp: false,
         },
         number: {
             density: {
                 enable: false,
                 area: 2000,
+                factor: 1000,
             },
             limit: 0,
-            value: 200,
+            value: 400,
         },
         opacity: {
             animation: {
                 enable: true,
-                minimumValue: 0.3,
+                minimumValue: 0.05,
                 speed: 2,
                 sync: false,
             },
+            random: {
+                enable: false,
+                minimumValue: 1,
+            },
+            value: 0.4,
+        },
+        rotate: {
+            animation: {
+                enable: false,
+                speed: 0,
+                sync: false,
+            },
+            direction: 'clockwise',
+            path: false,
             random: false,
-            value: 0.8,
+            value: 0,
+        },
+        shadow: {
+            blur: 0,
+            color: {
+                value: '#000000',
+            },
+            enable: false,
+            offset: {
+                x: 0,
+                y: 0,
+            },
         },
         shape: {
-            character: {
-                fill: false,
-                font: "Verdana",
-                style: "",
-                value: "*",
-                weight: "400",
+            options: {
+                character: {
+                    fill: false,
+                    font: 'Verdana',
+                    style: '',
+                    value: '*',
+                    weight: '400',
+                },
+                char: {
+                    fill: false,
+                    font: 'Verdana',
+                    style: '',
+                    value: '*',
+                    weight: '400',
+                },
+                polygon: {
+                    sides: 5,
+                },
+                star: {
+                    sides: 5,
+                },
+                image: {
+                    height: 100,
+                    replaceColor: true,
+                    src:
+                        'https://cdn.matteobruni.it/images/particles/github.svg',
+                    width: 100,
+                },
+                images: {
+                    height: 100,
+                    replaceColor: true,
+                    src:
+                        'https://cdn.matteobruni.it/images/particles/github.svg',
+                    width: 100,
+                },
             },
-            image: {
-                height: 100,
-                replaceColor: true,
-                src: "https://cdn.matteobruni.it/images/particles/github.svg",
-                width: 100,
-            },
-            polygon: {
-                sides: 5,
-            },
-            stroke: {
-                color: "#000000",
-                width: 0,
-            },
-            type: "circle",
+            type: 'circle',
         },
         size: {
             animation: {
+                destroy: 'none',
                 enable: false,
                 minimumValue: 0.1,
                 speed: 40,
+                startValue: 'max',
                 sync: false,
             },
-            random: true,
+            random: {
+                enable: true,
+                minimumValue: 1,
+            },
             value: 1,
         },
+        stroke: {
+            width: 0,
+            color: {
+                value: '#000000',
+                animation: {
+                    enable: false,
+                    speed: 1,
+                    sync: true,
+                },
+            },
+        },
+        twinkle: {
+            lines: {
+                enable: false,
+                frequency: 0.05,
+                opacity: 1,
+            },
+            particles: {
+                enable: false,
+                frequency: 0.05,
+                opacity: 1,
+            },
+        },
     },
+    pauseOnBlur: true,
     polygon: {
         draw: {
-            enable: false,
-            lineColor: "rgba(255,255,255,0.2)",
-            lineWidth: 0.5,
+            enable: true,
+            stroke: {
+                color: {
+                    value: 'rgba(255,255,255,0.2)',
+                },
+                width: 0.5,
+                opacity: 0.2,
+            },
         },
         enable: true,
+        inline: {
+            arrangement: 'equidistant',
+        },
         move: {
-            radius: 5,
+            radius: 10,
+            type: 'path',
         },
-        position: {
-            x: 50,
-            y: 40,
-        },
-        inlineArrangement: "equidistant",
-        scale: 0.8,
-        type: "inline",
-        url:
-            "https://upload.wikimedia.org/wikipedia/commons/3/30/Vector-based_example.svg",
+        scale: 2,
+        type: 'inline',
+        url: 'https://cdn.matteobruni.it/images/particles/hollowknight.svg',
     },
-    background: {
-        color: "#000000",
-        image: "",
-        opacity: 0,
-        position: "50% 50%",
-        repeat: "no-repeat",
-        size: "cover",
-    },
-}
+};
 
-export { polygonMask }
+export { polygonMask };

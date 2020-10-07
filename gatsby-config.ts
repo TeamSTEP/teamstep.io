@@ -1,7 +1,7 @@
-import { siteMetadata } from "./config"
-import tailwindConfig from "./tailwind.config"
-import autoprefixer from "autoprefixer"
-import tailwindcss from "tailwindcss"
+import { siteMetadata } from './config';
+import tailwindConfig from './tailwind.config';
+import autoprefixer from 'autoprefixer';
+import tailwindcss from 'tailwindcss';
 
 const plugins = [
     `gatsby-plugin-sharp`,
@@ -55,7 +55,13 @@ const plugins = [
             ],
         },
     },
-]
+    {
+        resolve: 'gatsby-plugin-load-script',
+        options: {
+            src: 'https://cdn.jsdelivr.net/npm/pathseg@1.2.0/pathseg.min.js', // Change to the script filename
+        },
+    },
+];
 
 if (siteMetadata.disqus) {
     plugins.push({
@@ -63,10 +69,10 @@ if (siteMetadata.disqus) {
         options: {
             shortname: siteMetadata.disqus,
         },
-    } as any)
+    } as any);
 }
 
 export default {
     siteMetadata: siteMetadata,
     plugins: plugins,
-}
+};
