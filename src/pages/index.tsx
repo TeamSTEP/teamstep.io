@@ -1,19 +1,21 @@
-import React, { useEffect, useRef, useState } from "react"
-import { graphql, PageProps } from "gatsby"
+import React, { useEffect, useRef, useState } from 'react';
+import { graphql, PageProps } from 'gatsby';
 
-import { ArrowRight } from "react-feather"
-import ScrollIntoView from "react-scroll-into-view"
+import { ArrowRight } from 'react-feather';
+import ScrollIntoView from 'react-scroll-into-view';
 
-import Layout from "../components/layout"
-import { Button } from "../components/ui"
+import Layout from '../components/layout';
+import { Button } from '../components/ui';
 
-import ItemPortfolio from "../components/item-portfolio"
-import ItemBlog from "../components/item-blog"
-import { Form, Description as ContactDescription } from "../components/contact"
-import { IndexPageQuery } from "./__generated__/IndexPageQuery"
+import ItemPortfolio from '../components/item-portfolio';
+import ItemBlog from '../components/item-blog';
+import { Form, Description as ContactDescription } from '../components/contact';
+import { IndexPageQuery } from './__generated__/IndexPageQuery';
+import Particles from 'react-tsparticles';
+import { particleConfigs } from '../../data';
 
 export default ({ data, location }: PageProps<IndexPageQuery>) => {
-    const siteData = data.site.siteMetadata
+    const siteData = data.site.siteMetadata;
 
     const portfolioList = data.portfolio.edges.map((item, _) => (
         <ItemPortfolio
@@ -21,61 +23,61 @@ export default ({ data, location }: PageProps<IndexPageQuery>) => {
             key={`p-item-index-${item.node.id}`}
             even={(_ + 1) % 2 === 0}
         />
-    ))
+    ));
 
     const blogList = data.blog.edges.map(item => (
         <ItemBlog data={item.node} key={`b-item-index-${item.node.id}`} />
-    ))
+    ));
 
     return (
         <Layout
             front={true}
             seo={{
-                title: "Home",
+                title: 'Home',
                 description: siteData.description,
             }}
             navPlaceholder={false}
             location={location}
         >
             <Wall data={siteData} />
-            {siteData.about !== "" && <About data={siteData.about} />}
+            {siteData.about !== '' && <About data={siteData.about} />}
             <div className="px-4 lg:px-0" id="portfolio">
                 {portfolioList}
             </div>
             <SocialMedia>{blogList}</SocialMedia>
             <Contact data={siteData.contact} />
         </Layout>
-    )
-}
+    );
+};
 
 const Wall = ({ data }) => {
-    const wall = useRef(null)
+    const wall = useRef(null);
 
-    const twoColumnWall = data.twoColumnWall
+    const twoColumnWall = data.twoColumnWall;
 
     const [state, changeState] = useState({
         loaded: false,
         supportsBlend: false,
-    })
+    });
 
     useEffect(() => {
         if (window.CSS && !state.loaded) {
-            if (CSS.supports("mix-blend-mode", "screen")) {
-                wall.current.classList.add("supports-blend")
+            if (CSS.supports('mix-blend-mode', 'screen')) {
+                wall.current.classList.add('supports-blend');
                 changeState({
                     loaded: true,
                     supportsBlend: true,
-                })
+                });
             }
         }
-    }, [state.loaded])
+    }, [state.loaded]);
 
-    let spanAttrs: Partial<{ style: unknown }> = {}
+    let spanAttrs: Partial<{ style: unknown }> = {};
 
     if (!twoColumnWall && data.titleImage) {
         spanAttrs.style = {
             backgroundImage: `url('${data.titleImage}')`,
-        }
+        };
     }
 
     const innerComponents = (
@@ -83,7 +85,7 @@ const Wall = ({ data }) => {
             <div className="title bg-bg">
                 <h1
                     className={`text-6xl relative lg:text-7xl ${
-                        data.capitalizeTitleOnHome ? "uppercase" : ""
+                        data.capitalizeTitleOnHome ? 'uppercase' : ''
                     }`}
                 >
                     <span {...spanAttrs}></span>
@@ -96,13 +98,13 @@ const Wall = ({ data }) => {
             <p className="text-base lg:text-lg mt-4">{data.description}</p>
             <ScrollIntoView selector="#portfolio">
                 <Button
-                    title="SEE WORKS"
+                    title="SEE PROJECTS"
                     type="button"
                     iconRight={<ArrowRight />}
                 />
             </ScrollIntoView>
         </>
-    )
+    );
 
     if (twoColumnWall) {
         return (
@@ -114,20 +116,25 @@ const Wall = ({ data }) => {
                     <div
                         className="absolute left-0 top-0 w-full h-full lg:hidden"
                         style={{
-                            background: "rgba(0,0,0,.75)",
+                            background: 'rgba(0,0,0,.5)',
                         }}
                     ></div>
-                    <img
+                    {/* <img
                         src={data.titleImage}
                         alt=""
                         className="h-full w-auto max-w-none lg:h-auto lg:w-full"
+                    /> */}
+                    <Particles
+                        className="h-full w-auto max-w-none lg:h-auto lg:w-full top-0 left-0"
+                        id="tsparticles"
+                        options={particleConfigs.teamStepLogo}
                     />
                 </div>
                 <div className="flex-1 text-center p-3 relative z-10 lg:text-left lg:pl-8 text-white lg:text-color-default">
                     {innerComponents}
                 </div>
             </div>
-        )
+        );
     }
 
     return (
@@ -137,8 +144,8 @@ const Wall = ({ data }) => {
         >
             {innerComponents}
         </div>
-    )
-}
+    );
+};
 
 const About = ({ data }) => {
     return (
@@ -150,24 +157,24 @@ const About = ({ data }) => {
                 <p className="mt-5 text-lg">{data}</p>
             </div>
         </div>
-    )
-}
+    );
+};
 
 const SocialMedia = ({ children }) => {
     return (
         <div className="container mx-auto px-0">
             <div className="pt-20 pb-10 text-center lg:pt-40 lg:pb-20">
                 <h2 className="text-color-1 font-black text-5xl lg:text-6xl">
-                    Social Media
+                    Posts
                 </h2>
             </div>
             <div className="flex flex-wrap">{children}</div>
         </div>
-    )
-}
+    );
+};
 
 const Contact = ({ data }) => {
-    const hasContactForm = data.api_url
+    const hasContactForm = data.api_url;
     return (
         <div className="container mx-auto">
             <div className="pt-20 pb-10 lg:pt-40 lg:pb-20 text-center">
@@ -183,15 +190,15 @@ const Contact = ({ data }) => {
                 )}
                 <div
                     className={`w-full ${
-                        hasContactForm ? "lg:w-1/2" : "lg:w-2/3 mx-auto"
+                        hasContactForm ? 'lg:w-1/2' : 'lg:w-2/3 mx-auto'
                     } px-6 pt-8`}
                 >
                     <ContactDescription data={data} />
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export const query = graphql`
     query IndexPageQuery {
@@ -210,8 +217,6 @@ export const query = graphql`
                     api_url
                     description
                     mail
-                    phone
-                    address
                 }
                 social {
                     name
@@ -270,4 +275,4 @@ export const query = graphql`
             }
         }
     }
-`
+`;

@@ -1,0 +1,1 @@
+export * as particleConfigs from './particle-config';

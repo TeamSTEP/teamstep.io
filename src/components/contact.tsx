@@ -8,7 +8,7 @@ import { beforeContactFormSubmit, contactFormSubmit } from "../../config"
 import SocialLinks from "../utils/sociallinks"
 import { ContactQuery_site_siteMetadata_contact } from "../pages/__generated__/ContactQuery"
 
-type FeedbackState = { [id: number]: { message?: string, type?: string }}
+type FeedbackState = { [id: number]: { message?: string; type?: string } }
 
 const Form: React.FC<{ api: string }> = ({ api }) => {
     const [data, changeData] = useState({
@@ -19,7 +19,7 @@ const Form: React.FC<{ api: string }> = ({ api }) => {
 
     const [feedback, setFeedback] = useState<FeedbackState>({})
 
-    const [ transactionState, setTransactionState] = useState(false);
+    const [transactionState, setTransactionState] = useState(false)
 
     const updateData = v => changeData({ ...data, ...v })
 
@@ -27,39 +27,40 @@ const Form: React.FC<{ api: string }> = ({ api }) => {
         <form
             onSubmit={event => {
                 event.preventDefault()
-                setTransactionState(true);
+                setTransactionState(true)
 
-                const validate = beforeContactFormSubmit(data);
+                const validate = beforeContactFormSubmit(data)
 
                 if (validate.result) {
-                    setFeedback({});
-                    contactFormSubmit(api, validate.data).then(res => {
-                        if (res.result) {
-                            setFeedback({
-                                4: {
-                                    type: "success",
-                                    message:
-                                        "Your message has been sent.",
-                                },
-                            })
-                        } else {
+                    setFeedback({})
+                    contactFormSubmit(api, validate.data)
+                        .then(res => {
+                            if (res.result) {
+                                setFeedback({
+                                    4: {
+                                        type: "success",
+                                        message: "Your message has been sent.",
+                                    },
+                                })
+                            } else {
+                                setFeedback({
+                                    4: {
+                                        message:
+                                            "There was an error sending the message. Please try again.",
+                                    },
+                                })
+                            }
+                            setTransactionState(false)
+                        })
+                        .catch(err => {
                             setFeedback({
                                 4: {
                                     message:
                                         "There was an error sending the message. Please try again.",
                                 },
                             })
-                        }
-                        setTransactionState(false);
-                    }).catch(err => {
-                        setFeedback({
-                            4: {
-                                message:
-                                    "There was an error sending the message. Please try again.",
-                            },
+                            setTransactionState(false)
                         })
-                        setTransactionState(false);
-                    })
                 } else {
                     const errs = {}
 
@@ -68,7 +69,7 @@ const Form: React.FC<{ api: string }> = ({ api }) => {
                     })
 
                     setFeedback(errs)
-                    setTransactionState(false);
+                    setTransactionState(false)
                 }
             }}
         >
@@ -133,14 +134,16 @@ const Form: React.FC<{ api: string }> = ({ api }) => {
                     type="button,submit"
                     title="Send"
                     disabled={transactionState}
-                    iconRight={<IconRight spin={transactionState}/>}
+                    iconRight={<IconRight spin={transactionState} />}
                 />
             </div>
         </form>
     )
 }
 
-const Description: React.FC<{ data: ContactQuery_site_siteMetadata_contact }> = ({ data }) => {
+const Description: React.FC<{
+    data: ContactQuery_site_siteMetadata_contact
+}> = ({ data }) => {
     return (
         <div>
             {data.description && (
@@ -157,7 +160,7 @@ const Description: React.FC<{ data: ContactQuery_site_siteMetadata_contact }> = 
                         </a>
                     </li>
                 )}
-                {data.phone && (
+                {/* {data.phone && (
                     <li className="flex items-center mt-4">
                         <span className="text-secondary icon">
                             <Phone />
@@ -174,7 +177,7 @@ const Description: React.FC<{ data: ContactQuery_site_siteMetadata_contact }> = 
                         </span>
                         <p className="whitespace-pre ml-4">{data.address}</p>
                     </li>
-                )}
+                )} */}
                 <li>
                     <SocialLinks />
                 </li>
@@ -184,13 +187,16 @@ const Description: React.FC<{ data: ContactQuery_site_siteMetadata_contact }> = 
 }
 
 const IconRight = ({ spin = false }) => {
-    if(spin) {
+    if (spin) {
         return (
-            <span className="spin" style={{
-                display: "inline-block",
-                verticalAlign: "middle",
-                animationDuration: "5s"
-            }}>
+            <span
+                className="spin"
+                style={{
+                    display: "inline-block",
+                    verticalAlign: "middle",
+                    animationDuration: "5s",
+                }}
+            >
                 <Loader />
             </span>
         )
@@ -198,7 +204,7 @@ const IconRight = ({ spin = false }) => {
     return <Send />
 }
 
-type FormMessageProps = { show: boolean, type: string, message: string }
+type FormMessageProps = { show: boolean; type: string; message: string }
 const FormMessage: React.FC<FormMessageProps> = ({ show, type, message }) => {
     if (!show) return null
     return <p className={`text-${type} my-2`}>{message}</p>

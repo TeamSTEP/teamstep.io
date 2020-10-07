@@ -25,14 +25,14 @@ export default function portfolioList({
     return (
         <Layout
             seo={{
-                title: "Project",
+                title: "Projects",
             }}
             location={location}
         >
             <div className="py-12 px-4 lg:px-0">
                 <div className="title py-8 text-center">
                     <h2 className="font-black text-5xl text-color-1">
-                        Project
+                        Projects
                     </h2>
                 </div>
                 <div className="flex flex-wrap">{portfolioItems}</div>
