@@ -127,7 +127,7 @@ const Wall = ({ data }) => {
                     <Particles
                         className="h-full w-auto max-w-none lg:h-auto lg:w-full top-0 left-0"
                         id="tsparticles"
-                        options={particleConfigs.polygonMask}
+                        options={particleConfigs.teamStepLogo}
                     />
                 </div>
                 <div className="flex-1 text-center p-3 relative z-10 lg:text-left lg:pl-8 text-white lg:text-color-default">
