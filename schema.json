@@ -13753,26 +13753,6 @@
                 "ofType": null
               },
               "defaultValue": null
-            },
-            {
-              "name": "phone",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "address",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -14421,30 +14401,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "phone",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "address",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -14792,18 +14748,6 @@
             },
             {
               "name": "siteMetadata___contact___mail",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "siteMetadata___contact___phone",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "siteMetadata___contact___address",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null

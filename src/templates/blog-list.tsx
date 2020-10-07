@@ -17,15 +17,13 @@ export default function blogList({
     return (
         <Layout
             seo={{
-                title: "Social Media",
+                title: "Posts",
             }}
             location={location}
         >
             <div className="container mx-auto py-12">
                 <div className="title py-12 text-center">
-                    <h2 className="font-black text-5xl text-color-1">
-                        Social Media
-                    </h2>
+                    <h2 className="font-black text-5xl text-color-1">Posts</h2>
                 </div>
                 <div className="flex flex-wrap">{blogItems}</div>
                 <Pagination pageContext={pageContext} type="blog" />

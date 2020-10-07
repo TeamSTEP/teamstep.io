@@ -86,7 +86,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
         Array.from({ length: numBlogPages }).forEach((_, i) => {
             createPage({
-                path: i === 0 ? `/social-media` : `/social-media/${i + 1}`,
+                path: i === 0 ? `/posts` : `/posts/${i + 1}`,
                 component: path.resolve("./src/templates/blog-list.tsx"),
                 context: {
                     limit: blogPostsPerPage,

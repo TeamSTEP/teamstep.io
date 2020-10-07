@@ -96,7 +96,7 @@ const Wall = ({ data }) => {
             <p className="text-base lg:text-lg mt-4">{data.description}</p>
             <ScrollIntoView selector="#portfolio">
                 <Button
-                    title="SEE WORKS"
+                    title="SEE PROJECTS"
                     type="button"
                     iconRight={<ArrowRight />}
                 />
@@ -158,7 +158,7 @@ const SocialMedia = ({ children }) => {
         <div className="container mx-auto px-0">
             <div className="pt-20 pb-10 text-center lg:pt-40 lg:pb-20">
                 <h2 className="text-color-1 font-black text-5xl lg:text-6xl">
-                    Social Media
+                    Posts
                 </h2>
             </div>
             <div className="flex flex-wrap">{children}</div>
@@ -210,8 +210,6 @@ export const query = graphql`
                     api_url
                     description
                     mail
-                    phone
-                    address
                 }
                 social {
                     name

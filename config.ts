@@ -1,6 +1,6 @@
 const siteMetadata = {
     title: `Team STEP`,
-    siteUrl: `http://localhost`,
+    siteUrl: `https://teamstep.io`,
     capitalizeTitleOnHome: false,
     logo: `/images/logo.png`,
     icon: `/images/icon.png`,
@@ -10,9 +10,12 @@ const siteMetadata = {
     cookiePolicy: true,
     introTag: `Making your day much more enjoyable, one step at a time`,
     description: `Life is getting harder, we all have some issues with us, and as technology advances, we are given more time and opportunity to appreciate how horrible everything was.
-    So why not try to have a little fun? We are a team of aspiring indie game developers, making art out of things that no one would think of and still enjoy while doing so!`,
-    about:
-        "Life is getting harder, we all have some issues with us, and as technology advances, we are given more time and opportunity to appreciate how horrible everything was. So why not try to have a little fun? We are a team of aspiring indie game developers, making art out of things that no one would think of and still enjoy while doing so!",
+    So why not try to have a little fun?`,
+    about: `We are not a funded company yet. Instead, we are a team of aspiring indie game developers.
+        We make projects that combines art, technology, and most importantly, fun.
+        We believe that truly fun games are made by fun people. Our goal is to become a indie studio that can allow people with creative minds to work freely without any financial burden.
+        At the moment, Team STEP only has one on-going project under its belt, Catch.io, and we are still looking for people who would like to join our development team.
+        If you are interested, please contact us!`,
     author: `@hoonsubin`,
     blogItemsPerPage: 10,
     portfolioItemsPerPage: 10,
@@ -28,8 +31,8 @@ const siteMetadata = {
             url: "/about",
         },
         {
-            name: "SOCIAL MEDIA ",
-            url: "/social-media",
+            name: "POSTS",
+            url: "/posts",
         },
         {
             name: "PROJECTS",
@@ -75,10 +78,8 @@ const siteMetadata = {
     contact: {
         // leave empty ('') or false to hide form
         api_url: "https://getform.io/f/f227a36e-096a-4c6a-9963-9f1918a85bb3",
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet accumsan arcu. Proin ac consequat arcu.`,
+        description: `If you are interested about our team or want to help our project grow, please consider contacting us!`,
         mail: "hoonsubin11@gmail.com",
-        phone: "000-000-0000",
-        address: "1234 \nLocation \nLocation",
     },
     disqus: "elemental-netlify-com",
 }
