@@ -1,11 +1,11 @@
-import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import { Logo } from "./utils"
-import Navlinks from "./navigation-list"
+import React from 'react';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import { Logo } from './utils';
+import Navlinks from './navigation-list';
 import {
     FooterLinksQuery,
     FooterLinksQuery_site_siteMetadata_footerLinks,
-} from "./__generated__/FooterLinksQuery"
+} from './__generated__/FooterLinksQuery';
 
 export default function() {
     const query = useStaticQuery<FooterLinksQuery>(graphql`
@@ -20,11 +20,11 @@ export default function() {
                 }
             }
         }
-    `)
+    `);
 
     const footerLinks = query.site.siteMetadata.footerLinks.map((item, _) => (
         <ListItem data={item} key={`footer-n-l-${_}`} />
-    ))
+    ));
 
     return (
         <footer className="footer bg-bgalt py-12">
@@ -44,16 +44,16 @@ export default function() {
                     <ul>{footerLinks}</ul>
                 </div>
                 <p className="text-color-default text-lg">
-                    Copyright &copy; {query.site.siteMetadata.title}{" "}
+                    Copyright &copy; {query.site.siteMetadata.title}{' '}
                     {new Date().getFullYear()}
                 </p>
             </div>
         </footer>
-    )
+    );
 }
 
 const ListItem: React.FC<{
-    data: FooterLinksQuery_site_siteMetadata_footerLinks
+    data: FooterLinksQuery_site_siteMetadata_footerLinks;
 }> = ({ data }) => {
     return (
         <li className="inline-block mx-3 animated-link-parent">
@@ -61,5 +61,5 @@ const ListItem: React.FC<{
                 <span>{data.name}</span>
             </Link>
         </li>
-    )
-}
+    );
+};

@@ -1,75 +1,75 @@
-import React, { useState } from "react"
-import { Send, Mail, Phone, MapPin, Loader } from "react-feather"
+import React, { useState } from 'react';
+import { Send, Mail, Phone, MapPin, Loader } from 'react-feather';
 
-import { TextInput, Button } from "./ui"
+import { TextInput, Button } from './ui';
 
-import { beforeContactFormSubmit, contactFormSubmit } from "../../config"
+import { beforeContactFormSubmit, contactFormSubmit } from '../../config';
 
-import SocialLinks from "../utils/sociallinks"
-import { ContactQuery_site_siteMetadata_contact } from "../pages/__generated__/ContactQuery"
+import SocialLinks from '../utils/sociallinks';
+import { ContactQuery_site_siteMetadata_contact } from '../pages/__generated__/ContactQuery';
 
-type FeedbackState = { [id: number]: { message?: string; type?: string } }
+type FeedbackState = { [id: number]: { message?: string; type?: string } };
 
 const Form: React.FC<{ api: string }> = ({ api }) => {
     const [data, changeData] = useState({
-        name: "",
-        email: "",
-        message: "",
-    })
+        name: '',
+        email: '',
+        message: '',
+    });
 
-    const [feedback, setFeedback] = useState<FeedbackState>({})
+    const [feedback, setFeedback] = useState<FeedbackState>({});
 
-    const [transactionState, setTransactionState] = useState(false)
+    const [transactionState, setTransactionState] = useState(false);
 
-    const updateData = v => changeData({ ...data, ...v })
+    const updateData = v => changeData({ ...data, ...v });
 
     return (
         <form
             onSubmit={event => {
-                event.preventDefault()
-                setTransactionState(true)
+                event.preventDefault();
+                setTransactionState(true);
 
-                const validate = beforeContactFormSubmit(data)
+                const validate = beforeContactFormSubmit(data);
 
                 if (validate.result) {
-                    setFeedback({})
+                    setFeedback({});
                     contactFormSubmit(api, validate.data)
                         .then(res => {
                             if (res.result) {
                                 setFeedback({
                                     4: {
-                                        type: "success",
-                                        message: "Your message has been sent.",
+                                        type: 'success',
+                                        message: 'Your message has been sent.',
                                     },
-                                })
+                                });
                             } else {
                                 setFeedback({
                                     4: {
                                         message:
-                                            "There was an error sending the message. Please try again.",
+                                            'There was an error sending the message. Please try again.',
                                     },
-                                })
+                                });
                             }
-                            setTransactionState(false)
+                            setTransactionState(false);
                         })
                         .catch(err => {
                             setFeedback({
                                 4: {
                                     message:
-                                        "There was an error sending the message. Please try again.",
+                                        'There was an error sending the message. Please try again.',
                                 },
-                            })
-                            setTransactionState(false)
-                        })
+                            });
+                            setTransactionState(false);
+                        });
                 } else {
-                    const errs = {}
+                    const errs = {};
 
                     validate.errors.forEach(err => {
-                        errs[err.code] = { message: err.message }
-                    })
+                        errs[err.code] = { message: err.message };
+                    });
 
-                    setFeedback(errs)
-                    setTransactionState(false)
+                    setFeedback(errs);
+                    setTransactionState(false);
                 }
             }}
         >
@@ -126,7 +126,7 @@ const Form: React.FC<{ api: string }> = ({ api }) => {
             <div className="py-3 lg:p-4">
                 <FormMessage
                     show={feedback[4] !== undefined}
-                    type={feedback[4]?.type || "error"}
+                    type={feedback[4]?.type || 'error'}
                     message={feedback[4]?.message}
                 />
 
@@ -138,11 +138,11 @@ const Form: React.FC<{ api: string }> = ({ api }) => {
                 />
             </div>
         </form>
-    )
-}
+    );
+};
 
 const Description: React.FC<{
-    data: ContactQuery_site_siteMetadata_contact
+    data: ContactQuery_site_siteMetadata_contact;
 }> = ({ data }) => {
     return (
         <div>
@@ -155,7 +155,7 @@ const Description: React.FC<{
                         <span className="text-secondary icon">
                             <Mail />
                         </span>
-                        <a className="ml-4" href={"mailto:" + data.mail}>
+                        <a className="ml-4" href={'mailto:' + data.mail}>
                             {data.mail}
                         </a>
                     </li>
@@ -183,8 +183,8 @@ const Description: React.FC<{
                 </li>
             </ul>
         </div>
-    )
-}
+    );
+};
 
 const IconRight = ({ spin = false }) => {
     if (spin) {
@@ -192,22 +192,22 @@ const IconRight = ({ spin = false }) => {
             <span
                 className="spin"
                 style={{
-                    display: "inline-block",
-                    verticalAlign: "middle",
-                    animationDuration: "5s",
+                    display: 'inline-block',
+                    verticalAlign: 'middle',
+                    animationDuration: '5s',
                 }}
             >
                 <Loader />
             </span>
-        )
+        );
     }
-    return <Send />
-}
+    return <Send />;
+};
 
-type FormMessageProps = { show: boolean; type: string; message: string }
+type FormMessageProps = { show: boolean; type: string; message: string };
 const FormMessage: React.FC<FormMessageProps> = ({ show, type, message }) => {
-    if (!show) return null
-    return <p className={`text-${type} my-2`}>{message}</p>
-}
+    if (!show) return null;
+    return <p className={`text-${type} my-2`}>{message}</p>;
+};
 
-export { Form, Description }
+export { Form, Description };
