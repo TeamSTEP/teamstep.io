@@ -1,9 +1,9 @@
-import React, { useEffect } from "react"
-import { graphql, PageProps } from "gatsby"
-import Layout from "../components/layout"
-import PortfolioItem from "../components/item-portfolio"
-import Pagination from "../components/pagination"
-import { PortfolioListQuery } from "./__generated__/PortfolioListQuery"
+import React, { useEffect } from 'react';
+import { graphql, PageProps } from 'gatsby';
+import Layout from '../components/layout';
+import PortfolioItem from '../components/item-portfolio';
+import Pagination from '../components/pagination';
+import { PortfolioListQuery } from './__generated__/PortfolioListQuery';
 
 export default function portfolioList({
     data,
@@ -11,8 +11,8 @@ export default function portfolioList({
     location,
 }: PageProps<PortfolioListQuery, {}>) {
     useEffect(() => {
-        window.dispatchEvent(new CustomEvent("scroll"))
-    }, [])
+        window.dispatchEvent(new CustomEvent('scroll'));
+    }, []);
 
     const portfolioItems = data.allMdx.edges.map((item, i) => (
         <PortfolioItem
@@ -20,12 +20,12 @@ export default function portfolioList({
             key={item.node.id}
             even={(i + 1) % 2 === 0}
         />
-    ))
+    ));
 
     return (
         <Layout
             seo={{
-                title: "Projects",
+                title: 'Projects',
             }}
             location={location}
         >
@@ -41,7 +41,7 @@ export default function portfolioList({
                 </div>
             </div>
         </Layout>
-    )
+    );
 }
 
 export const query = graphql`
@@ -76,4 +76,4 @@ export const query = graphql`
             }
         }
     }
-`
+`;

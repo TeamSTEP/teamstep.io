@@ -1,13 +1,13 @@
-import React from "react"
-import { MDXProvider } from "@mdx-js/react"
-import { graphql, PageProps } from "gatsby"
-import Layout from "../components/layout"
-import Img from "gatsby-image"
-import { Calendar } from "react-feather"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+import React from 'react';
+import { MDXProvider } from '@mdx-js/react';
+import { graphql, PageProps } from 'gatsby';
+import Layout from '../components/layout';
+import Img from 'gatsby-image';
+import { Calendar } from 'react-feather';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import { Row, Col } from "../components/shortcodes/index"
-import { PortfolioQuery } from "./__generated__/PortfolioQuery"
+import { Row, Col } from '../components/shortcodes/index';
+import { PortfolioQuery } from './__generated__/PortfolioQuery';
 
 export default function portfolio({
     location,
@@ -36,7 +36,7 @@ export default function portfolio({
                                 {data.mdx.frontmatter.title}
                             </h1>
                             <p className="mt-1 flex items-center justify-center">
-                                <Calendar />{" "}
+                                <Calendar />{' '}
                                 <span className="ml-2">
                                     {data.mdx.frontmatter.date}
                                 </span>
@@ -54,7 +54,7 @@ export default function portfolio({
                 </div>
             </div>
         </Layout>
-    )
+    );
 }
 
 export const query = graphql`
@@ -78,4 +78,4 @@ export const query = graphql`
             }
         }
     }
-`
+`;

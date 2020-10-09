@@ -1,23 +1,23 @@
-import React, { useEffect, useRef, useState } from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import { WindowLocation } from "@reach/router"
+import React, { useEffect, useRef, useState } from 'react';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import { WindowLocation } from '@reach/router';
 
-import { Logo } from "./utils"
-import List from "./navigation-list"
-import { Menu } from "react-feather"
-import SideBar from "./sidebar"
-import { NavigationQuery } from "./__generated__/NavigationQuery"
-import { Theme } from "./layout"
+import { Logo } from './utils';
+import List from './navigation-list';
+import { Menu } from 'react-feather';
+import SideBar from './sidebar';
+import { NavigationQuery } from './__generated__/NavigationQuery';
+import { Theme } from './layout';
 
 type NavbarProps = {
-    navPlaceholder: boolean
-    location: WindowLocation
-    currentTheme: number
-    switchTheme: () => void
-    themes: Theme[]
-    allowThemeSwitch: boolean
-    front: boolean
-}
+    navPlaceholder: boolean;
+    location: WindowLocation;
+    currentTheme: number;
+    switchTheme: () => void;
+    themes: Theme[];
+    allowThemeSwitch: boolean;
+    front: boolean;
+};
 const Navbar: React.FC<NavbarProps> = ({
     navPlaceholder,
     location,
@@ -27,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({
     allowThemeSwitch = true,
     front,
 }) => {
-    const currentLocation = location.pathname.split("/")[1]
+    const currentLocation = location.pathname.split('/')[1];
 
     const data = useStaticQuery<NavigationQuery>(graphql`
         query NavigationQuery {
@@ -37,48 +37,48 @@ const Navbar: React.FC<NavbarProps> = ({
                 }
             }
         }
-    `)
+    `);
 
-    const navbar = useRef(null)
+    const navbar = useRef(null);
 
-    const [scrolled, changeState] = useState(false)
-    const [navbarHeight, setNavbarHeight] = useState(0)
-    const [sidebarOpen, setSidebarOpen] = useState(false)
+    const [scrolled, changeState] = useState(false);
+    const [navbarHeight, setNavbarHeight] = useState(0);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     useEffect(() => {
         const onScroll = () => {
             if (document.documentElement.scrollTop > 50 && !scrolled) {
-                changeState(true)
+                changeState(true);
             } else if (document.documentElement.scrollTop <= 50 && scrolled)
-                changeState(false)
-        }
+                changeState(false);
+        };
 
-        window.addEventListener("scroll", onScroll)
+        window.addEventListener('scroll', onScroll);
 
-        setNavbarHeight(navbar.current.getBoundingClientRect().height)
+        setNavbarHeight(navbar.current.getBoundingClientRect().height);
 
         return () => {
-            window.removeEventListener("scroll", onScroll)
-        }
-    }, [scrolled])
+            window.removeEventListener('scroll', onScroll);
+        };
+    }, [scrolled]);
 
     return (
         <>
             <div
                 className={`duration-300 transition-all flex justify-center lg:justify-between items-center z-20 fixed w-full nav ${
-                    scrolled ? "scrolled bg-bg p-4" : "p-5"
+                    scrolled ? 'scrolled bg-bg p-4' : 'p-5'
                 }`}
                 ref={navbar}
             >
                 <button
                     className="absolute text-primary outline-0 lg:hidden"
                     style={{
-                        transform: "translateY(-50%)",
-                        top: "50%",
-                        left: "10px",
+                        transform: 'translateY(-50%)',
+                        top: '50%',
+                        left: '10px',
                     }}
                     onClick={() => {
-                        setSidebarOpen(true)
+                        setSidebarOpen(true);
                     }}
                 >
                     <Menu />
@@ -93,7 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({
                             >
                                 <Logo
                                     className={`duration-300 transition-all ${
-                                        scrolled ? "w-10" : "w-16"
+                                        scrolled ? 'w-10' : 'w-16'
                                     }`}
                                 />
                             </Link>
@@ -114,7 +114,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <Link to="/" title={data.site.siteMetadata.title}>
                     <Logo
                         className={`duration-300 transition-all ${
-                            scrolled ? "w-10" : "w-16"
+                            scrolled ? 'w-10' : 'w-16'
                         }`}
                     />
                 </Link>
@@ -135,7 +135,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <div style={{ height: `${navbarHeight}px` }}></div>
             )}
         </>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

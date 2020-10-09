@@ -1,6 +1,6 @@
-import React from "react"
-import { Link } from "gatsby"
-import { ChevronLeft, ChevronRight } from "react-feather"
+import React from 'react';
+import { Link } from 'gatsby';
+import { ChevronLeft, ChevronRight } from 'react-feather';
 
 export default function({ pageContext, type }) {
     if (pageContext.numPages > 1) {
@@ -13,7 +13,7 @@ export default function({ pageContext, type }) {
                 page={p + 1}
                 key={`p-b-i-${p}`}
             />
-        ))
+        ));
 
         return (
             <div className="pagination mt-8">
@@ -39,19 +39,19 @@ export default function({ pageContext, type }) {
                     )}
                 </ul>
             </div>
-        )
+        );
     } else {
-        return <React.Fragment></React.Fragment>
+        return <React.Fragment></React.Fragment>;
     }
 }
 
 type ItemProps = {
-    type: string
-    currentPage
-    title?: string
-    page: number
-    icon?: JSX.Element
-}
+    type: string;
+    currentPage;
+    title?: string;
+    page: number;
+    icon?: JSX.Element;
+};
 const Item: React.FC<ItemProps> = ({
     type,
     currentPage,
@@ -59,12 +59,12 @@ const Item: React.FC<ItemProps> = ({
     page,
     icon,
 }) => {
-    const to = `/${type}/${page === 1 ? "" : page}`
-    const active = icon ? false : page === currentPage
+    const to = `/${type}/${page === 1 ? '' : page}`;
+    const active = icon ? false : page === currentPage;
 
     const _title =
         title ||
-        `${type.charAt(0).toUpperCase()}${type.slice(1)} - Page ${page}`
+        `${type.charAt(0).toUpperCase()}${type.slice(1)} - Page ${page}`;
 
     return (
         <li className={`inline-block align-middle`}>
@@ -72,11 +72,11 @@ const Item: React.FC<ItemProps> = ({
                 to={to}
                 title={_title}
                 className={`rounded-full bg-bgalt flex items-center justify-center w-12 text-center h-12 m-3 transition-all duration-300 hover:shadow-2xl focus:shadow-2xl ${
-                    active ? "bg-gradient-primary text-white shadow-2xl" : ""
+                    active ? 'bg-gradient-primary text-white shadow-2xl' : ''
                 }`}
             >
                 <span>{icon || page}</span>
             </Link>
         </li>
-    )
-}
+    );
+};

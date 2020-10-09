@@ -1,15 +1,15 @@
-import React from "react"
-import { MDXProvider } from "@mdx-js/react"
-import { graphql, PageProps } from "gatsby"
-import Layout from "../components/layout"
-import Img from "gatsby-image"
-import { Calendar } from "react-feather"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+import React from 'react';
+import { MDXProvider } from '@mdx-js/react';
+import { graphql, PageProps } from 'gatsby';
+import Layout from '../components/layout';
+import Img from 'gatsby-image';
+import { Calendar } from 'react-feather';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import { Row, Col } from "../components/shortcodes/index"
+import { Row, Col } from '../components/shortcodes/index';
 
-import Comments from "../components/comments"
-import { BlogQuery } from "./__generated__/BlogQuery"
+import Comments from '../components/comments';
+import { BlogQuery } from './__generated__/BlogQuery';
 
 export default function blog({ location, data }: PageProps<BlogQuery, {}>) {
     return (
@@ -17,7 +17,7 @@ export default function blog({ location, data }: PageProps<BlogQuery, {}>) {
             seo={{
                 title: data.mdx.frontmatter.title,
                 description: data.mdx.frontmatter.description,
-                image: data.mdx.frontmatter.banner.publicURL
+                image: data.mdx.frontmatter.banner.publicURL,
             }}
             location={location}
         >
@@ -34,7 +34,7 @@ export default function blog({ location, data }: PageProps<BlogQuery, {}>) {
                                 {data.mdx.frontmatter.title}
                             </h1>
                             <p className="mt-1 flex">
-                                <Calendar />{" "}
+                                <Calendar />{' '}
                                 <span className="ml-2">
                                     {data.mdx.frontmatter.date}
                                 </span>
@@ -45,17 +45,20 @@ export default function blog({ location, data }: PageProps<BlogQuery, {}>) {
                         </div>
                     </div>
                 </div>
-                <div className="lg:w-3/4 md:w-11/12 sm:w-full p-3 mx-auto mt-12 post-content">
+                <div className="lg:w-3/4 md:w-11/12 sm:w-full p-3 mx-auto mt-12 post-content break-words">
                     <MDXProvider components={{ Row, Col }}>
                         <MDXRenderer>{data.mdx.body}</MDXRenderer>
                     </MDXProvider>
                 </div>
                 <div className="comments mt-8">
-                    <Comments title={data.mdx.frontmatter.title} location={location} />
+                    <Comments
+                        title={data.mdx.frontmatter.title}
+                        location={location}
+                    />
                 </div>
             </div>
         </Layout>
-    )
+    );
 }
 
 export const query = graphql`
@@ -79,4 +82,4 @@ export const query = graphql`
             }
         }
     }
-`
+`;

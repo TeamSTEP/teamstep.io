@@ -1,12 +1,12 @@
-import React from "react"
-import Layout from "../components/layout"
-import { PageProps } from "gatsby";
+import React from 'react';
+import Layout from '../components/layout';
+import { PageProps } from 'gatsby';
 
 export default ({ location }: PageProps<{}, {}>) => {
     return (
         <Layout
             seo={{
-                title: "404",
+                title: '404',
             }}
             location={location}
         >
@@ -17,14 +17,24 @@ export default ({ location }: PageProps<{}, {}>) => {
                     </h2>
                 </div>
                 <div className="pb-20 text-center">
-                    <p>Oops! That page does not exist. <span role="img" aria-label="Sad face">😞</span></p>
                     <p>
-                        <button onClick={() => {
-                            if(window.history) window.history.back();
-                        }} className="text-link">Go Back?</button>
+                        Oops! That page does not exist.{' '}
+                        <span role="img" aria-label="Sad face">
+                            😞
+                        </span>
+                    </p>
+                    <p>
+                        <button
+                            onClick={() => {
+                                if (window.history) window.history.back();
+                            }}
+                            className="text-link"
+                        >
+                            Go Back?
+                        </button>
                     </p>
                 </div>
             </div>
         </Layout>
-    )
-}
+    );
+};
