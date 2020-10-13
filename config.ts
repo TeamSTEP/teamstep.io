@@ -8,14 +8,10 @@ const siteMetadata = {
     ogImage: `/images/wall.png`,
     twoColumnWall: true,
     cookiePolicy: true,
-    introTag: `Making your day much more enjoyable, one step at a time`,
+    introTag: `Making your day much more enjoyable, one step at a time.`,
     description: `Life is getting harder, we all have some issues with us, and as technology advances, we are given more time and opportunity to appreciate how horrible everything was.
     So why not try to have a little fun?`,
-    about: `We are not a funded company yet. Instead, we are a team of aspiring indie game developers.
-        We make projects that combines art, technology, and most importantly, fun.
-        We believe that truly fun games are made by fun people. Our goal is to become a indie studio that can allow people with creative minds to work freely without any financial burden.
-        At the moment, Team STEP only has one on-going project under its belt, Catch.io, and we are still looking for people who would like to join our development team.
-        If you are interested, please contact us!`,
+    about: `We are a team of aspiring indie game developers. We love to create games that combine art and technology. We believe that fun people make enjoyable games. Our goal is to become an indie studio that can allow people with creative minds to work freely without any financial burden. At the moment, Team STEP only has one on-going project under its belt, Catch.io, and we are still looking for people who would like to join our development team. If you are interested, please contact us!`,
     author: `@hoonsubin`,
     blogItemsPerPage: 10,
     portfolioItemsPerPage: 10,
