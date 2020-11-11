@@ -1,0 +1,40 @@
+---
+title: Slack In Your Time
+description: Slack In Your Time is a Slack Application that automatically detects messages that references time and converts them to the full date of all the channel member's timezone.
+date: 2020-11-11
+image: ./image.jpg
+banner: ./image.jpg
+---
+
+## About the Project
+
+Are you part of a multi-national team who only works across the internet?
+Or are you the British Empire and your sun is never setting?
+
+Either way, if you have worked in a team with more than two timezones, you've definitely had a situation where someone wanted to have a meeting with you at 5, but you misunderstood when 5 actually was on your area!
+As more and more people work through the internet with strangers from across the globe, this will be a common issue. Until everyone is used to using Unix epoch time, we'll have to do something about it.
+
+This application is powered by the wonderful library for NLP date parsing that is [chrono](https://github.com/wanasit/chrono) and [bolt-js](https://github.com/SlackAPI/bolt-js).
+
+![image](./sample.jpg)
+
+Once you install this app to your Slack channel, it will listen to all text messages that references time.
+If your channel member has more than one timezones, this app will ask you if you would like to convert the time from your local timezone to all the member's timezone.
+
+Right now the conversion is done automatically for all messages in the channel that the app was added to, but we are planning on adding configurable behaviors like the ability to choose between public messages or messages only visible to the respective members.
+
+You can learn more about this project from our [repository](https://github.com/TeamSTEP/slack-in-your-time).
+
+## Development
+
+While working on project [Witch One](https://github.com/TeamSTEP/project-witch-one), we noticed a lot of miscommunication within the team regarding time.
+Because our team members are not limited to a particular country, it was clear that this is something that we will see a lot in the future. Unfortunately, there were not a lot of existing solutions to this problem.
+The apps on the Slack app directory either had too many features that we were not going to use or required active calls from the user.
+Our team wanted something that can be called in the background.
+Looking into Github, there were a couple of Slack bots that did exactly what we wanted. However, all of them used outdated Slack API, so upgrading them would take too long.
+Plus, their natural language processing capabilities were too unreliable.
+That is when we came up with the conclusion of creating the app in-house.
+
+The mention of developing such an app was floating around the team for a few months, but real development started in late October.
+Most of the work involved setting up the Bolt library provided by Slack and hooking up Chrono, a state-of-the-art NLP library for parsing date.
+The project requires OAuth setup if we want to distribute it officially (plus unit tests), but it took less than two weeks to finish for an internal bot at a functional level.
