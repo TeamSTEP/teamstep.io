@@ -62,10 +62,8 @@ module.exports = {
                 '1px': '1px',
                 '2px': '2px',
             },
+            fontWeight: ['hover', 'focus'],
         },
-    },
-    future: {
-        removeDeprecatedGapUtilities: true,
     },
     variants: {},
     plugins: [require(`tailwind-theme-switcher`), gradient],
