@@ -51,36 +51,31 @@ const siteMetadata = {
     ],
     social: [
         {
-            name: 'Facebook',
-            icon: '/images/Facebook.svg',
-            url: '#',
-        },
-        {
             name: 'Twitter',
             icon: '/images/Twitter.svg',
-            url: 'https://twitter.com/hoonsubin',
+            url: 'https://twitter.com/teamstepgames',
         },
         {
-            name: 'Instagram',
-            icon: '/images/Instagram.svg',
-            url: '#',
+            name: 'Patreon',
+            icon: '/images/Patreon.svg',
+            url: 'https://www.patreon.com/teamstep',
         },
         {
             name: 'Youtube',
             icon: '/images/Youtube.svg',
-            url: '#',
+            url: 'https://www.youtube.com/channel/UC8NXPq0Zd2ueAJ6r6vhhXfw',
         },
     ],
     contact: {
         // leave empty ('') or false to hide form
         api_url: 'https://getform.io/f/f227a36e-096a-4c6a-9963-9f1918a85bb3',
         description: `If you are interested about our team or want to help our project grow, please consider contacting us!`,
-        mail: 'hoonkim@teamstep.io',
+        mail: 'info@teamstep.io',
     },
     disqus: 'team-step.disqus.com',
 };
 
-const beforeContactFormSubmit = data => {
+const beforeContactFormSubmit = (data) => {
     // Code 0 - success
     // Code 1 - Name
     // Code 2 - Email
@@ -158,7 +153,7 @@ const defaults = {
 };
 
 // replaces empty metadata with the default value
-Object.keys(defaults).forEach(item => {
+Object.keys(defaults).forEach((item) => {
     if (siteMetadata[item] === undefined) {
         siteMetadata[item] = defaults[item];
     }
