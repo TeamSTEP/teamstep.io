@@ -29,7 +29,7 @@
     "gatsby-remark-images": "^3.8.0",
     "gatsby-source-filesystem": "^2.8.0",
     "gatsby-transformer-sharp": "^2.9.0",
-    "postcss": "^8.2.1",
+    "postcss": "^8.2.10",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-feather": "^2.0.9",
