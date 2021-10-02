@@ -27,6 +27,10 @@ const siteMetadata = {
             url: '/about',
         },
         {
+            name: 'MEMBERS',
+            url: '/members',
+        },
+        {
             name: 'POSTS',
             url: '/posts',
         },

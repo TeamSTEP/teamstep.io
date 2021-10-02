@@ -1,4 +1,4 @@
-const teamStepLogo = {
+export const teamStepLogo = {
     detectRetina: false,
     interactivity: {
         detectsOn: 'canvas',
@@ -159,5 +159,3 @@ const teamStepLogo = {
             'https://raw.githubusercontent.com/TeamSTEP/teamstep.io/f989d118bbeb5bd65ff19a62c54f3979a3077a0d/static/images/logo.svg',
     },
 };
-
-export { teamStepLogo };

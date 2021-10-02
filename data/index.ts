@@ -1,1 +1,1 @@
-export * as particleConfigs from './particle-config';
+export * from './particle-config';

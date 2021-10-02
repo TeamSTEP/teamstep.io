@@ -44,6 +44,15 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     }
                 }
             }
+            member: allMdx(
+                filter: { fields: { sourceName: { eq: "member" } } }
+            ) {
+                edges {
+                    node {
+                        id
+                    }
+                }
+            }
             blog: allMdx(filter: { fields: { sourceName: { eq: "blog" } } }) {
                 edges {
                     node {
@@ -67,7 +76,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
                 }
             }
         }
-    `).then(result => {
+    `).then((result) => {
         result.data.all.edges.forEach(({ node }) => {
             let template = node.fields.sourceName;
             createPage({
@@ -92,6 +101,26 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     limit: blogPostsPerPage,
                     skip: i * blogPostsPerPage,
                     numPages: numBlogPages,
+                    currentPage: i + 1,
+                },
+            });
+        });
+
+        const memberInfo = result.data.member.edges;
+        const memberInfoPerPage =
+            result.data.limitPost.siteMetadata.blogItemsPerPage;
+        const numMemberInfoPages = Math.ceil(
+            memberInfo.length / memberInfoPerPage
+        );
+
+        Array.from({ length: numMemberInfoPages }).forEach((_, i) => {
+            createPage({
+                path: i === 0 ? `/members` : `/members/${i + 1}`,
+                component: path.resolve('./src/templates/members-list.tsx'),
+                context: {
+                    limit: memberInfoPerPage,
+                    skip: i * memberInfoPerPage,
+                    numPages: numMemberInfoPages,
                     currentPage: i + 1,
                 },
             });
