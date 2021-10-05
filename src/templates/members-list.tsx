@@ -17,14 +17,14 @@ export default function membersList({
     return (
         <Layout
             seo={{
-                title: 'Members',
+                title: 'Team Members',
             }}
             location={location}
         >
             <div className="container mx-auto py-12">
                 <div className="title py-12 text-center">
                     <h2 className="font-black text-5xl text-color-1">
-                        Members
+                        Team Members
                     </h2>
                 </div>
                 <div className="flex flex-wrap">{membersItems}</div>
@@ -49,7 +49,6 @@ export const query = graphql`
                         name
                         title
                         description
-                        date(formatString: "DD MMMM YYYY")
                         image {
                             publicURL
                             childImageSharp {

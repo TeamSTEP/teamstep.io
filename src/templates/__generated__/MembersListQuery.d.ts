@@ -32,7 +32,6 @@ export interface MembersListQuery_allMdx_edges_node_frontmatter {
   name: string | null;
   title: string;
   description: string | null;
-  date: any | null;
   image: MembersListQuery_allMdx_edges_node_frontmatter_image | null;
 }
 

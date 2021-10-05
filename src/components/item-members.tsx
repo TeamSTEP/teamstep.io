@@ -4,11 +4,11 @@ import Img from 'gatsby-image';
 
 import { Calendar } from 'react-feather';
 import { MembersListQuery_allMdx_edges_node } from '../templates/__generated__/MembersListQuery';
-import { IndexPageQuery_blog_edges_node } from '../pages/__generated__/IndexPageQuery';
+import { IndexPageQuery_members_edges_node } from '../pages/__generated__/IndexPageQuery';
 
 type ItemMembersProps =
     | MembersListQuery_allMdx_edges_node
-    | IndexPageQuery_blog_edges_node;
+    | IndexPageQuery_members_edges_node;
 export const ItemMembers: React.FC<{ data: ItemMembersProps }> = ({ data }) => {
     const [focused, changeFocused] = useState(false);
 
@@ -34,8 +34,11 @@ export const ItemMembers: React.FC<{ data: ItemMembersProps }> = ({ data }) => {
                     </div>
                     <div className="p-4 py-3">
                         <h4 className="text-color-2 font-black text-3xl pt-1">
-                            {data.frontmatter.title}
+                            {data.frontmatter.name}
                         </h4>
+                        <p className="pb-1 text-secondary">
+                            {data.frontmatter.title}
+                        </p>
                         <div className="flex items-center text-secondary">
                             <Calendar className="stroke-current" />
                             <p className="pl-2 text-color-default font-sans">

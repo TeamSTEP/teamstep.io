@@ -44,8 +44,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
                     }
                 }
             }
-            member: allMdx(
-                filter: { fields: { sourceName: { eq: "member" } } }
+            members: allMdx(
+                filter: { fields: { sourceName: { eq: "members" } } }
             ) {
                 edges {
                     node {
@@ -71,6 +71,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             }
             limitPost: site {
                 siteMetadata {
+                    memberItemsPerPage
                     blogItemsPerPage
                     portfolioItemsPerPage
                 }
@@ -106,9 +107,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
             });
         });
 
-        const memberInfo = result.data.member.edges;
+        const memberInfo = result.data.members.edges;
         const memberInfoPerPage =
-            result.data.limitPost.siteMetadata.blogItemsPerPage;
+            result.data.limitPost.siteMetadata.memberItemsPerPage;
         const numMemberInfoPages = Math.ceil(
             memberInfo.length / memberInfoPerPage
         );
