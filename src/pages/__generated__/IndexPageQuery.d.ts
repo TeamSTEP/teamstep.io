@@ -76,6 +76,48 @@ export interface IndexPageQuery_portfolio {
   edges: IndexPageQuery_portfolio_edges[];
 }
 
+export interface IndexPageQuery_members_edges_node_frontmatter_image_childImageSharp_fluid {
+  base64: string | null;
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  sizes: string;
+}
+
+export interface IndexPageQuery_members_edges_node_frontmatter_image_childImageSharp {
+  fluid: IndexPageQuery_members_edges_node_frontmatter_image_childImageSharp_fluid | null;
+}
+
+export interface IndexPageQuery_members_edges_node_frontmatter_image {
+  childImageSharp: IndexPageQuery_members_edges_node_frontmatter_image_childImageSharp | null;
+}
+
+export interface IndexPageQuery_members_edges_node_frontmatter {
+  name: string | null;
+  title: string;
+  description: string | null;
+  date: any | null;
+  image: IndexPageQuery_members_edges_node_frontmatter_image | null;
+}
+
+export interface IndexPageQuery_members_edges_node_fields {
+  slug: string | null;
+}
+
+export interface IndexPageQuery_members_edges_node {
+  id: string;
+  frontmatter: IndexPageQuery_members_edges_node_frontmatter | null;
+  fields: IndexPageQuery_members_edges_node_fields | null;
+}
+
+export interface IndexPageQuery_members_edges {
+  node: IndexPageQuery_members_edges_node;
+}
+
+export interface IndexPageQuery_members {
+  edges: IndexPageQuery_members_edges[];
+}
+
 export interface IndexPageQuery_blog_edges_node_frontmatter_image_childImageSharp_fluid {
   base64: string | null;
   aspectRatio: number;
@@ -120,5 +162,6 @@ export interface IndexPageQuery_blog {
 export interface IndexPageQuery {
   site: IndexPageQuery_site | null;
   portfolio: IndexPageQuery_portfolio;
+  members: IndexPageQuery_members;
   blog: IndexPageQuery_blog;
 }

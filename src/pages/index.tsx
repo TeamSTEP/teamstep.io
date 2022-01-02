@@ -9,10 +9,11 @@ import { Button } from '../components/ui';
 
 import ItemPortfolio from '../components/item-portfolio';
 import ItemBlog from '../components/item-blog';
+import ItemMembers from '../components/item-members';
 import { Form, Description as ContactDescription } from '../components/contact';
 import { IndexPageQuery } from './__generated__/IndexPageQuery';
 import Particles from 'react-tsparticles';
-import { particleConfigs } from '../../data';
+import { teamStepLogo } from '../../data';
 
 export default ({ data, location }: PageProps<IndexPageQuery>) => {
     const siteData = data.site.siteMetadata;
@@ -27,6 +28,11 @@ export default ({ data, location }: PageProps<IndexPageQuery>) => {
 
     const blogList = data.blog.edges.map((item) => (
         <ItemBlog data={item.node} key={`b-item-index-${item.node.id}`} />
+    ));
+
+    const membersList = data.members.edges.map((item) => (
+        // todo: sort by name
+        <ItemMembers data={item.node} key={`b-item-index-${item.node.id}`} />
     ));
 
     return (
@@ -44,6 +50,7 @@ export default ({ data, location }: PageProps<IndexPageQuery>) => {
             <div className="px-4 lg:px-0" id="portfolio">
                 {portfolioList}
             </div>
+            <Team>{membersList}</Team>
             <SocialMedia>{blogList}</SocialMedia>
             <Contact data={siteData.contact} />
         </Layout>
@@ -127,7 +134,7 @@ const Wall = ({ data }) => {
                     <Particles
                         className="h-full w-auto max-w-none lg:h-auto lg:w-full top-0 left-0"
                         id="tsparticles"
-                        options={particleConfigs.teamStepLogo}
+                        options={teamStepLogo}
                     />
                 </div>
                 <div className="flex-1 text-center p-3 relative z-10 lg:text-left lg:pl-8 text-white lg:text-color-default">
@@ -166,6 +173,19 @@ const SocialMedia = ({ children }) => {
             <div className="pt-20 pb-10 text-center lg:pt-40 lg:pb-20">
                 <h2 className="text-color-1 font-black text-5xl lg:text-6xl">
                     Posts
+                </h2>
+            </div>
+            <div className="flex flex-wrap">{children}</div>
+        </div>
+    );
+};
+
+const Team = ({ children }) => {
+    return (
+        <div className="container mx-auto px-0">
+            <div className="pt-20 pb-10 text-center lg:pt-40 lg:pb-20">
+                <h2 className="text-color-1 font-black text-5xl lg:text-6xl">
+                    Team Members
                 </h2>
             </div>
             <div className="flex flex-wrap">{children}</div>
@@ -235,6 +255,32 @@ export const query = graphql`
                     frontmatter {
                         title
                         description
+                        image {
+                            childImageSharp {
+                                fluid(maxWidth: 1000) {
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
+                        }
+                    }
+                    fields {
+                        slug
+                    }
+                }
+            }
+        }
+        members: allMdx(
+            filter: { fields: { sourceName: { eq: "members" } } }
+            limit: 6
+        ) {
+            edges {
+                node {
+                    id
+                    frontmatter {
+                        name
+                        title
+                        description
+                        date(formatString: "DD MMMM YYYY")
                         image {
                             childImageSharp {
                                 fluid(maxWidth: 1000) {

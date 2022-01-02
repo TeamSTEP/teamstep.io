@@ -13,6 +13,7 @@ const siteMetadata = {
     So why not try to have a little fun?`,
     about: `We are a team of aspiring indie game developers. We love to create games that combine art and technology. We believe that fun people make enjoyable games. Our goal is to become an indie studio that can allow people with creative minds to work freely without any financial burden. At the moment, Team STEP only has one on-going project under its belt, Witch One, and we are still looking for people who would like to join our development team. If you are interested, please contact us!`,
     author: `@hoonsubin`,
+    memberItemsPerPage: 10,
     blogItemsPerPage: 10,
     portfolioItemsPerPage: 10,
     darkmode: true,
@@ -27,12 +28,16 @@ const siteMetadata = {
             url: '/about',
         },
         {
-            name: 'POSTS',
-            url: '/posts',
-        },
-        {
             name: 'PROJECTS',
             url: '/portfolio',
+        },
+        {
+            name: 'MEMBERS',
+            url: '/members',
+        },
+        {
+            name: 'POSTS',
+            url: '/posts',
         },
         {
             name: 'CONTACT',
