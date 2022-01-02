@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
-import { Calendar } from 'react-feather';
 import { MembersListQuery_allMdx_edges_node } from '../templates/__generated__/MembersListQuery';
 import { IndexPageQuery_members_edges_node } from '../pages/__generated__/IndexPageQuery';
 
@@ -29,7 +28,7 @@ export const ItemMembers: React.FC<{ data: ItemMembersProps }> = ({ data }) => {
                         <Img
                             fluid={data.frontmatter.image.childImageSharp.fluid}
                             alt={data.frontmatter.title}
-                            className="w-full"
+                            className="w-full rounded-lg"
                         />
                     </div>
                     <div className="p-4 py-3">
@@ -39,12 +38,6 @@ export const ItemMembers: React.FC<{ data: ItemMembersProps }> = ({ data }) => {
                         <p className="pb-1 text-secondary">
                             {data.frontmatter.title}
                         </p>
-                        <div className="flex items-center text-secondary">
-                            <Calendar className="stroke-current" />
-                            <p className="pl-2 text-color-default font-sans">
-                                {data.frontmatter.date}
-                            </p>
-                        </div>
                         <p className="pt-3 text-color-default">
                             {data.frontmatter.description}
                         </p>

@@ -28,16 +28,16 @@ const siteMetadata = {
             url: '/about',
         },
         {
+            name: 'PROJECTS',
+            url: '/portfolio',
+        },
+        {
             name: 'MEMBERS',
             url: '/members',
         },
         {
             name: 'POSTS',
             url: '/posts',
-        },
-        {
-            name: 'PROJECTS',
-            url: '/portfolio',
         },
         {
             name: 'CONTACT',

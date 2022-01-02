@@ -31,6 +31,7 @@ export default ({ data, location }: PageProps<IndexPageQuery>) => {
     ));
 
     const membersList = data.members.edges.map((item) => (
+        // todo: sort by name
         <ItemMembers data={item.node} key={`b-item-index-${item.node.id}`} />
     ));
 
