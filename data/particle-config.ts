@@ -156,6 +156,6 @@ export const teamStepLogo = {
         scale: 1.5,
         type: 'inline',
         url:
-            'https://raw.githubusercontent.com/TeamSTEP/teamstep.io/f989d118bbeb5bd65ff19a62c54f3979a3077a0d/static/images/logo.svg',
+            'https://raw.githubusercontent.com/hoonsubin/hoonsubin/main/teamstep-logo.svg',
     },
 };
