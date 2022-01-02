@@ -31,7 +31,6 @@ export interface MembersQuery_mdx_frontmatter_banner {
 export interface MembersQuery_mdx_frontmatter {
   name: string | null;
   title: string;
-  date: any | null;
   description: string | null;
   banner: MembersQuery_mdx_frontmatter_banner | null;
 }
