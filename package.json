@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn run develop",
+    "dev": "yarn run develop",
     "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0 -p 8000",
     "format": "prettier --write \"**/*.{js,jsx,json,md,ts,tsx}\"",
