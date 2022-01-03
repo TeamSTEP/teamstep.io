@@ -3740,7 +3740,7 @@
               "defaultValue": null
             },
             {
-              "name": "template",
+              "name": "name",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -3750,7 +3750,7 @@
               "defaultValue": null
             },
             {
-              "name": "name",
+              "name": "template",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -8629,7 +8629,7 @@
               "deprecationReason": null
             },
             {
-              "name": "template",
+              "name": "name",
               "description": null,
               "args": [],
               "type": {
@@ -8641,7 +8641,7 @@
               "deprecationReason": null
             },
             {
-              "name": "name",
+              "name": "template",
               "description": null,
               "args": [],
               "type": {
@@ -10604,13 +10604,13 @@
               "deprecationReason": null
             },
             {
-              "name": "childMdx___frontmatter___template",
+              "name": "childMdx___frontmatter___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "childMdx___frontmatter___name",
+              "name": "childMdx___frontmatter___template",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -21735,13 +21735,13 @@
               "deprecationReason": null
             },
             {
-              "name": "frontmatter___template",
+              "name": "frontmatter___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "frontmatter___name",
+              "name": "frontmatter___template",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
