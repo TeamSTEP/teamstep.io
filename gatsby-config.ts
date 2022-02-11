@@ -68,6 +68,30 @@ const plugins = [
             src: 'https://cdn.jsdelivr.net/npm/pathseg@1.2.0/pathseg.min.js', // Change to the script filename
         },
     },
+    {
+        resolve: "gatsby-plugin-firebase",
+        options: {
+             features: {
+              auth: false,
+              database: false,
+              firestore: false,
+              storage: false,
+              messaging: false,
+              functions: false,
+              performance: false,
+              analytics:true,
+             },
+             credentials: {
+               apiKey: "AIzaSyCs9s7DRzRUb1PeLQ0vT4CtSLCSXq5br6w",
+               authDomain: "team-step.firebaseapp.com",
+               projectId: "team-step",
+               storageBucket: "team-step.appspot.com",
+               messagingSenderId: "255665197009",
+               appId: "1:255665197009:web:a609ed85c4eeb8d4d01af0",
+               measurementId: "G-RFT6XHCSH1"
+            },
+        },
+    },
 ];
 
 if (siteMetadata.disqus) {
