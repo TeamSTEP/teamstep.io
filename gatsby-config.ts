@@ -82,13 +82,13 @@ const plugins = [
               analytics:true,
              },
              credentials: {
-               apiKey: "AIzaSyCs9s7DRzRUb1PeLQ0vT4CtSLCSXq5br6w",
-               authDomain: "team-step.firebaseapp.com",
-               projectId: "team-step",
-               storageBucket: "team-step.appspot.com",
-               messagingSenderId: "255665197009",
-               appId: "1:255665197009:web:a609ed85c4eeb8d4d01af0",
-               measurementId: "G-RFT6XHCSH1"
+               apiKey: process.env.APIKEY,
+               authDomain: process.env.AUTH_DOMAIN,
+               projectId: process.env.PROJECT_ID,
+               storageBucket: process.env.STORAGE_BUCKET,
+               messagingSenderId: process.env.MESSAGING_SENDER_ID,
+               appId: process.env.APP_ID,
+               measurementId: process.env.MEASUREMENT_ID
             },
         },
     },
