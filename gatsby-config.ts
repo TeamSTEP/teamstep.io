@@ -4,6 +4,28 @@ import autoprefixer from 'autoprefixer';
 import tailwindcss from 'tailwindcss';
 
 const plugins = [
+    //Have to be placed before running other plugins
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        //idk why, if i use process.env.MEASUREMENT_ID it doesnt worked
+        //anyway, tracking ID in GA 3 is measurement ID in GA 4 (our current setting)
+        trackingId: "G-RFT6XHCSH1",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Delays sending pageview hits on route update (in milliseconds)
+        pageTransitionDelay: 0,
+        // Defers execution of google analytics script after page load
+        defer: false,
+        // defaults to false
+        enableWebVitalsTracking: true,
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
@@ -66,30 +88,6 @@ const plugins = [
         resolve: 'gatsby-plugin-load-script',
         options: {
             src: 'https://cdn.jsdelivr.net/npm/pathseg@1.2.0/pathseg.min.js', // Change to the script filename
-        },
-    },
-    {
-        resolve: "gatsby-plugin-firebase",
-        options: {
-             features: {
-              auth: false,
-              database: false,
-              firestore: false,
-              storage: false,
-              messaging: false,
-              functions: false,
-              performance: false,
-              analytics:true,
-             },
-             credentials: {
-               apiKey: process.env.APIKEY,
-               authDomain: process.env.AUTH_DOMAIN,
-               projectId: process.env.PROJECT_ID,
-               storageBucket: process.env.STORAGE_BUCKET,
-               messagingSenderId: process.env.MESSAGING_SENDER_ID,
-               appId: process.env.APP_ID,
-               measurementId: process.env.MEASUREMENT_ID
-            },
         },
     },
 ];
