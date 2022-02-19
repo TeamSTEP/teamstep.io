@@ -11,7 +11,7 @@ const plugins = [
         // The property ID; the tracking code won't be generated without it
         //idk why, if i use process.env.MEASUREMENT_ID it doesnt worked
         //anyway, tracking ID in GA 3 is measurement ID in GA 4 (our current setting)
-        trackingId: "G-RFT6XHCSH1",
+        trackingId: `.env.${process.env.MEASUREMENT_ID}`,
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
         // Setting this parameter is optional
