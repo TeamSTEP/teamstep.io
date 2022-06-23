@@ -16531,6 +16531,26 @@
               "defaultValue": null
             },
             {
+              "name": "root",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "JSFrontmatterEngine",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "BooleanQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "postCssPlugins",
               "description": "",
               "type": {
@@ -17623,6 +17643,30 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "root",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "JSFrontmatterEngine",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -19124,6 +19168,18 @@
             },
             {
               "name": "pluginCreator___pluginOptions___mediaTypes",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pluginCreator___pluginOptions___root",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pluginCreator___pluginOptions___JSFrontmatterEngine",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -24511,6 +24567,18 @@
             },
             {
               "name": "pluginOptions___mediaTypes",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pluginOptions___root",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pluginOptions___JSFrontmatterEngine",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
