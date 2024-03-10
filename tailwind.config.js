@@ -1,70 +1,77 @@
-const plugin = require('tailwindcss/plugin');
-const _ = require('lodash');
-
-const gradient = plugin(function({ addUtilities, e, theme, variants }) {
-    const gradients = theme('gradients', {});
-    const gradientVariants = variants('gradients', []);
-
-    const utilities = _.map(gradients, ([start, end], name) => ({
-        [`.bg-gradient-${e(name)}`]: {
-            backgroundImage: `linear-gradient(to right, ${start}, ${end})`,
-        },
-    }));
-
-    addUtilities(utilities, gradientVariants);
-});
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-    purge: [
-        './src/**/*.js',
-        './src/**/*.jsx',
-        './src/**/*.ts',
-        './src/**/*.tsx',
-    ],
-    theme: {
-        gradients: theme => ({
-            primary: [theme('colors.primary'), theme('colors.secondary')],
-        }),
-        themes: {
-            dark: {
-                bg: '#111',
-                bgalt: '#000',
-                'color-default': '#eee',
-                'color-1': '#DB2440',
-                'color-2': '#E25066',
-                border: '#718096',
-                primary: '#C3073F',
-                medium: '#222',
-            },
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        gray: {
+          100: '#EBF1F5',
+          200: '#D9E3EA',
+          300: '#C5D2DC',
+          400: '#9BA9B4',
+          500: '#707D86',
+          600: '#55595F',
+          700: '#33363A',
+          800: '#25282C',
+          900: '#151719',
         },
-        colors: {
-            bg: '#fff',
-            bgalt: '#f5f5f5',
-            'color-default': '#333',
-            'color-1': '#1469EB',
-            'color-2': '#4387EF',
-            'color-3': '#aeb4c5',
-            primary: '#6888df',
-            secondary: '#F4094F',
-            link: '#0a71c5',
-            medium: '#cfd8dc',
-            white: '#fff',
-            black: '#000',
-            transparent: 'rgba(0,0,0,0)',
-            error: '#ef5350',
-            success: '#8bc34a',
+        purple: {
+          100: '#F4F4FF',
+          200: '#E2E1FF',
+          300: '#CBCCFF',
+          400: '#ABABFF',
+          500: '#8D8DFF',
+          600: '#5D5DFF',
+          700: '#4B4ACF',
+          800: '#38379C',
+          900: '#262668',
         },
-        extend: {
-            fontSize: {
-                '7xl': '5rem',
-            },
-            spacing: {
-                '1px': '1px',
-                '2px': '2px',
-            },
-            fontWeight: ['hover', 'focus'],
-        },
+      },
+      spacing: {
+        '9/16': '56.25%',
+        '3/4': '75%',
+        '1/1': '100%',
+      },
+      fontFamily: {
+        inter: ['var(--font-inter)', 'sans-serif'],
+        'architects-daughter': ['var(--font-architects-daughter)', 'sans-serif']
+      },
+      fontSize: {
+        xs: '0.75rem',
+        sm: '0.875rem',
+        base: '1rem',
+        lg: '1.125rem',
+        xl: '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '2rem',
+        '4xl': '2.5rem',
+        '5xl': '3.25rem',
+        '6xl': '4rem',
+      },
+      inset: {
+        'full': '100%',
+      },
+      letterSpacing: {
+        tighter: '-0.02em',
+        tight: '-0.01em',
+        normal: '0',
+        wide: '0.01em',
+        wider: '0.02em',
+        widest: '0.4em',
+      },
+      minWidth: {
+        '10': '2.5rem',
+      },
+      scale: {
+        '98': '.98'
+      },
     },
-    variants: {},
-    plugins: [require(`tailwind-theme-switcher`), gradient],
-};
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
+}
