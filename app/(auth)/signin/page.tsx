@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Sign In - Open PRO',
-  description: 'Page description',
+  title: 'Sign In - Team STEP',
+  description: 'How did you get here?',
 }
 
 import Link from 'next/link'
