@@ -27,9 +27,8 @@ export default function Footer() {
                             </div>
                             <div className="text-gray-400">
                                 So you read the whole thing? That's cool. <br />
-                                We've just started our journey and this website will evolve over time.
-                                We used <Link href="https://github.com/cruip/open-react-template?tab=readme-ov-file">the Cruip template</Link> to build this website.
-                                If you like what you see, show them some love ;)
+                                We've just started our journey and this website
+                                will evolve over time.
                             </div>
                         </div>
 

@@ -4,7 +4,7 @@ import ModalVideo from '@/components/modal-video';
 export default function Hero() {
     return (
         <section>
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 relative h-screen">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
                 {/* Illustration behind hero content */}
                 {/* <div className="absolute left-0 bottom-0 -ml-20 hidden lg:block pointer-events-none" aria-hidden="true" data-aos="fade-up" data-aos-delay="400">
           <svg className="max-w-full" width="564" height="552" viewBox="0 0 564 552" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,8 +37,9 @@ export default function Hero() {
                             data-aos="fade-up"
                             data-aos-delay="200"
                         >
-                            We are a team of creators who are passionate about making indie games.
-                            We build games and an ecosystem that supports other creators to
+                            We create games and a platform that supports other
+                            creators to to expand their players and get their
+                            community to be engaged with what they are making.
                         </p>
                         <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
                             <div data-aos="fade-up" data-aos-delay="400">
@@ -55,9 +56,22 @@ export default function Hero() {
                         </div>
                     </div>
                     <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-                        <h1 className="h2 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <h1
+                            className="h2 mb-4"
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                        >
                             Check out our latest project!
                         </h1>
+                        <a href="https://witchone.io">
+                            <img
+                                src="/images/witch-one-project.png"
+                                className="relative flex justify-center items-center"
+                                data-aos="fade-up"
+                                data-aos-delay="200"
+                                alt="witch one project"
+                            />
+                        </a>
                     </div>
 
                     {/* <ModalVideo

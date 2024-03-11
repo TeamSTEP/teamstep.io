@@ -5,13 +5,11 @@ export default function Features() {
                 <div className="py-12 md:py-20">
                     {/* Section header */}
                     <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                        <h2 className="h2 mb-4">
-                            All creators struggle to form a community
-                        </h2>
+                        <h2 className="h2 mb-4">We are a team of creators</h2>
                         <p className="text-xl text-gray-400">
-                            Excepteur sint occaecat cupidatat non proident, sunt
-                            in culpa qui officia deserunt mollit anim id est
-                            laborum.
+                            We are a team of creators building various projects
+                            and software solutions for other people. The world
+                            is our canvas and technology is our brush.
                         </p>
                     </div>
 
@@ -52,12 +50,11 @@ export default function Features() {
                                     strokeWidth="2"
                                 />
                             </svg>
-                            <h4 className="h4 mb-2">Instant Features</h4>
+                            <h4 className="h4 mb-2">Creating indie games</h4>
                             <p className="text-lg text-gray-400 text-center">
-                                Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat
-                                cupidatat.
+                                We develop games of various genres and styles
+                                for a specialized audience. We mainly use Unity
+                                and Godot as our engine.
                             </p>
                         </div>
 
@@ -94,12 +91,11 @@ export default function Features() {
                                     strokeLinecap="square"
                                 />
                             </svg>
-                            <h4 className="h4 mb-2">Instant Features</h4>
+                            <h4 className="h4 mb-2">Cutting-edge technology</h4>
                             <p className="text-lg text-gray-400 text-center">
-                                Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat
-                                cupidatat.
+                                We utilize cutting-edge technologies like
+                                blockchain and generative AI that becomes part
+                                of the gaming experience.
                             </p>
                         </div>
 
@@ -147,12 +143,13 @@ export default function Features() {
                                     />
                                 </g>
                             </svg>
-                            <h4 className="h4 mb-2">Instant Features</h4>
+                            <h4 className="h4 mb-2">
+                                Developing engine plugins
+                            </h4>
                             <p className="text-lg text-gray-400 text-center">
-                                Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat
-                                cupidatat.
+                                For all new technology we use for our projects,
+                                we aim to create a modular plugin so that other
+                                creators can seamlessly integrate with it.
                             </p>
                         </div>
 
@@ -193,12 +190,10 @@ export default function Features() {
                                     />
                                 </g>
                             </svg>
-                            <h4 className="h4 mb-2">Instant Features</h4>
+                            <h4 className="h4 mb-2">Creating a platform</h4>
                             <p className="text-lg text-gray-400 text-center">
-                                Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat
-                                cupidatat.
+                                Using our solutions, we are building a platform that connects creators and players in a new way.
+                                We blur the line between in-game and out-game experiences.
                             </p>
                         </div>
 
@@ -236,12 +231,9 @@ export default function Features() {
                                     />
                                 </g>
                             </svg>
-                            <h4 className="h4 mb-2">Instant Features</h4>
+                            <h4 className="h4 mb-2">Creating an ecosystem</h4>
                             <p className="text-lg text-gray-400 text-center">
-                                Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat
-                                cupidatat.
+                                Through our platform and games, we aim to connect everyone
                             </p>
                         </div>
 
@@ -286,7 +278,7 @@ export default function Features() {
                                     />
                                 </g>
                             </svg>
-                            <h4 className="h4 mb-2">Instant Features</h4>
+                            <h4 className="h4 mb-2">Becoming the next STEP</h4>
                             <p className="text-lg text-gray-400 text-center">
                                 Duis aute irure dolor in reprehenderit in
                                 voluptate velit esse cillum dolore eu fugiat
