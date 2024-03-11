@@ -12,7 +12,7 @@ export default function Zigzag() {
                     {/* Section header */}
                     <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
                         <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
-                            Reach goals that matter
+                            Make your community thrive
                         </div>
                         <h1 className="h2 mb-4">All creators struggle to build a community</h1>
                         <p className="text-xl text-gray-400">
@@ -47,16 +47,14 @@ export default function Zigzag() {
                             >
                                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
                                     <div className="font-architects-daughter text-xl text-purple-600 mb-2">
-                                        More speed. Less spend
+                                        Carry your account with you
                                     </div>
                                     <h3 className="h3 mb-3">
-                                        Keep projects on schedule
+                                        Mobile interface with a single-sign-on
                                     </h3>
                                     <p className="text-xl text-gray-400 mb-4">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua.
+                                        Use your phone to log in to games and authenticate your account just by scanning a QR code.
+                                        Your game save will carry over across multiple platforms, and you can manage your game profile from your phone.
                                     </p>
                                     <ul className="text-lg text-gray-400 -mb-2">
                                         <li className="flex items-center mb-2">
@@ -121,16 +119,14 @@ export default function Zigzag() {
                             >
                                 <div className="md:pl-4 lg:pl-12 xl:pl-16">
                                     <div className="font-architects-daughter text-xl text-purple-600 mb-2">
-                                        More speed. Less spend
+                                        Simple integration. Powerful features.
                                     </div>
                                     <h3 className="h3 mb-3">
-                                        Keep projects on schedule
+                                        Multi-engine SDK to unleash your potential
                                     </h3>
                                     <p className="text-xl text-gray-400 mb-4">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua.
+                                        We provide SDKs for multiple game engines, including Unity, Unreal, and Godot.
+                                        With this, creators can allow the players to connect to our platform and unleash the full potential of their community.
                                     </p>
                                     <ul className="text-lg text-gray-400 -mb-2">
                                         <li className="flex items-center mb-2">
@@ -195,10 +191,10 @@ export default function Zigzag() {
                             >
                                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
                                     <div className="font-architects-daughter text-xl text-purple-600 mb-2">
-                                        More speed. Less spend
+                                        Full control over your project
                                     </div>
                                     <h3 className="h3 mb-3">
-                                        Keep projects on schedule
+                                        Define your community behavior through our creator dashboard
                                     </h3>
                                     <p className="text-xl text-gray-400 mb-4">
                                         Lorem ipsum dolor sit amet, consectetur
