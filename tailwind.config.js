@@ -48,6 +48,8 @@ module.exports = {
         '1/1': '100%',
       },
       fontFamily: {
+        jura: ['var(--font-jura)', 'sans-serif'],
+        trispace: ['var(--font-trispace)', 'sans-serif'],
         inter: ['var(--font-inter)', 'sans-serif'],
         'architects-daughter': ['var(--font-architects-daughter)', 'sans-serif']
       },

@@ -46,7 +46,7 @@ export default function Zigzag() {
                                 data-aos="fade-right"
                             >
                                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
-                                    <div className="font-architects-daughter text-xl text-orange-500 mb-2">
+                                    <div className="font-trispace text-xl text-orange-500 mb-2">
                                         Carry your account with you
                                     </div>
                                     <h3 className="h3 mb-3">
@@ -118,7 +118,7 @@ export default function Zigzag() {
                                 data-aos="fade-left"
                             >
                                 <div className="md:pl-4 lg:pl-12 xl:pl-16">
-                                    <div className="font-architects-daughter text-xl text-orange-500 mb-2">
+                                    <div className="font-trispace text-xl text-orange-500 mb-2">
                                         Simple integration. Powerful features.
                                     </div>
                                     <h3 className="h3 mb-3">
@@ -190,7 +190,7 @@ export default function Zigzag() {
                                 data-aos="fade-right"
                             >
                                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
-                                    <div className="font-architects-daughter text-xl text-orange-500 mb-2">
+                                    <div className="font-trispace text-xl text-orange-500 mb-2">
                                         Full control over your project
                                     </div>
                                     <h3 className="h3 mb-3">
