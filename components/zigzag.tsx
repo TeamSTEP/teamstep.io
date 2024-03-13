@@ -6,13 +6,13 @@ import FeatImage03 from '@/public/images/features-03-image-03.png';
 
 export default function Zigzag() {
     return (
-        <section>
+        <section >
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
                 <div className="py-12 md:py-20 border-t border-gray-800">
                     {/* Section header */}
                     <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-                        <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
-                            Make your community thrive
+                        <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-orange-100 bg-orange-500 rounded-full mb-4">
+                            Make your community thrive with Treppe
                         </div>
                         <h1 className="h2 mb-4">All creators struggle to build a community</h1>
                         <p className="text-xl text-gray-400">
@@ -46,7 +46,7 @@ export default function Zigzag() {
                                 data-aos="fade-right"
                             >
                                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
-                                    <div className="font-architects-daughter text-xl text-purple-600 mb-2">
+                                    <div className="font-architects-daughter text-xl text-orange-500 mb-2">
                                         Carry your account with you
                                     </div>
                                     <h3 className="h3 mb-3">
@@ -118,7 +118,7 @@ export default function Zigzag() {
                                 data-aos="fade-left"
                             >
                                 <div className="md:pl-4 lg:pl-12 xl:pl-16">
-                                    <div className="font-architects-daughter text-xl text-purple-600 mb-2">
+                                    <div className="font-architects-daughter text-xl text-orange-500 mb-2">
                                         Simple integration. Powerful features.
                                     </div>
                                     <h3 className="h3 mb-3">
@@ -190,7 +190,7 @@ export default function Zigzag() {
                                 data-aos="fade-right"
                             >
                                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
-                                    <div className="font-architects-daughter text-xl text-purple-600 mb-2">
+                                    <div className="font-architects-daughter text-xl text-orange-500 mb-2">
                                         Full control over your project
                                     </div>
                                     <h3 className="h3 mb-3">

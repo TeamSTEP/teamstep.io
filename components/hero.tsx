@@ -20,7 +20,7 @@ export default function Hero() {
 
                 {/* Hero content */}
                 <div className="relative pt-32 pb-10 md:pt-40 md:pb-16">
-                    <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
+                    <div className="mx-auto sm:max-w-none sm:flex sm:justify-center">
                         <img
                             src="/images/full-logo.svg"
                             className="max-w-xl"
@@ -44,7 +44,7 @@ export default function Hero() {
                         <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
                             <div data-aos="fade-up" data-aos-delay="400">
                                 <a
-                                    className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0"
+                                    className="btn text-white bg-orange-500 hover:bg-orange-700 w-full mb-4 sm:w-auto sm:mb-0"
                                     href="#0"
                                 >
                                     Learn More
