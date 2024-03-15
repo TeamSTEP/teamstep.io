@@ -6,13 +6,13 @@
 
 This is the homepage source code for Team STEP.
 
-It is made with TypeScript Gatsby and bootstrapped with the [Elemental starter](https://github.com/akzhy/gatsby-starter-elemental).
+This page is based on the [Open React Template](https://github.com/cruip/open-react-template) build with Next.js.
 
 ## Usage
 
 ```bash
 yarn # install dependencies
 
-yarn start # start serving the project on a development server
+yarn dev # start serving the project on a development server
 
 ```
