@@ -233,12 +233,12 @@ export default function Features() {
                             </svg>
                             <h4 className="h4 mb-2">Creating an ecosystem</h4>
                             <p className="text-lg text-gray-400 text-center">
-                                Through our platform and games, we aim to connect everyone
+                                Through our platform and games, we aim to connect everyone and create an ecosystem of creators and players.
                             </p>
                         </div>
 
                         {/* 6th item */}
-                        <div
+                        {/* <div
                             className="relative flex flex-col items-center"
                             data-aos="fade-up"
                             data-aos-delay="500"
@@ -280,12 +280,9 @@ export default function Features() {
                             </svg>
                             <h4 className="h4 mb-2">Becoming the next STEP</h4>
                             <p className="text-lg text-gray-400 text-center">
-                                Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat
-                                cupidatat.
+                                We create the platform for your next
                             </p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

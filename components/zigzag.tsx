@@ -6,7 +6,7 @@ import FeatImage03 from '@/public/images/features-03-image-03.png';
 
 export default function Zigzag() {
     return (
-        <section >
+        <section>
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
                 <div className="py-12 md:py-20 border-t border-gray-800">
                     {/* Section header */}
@@ -14,12 +14,15 @@ export default function Zigzag() {
                         <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-orange-100 bg-orange-500 rounded-full mb-4">
                             Make your community thrive with Treppe
                         </div>
-                        <h1 className="h2 mb-4">All creators struggle to build a community</h1>
+                        <h1 className="h2 mb-4">
+                            All creators struggle to build a community
+                        </h1>
                         <p className="text-xl text-gray-400">
                             Having one that engages with your work is even
                             harder. <br />
                             But we make it easy for you to expand your existing
-                            community by bridging the gap between in-game and out-game activities for players.
+                            community by bridging the gap between in-game and
+                            out-game activities for players.
                         </p>
                     </div>
 
@@ -50,11 +53,15 @@ export default function Zigzag() {
                                         Carry your account with you
                                     </div>
                                     <h3 className="h3 mb-3">
-                                        Mobile interface with a single-sign-on
+                                        Mobile interface and authentication
                                     </h3>
                                     <p className="text-xl text-gray-400 mb-4">
-                                        Use your phone to log in to games and authenticate your account just by scanning a QR code.
-                                        Your game save will carry over across multiple platforms, and you can manage your game profile from your phone.
+                                        Use your phone to log in to games and
+                                        authenticate your account just by
+                                        scanning a QR code. Your game save will
+                                        carry over across multiple platforms,
+                                        and you can manage your game profile
+                                        from your phone.
                                     </p>
                                     <ul className="text-lg text-gray-400 -mb-2">
                                         <li className="flex items-center mb-2">
@@ -66,8 +73,8 @@ export default function Zigzag() {
                                                 <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                                             </svg>
                                             <span>
-                                                Duis aute irure dolor in
-                                                reprehenderit
+                                                Simple and secure log in
+                                                solution
                                             </span>
                                         </li>
                                         <li className="flex items-center mb-2">
@@ -78,7 +85,7 @@ export default function Zigzag() {
                                             >
                                                 <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                                             </svg>
-                                            <span>Excepteur sint occaecat</span>
+                                            <span>Cross-platform</span>
                                         </li>
                                         <li className="flex items-center">
                                             <svg
@@ -89,7 +96,7 @@ export default function Zigzag() {
                                                 <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                                             </svg>
                                             <span>
-                                                Amet consectetur adipiscing elit
+                                                Manage your game profile
                                             </span>
                                         </li>
                                     </ul>
@@ -122,11 +129,15 @@ export default function Zigzag() {
                                         Simple integration. Powerful features.
                                     </div>
                                     <h3 className="h3 mb-3">
-                                        Multi-engine SDK to unleash your potential
+                                        Integrate with our SDK
                                     </h3>
                                     <p className="text-xl text-gray-400 mb-4">
-                                        We provide SDKs for multiple game engines, including Unity, Unreal, and Godot.
-                                        With this, creators can allow the players to connect to our platform and unleash the full potential of their community.
+                                        We provide SDKs for popular game
+                                        engines, including Unity, Unreal, and
+                                        Godot. With this, creators can allow the
+                                        players to connect to our platform and
+                                        unleash the full potential of their
+                                        community.
                                     </p>
                                     <ul className="text-lg text-gray-400 -mb-2">
                                         <li className="flex items-center mb-2">
@@ -137,10 +148,7 @@ export default function Zigzag() {
                                             >
                                                 <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                                             </svg>
-                                            <span>
-                                                Duis aute irure dolor in
-                                                reprehenderit
-                                            </span>
+                                            <span>Developer documentation</span>
                                         </li>
                                         <li className="flex items-center mb-2">
                                             <svg
@@ -150,19 +158,7 @@ export default function Zigzag() {
                                             >
                                                 <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                                             </svg>
-                                            <span>Excepteur sint occaecat</span>
-                                        </li>
-                                        <li className="flex items-center">
-                                            <svg
-                                                className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0"
-                                                viewBox="0 0 12 12"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                                            </svg>
-                                            <span>
-                                                Amet consectetur adipiscing elit
-                                            </span>
+                                            <span>Cross-platform</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -194,13 +190,14 @@ export default function Zigzag() {
                                         Full control over your project
                                     </div>
                                     <h3 className="h3 mb-3">
-                                        Define your community behavior through our creator dashboard
+                                        Define your community behavior through
+                                        our dashboard
                                     </h3>
                                     <p className="text-xl text-gray-400 mb-4">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua.
+                                        Creators can use our dashboard to manage
+                                        all of their integrations and create
+                                        community campaigns to reward players
+                                        for interacting with our community.
                                     </p>
                                     <ul className="text-lg text-gray-400 -mb-2">
                                         <li className="flex items-center mb-2">
@@ -212,8 +209,7 @@ export default function Zigzag() {
                                                 <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                                             </svg>
                                             <span>
-                                                Duis aute irure dolor in
-                                                reprehenderit
+                                                Create community campaigns
                                             </span>
                                         </li>
                                         <li className="flex items-center mb-2">
@@ -224,7 +220,7 @@ export default function Zigzag() {
                                             >
                                                 <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                                             </svg>
-                                            <span>Excepteur sint occaecat</span>
+                                            <span>Manage all projects and integrations</span>
                                         </li>
                                         <li className="flex items-center">
                                             <svg
@@ -235,7 +231,7 @@ export default function Zigzag() {
                                                 <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                                             </svg>
                                             <span>
-                                                Amet consectetur adipiscing elit
+                                                Overview of your project performance
                                             </span>
                                         </li>
                                     </ul>
