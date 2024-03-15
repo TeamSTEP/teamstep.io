@@ -66,13 +66,13 @@ export default function Newsletter() {
                                 /> */}
                                 <a
                                     className="rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-purple-800 bg-purple-100 hover:bg-white shadow"
-                                    href="#0"
+                                    href="https://discord.gg/XCGSmhGsUQ"
                                 >
                                     Discord
                                 </a>
                                 <a
                                     className="rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-purple-800 bg-purple-100 hover:bg-white shadow"
-                                    href="#0"
+                                    href="https://twitter.com/teamstepgames"
                                 >
                                     Twitter
                                 </a>
