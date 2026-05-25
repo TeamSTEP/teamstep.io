@@ -15,7 +15,7 @@
     @apply text-2xl font-bold leading-snug tracking-tight;
 }
 
-@screen md {
+@media (width >= theme(--breakpoint-md)) {
     .h1 {
         @apply text-5xl;
     }
@@ -28,7 +28,7 @@
 /* Buttons */
 .btn,
 .btn-sm {
-    @apply font-medium inline-flex items-center justify-center border border-transparent rounded-sm leading-snug transition duration-150 ease-in-out;
+    @apply font-medium inline-flex items-center justify-center border border-transparent rounded-xs leading-snug transition duration-150 ease-in-out;
 }
 
 .btn {
@@ -54,7 +54,7 @@
 .form-multiselect,
 .form-select,
 .form-checkbox {
-    @apply rounded-sm;
+    @apply rounded-xs;
 }
 
 .form-input,
