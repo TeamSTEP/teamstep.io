@@ -62,7 +62,7 @@ export default function ModalVideo({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 z-[99999] bg-black bg-opacity-75 transition-opacity" aria-hidden="true" />
+            <div className="fixed inset-0 z-99999 bg-black bg-opacity-75 transition-opacity" aria-hidden="true" />
           </TransitionChild>
           {/* End: Modal backdrop */}
 
@@ -75,7 +75,7 @@ export default function ModalVideo({
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="fixed inset-0 z-[99999] overflow-hidden flex items-center justify-center transform px-4 sm:px-6">
+            <div className="fixed inset-0 z-99999 overflow-hidden flex items-center justify-center transform px-4 sm:px-6">
               <div className="max-w-6xl mx-auto h-full flex items-center">
                 <DialogPanel className="w-full max-h-full aspect-video bg-black overflow-hidden">
                   <video ref={videoRef} width={videoWidth} height={videoHeight} loop controls>
