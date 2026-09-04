@@ -1,0 +1,34 @@
+{
+  "title": "Meltdown",
+  "slug": "meltdown",
+  "subtitle": "Nuclear Reactor Simulator",
+  "description": "Manage an overworked reactor. Keep the city powered. Try not to cause a meltdown. The full Steam release is coming.",
+  "status": "main-quest",
+  "sortOrder": 1,
+  "platforms": [
+    {
+      "platform": "itch",
+      "tier": "demo",
+      "label": "Play free in browser",
+      "url": "https://teamstep.itch.io/meltdown",
+      "available": true
+    },
+    {
+      "platform": "steam",
+      "tier": "demo",
+      "label": "Play Steam Demo",
+      "url": "https://store.steampowered.com/app/4561950/Meltdown_Demo/",
+      "available": true
+    },
+    {
+      "platform": "steam",
+      "tier": "full",
+      "label": "Wishlist full release",
+      "url": "https://store.steampowered.com/app/4561950/Meltdown_Demo/",
+      "available": false
+    }
+  ],
+  "media": {
+    "poster": "/games/meltdown/poster.svg"
+  }
+}
