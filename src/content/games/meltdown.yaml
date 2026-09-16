@@ -29,5 +29,5 @@ platforms:
     available: false
 
 media:
-  poster: /games/meltdown/poster.webp
-  loop: /games/meltdown/gameplay.webm
+  poster: /games/meltdown/poster.svg
+

@@ -12,6 +12,19 @@ const {
   title = "Team STEP — Indie Game Studio",
   description = "Building the home for the indie game world. Creators of Meltdown.",
 } = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Team STEP",
+  url: "https://teamstep.gg",
+  sameAs: [
+    "https://bsky.app/profile/teamstep.bsky.social",
+    "https://teamstep.itch.io",
+    "https://teamstep.substack.com",
+    "https://discord.gg/JPUaPmQvSZ",
+  ],
+};
 ---
 
 <!doctype html>
@@ -22,12 +35,17 @@ const {
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og/default.png" />
+    <meta property="og:image" content="/og/default.svg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <slot />
+    <script>
+      import { initChapterReveal } from "../scripts/chapter-reveal";
+      initChapterReveal();
+    </script>
   </body>
 </html>

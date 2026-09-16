@@ -351,7 +351,7 @@ Prefer `.astro` for static sections; hydrate only Signal (and minimal nav script
 | `NavDesktop` | Sticky top bar, anchor links |
 | `NavHUD` | Mobile bottom HUD + IntersectionObserver |
 | `Boot` | Pixel grid, brand, Enter CTA, Meltdown peek |
-| `MeltdownStage` | Featured original conversion stage + flat CTA row |
+| `FeaturedStage` | Featured original conversion stage + flat CTA row |
 | `QuestLog` | Groups originals by phase; omits empty groups |
 | `GameCardCompact` | Released / prototype / archive cards |
 | `Badge` | Variant → colour + label + optional pulse |
@@ -365,7 +365,7 @@ Prefer `.astro` for static sections; hydrate only Signal (and minimal nav script
 | `PortfolioCard` | Teal portfolio case card |
 | `Footer` | Credits end screen |
 
-**Removed vs v1 spec:** nested `PlatformAccess` panel UI; F-key / API-WIDGET BBS chrome; single `GameCardFeatured` used as the only game layout (featured is now `MeltdownStage`).
+**Removed vs v1 spec:** nested `PlatformAccess` panel UI; F-key / API-WIDGET BBS chrome; single `GameCardFeatured` used as the only game layout (featured is now `FeaturedStage`).
 
 ---
 
@@ -437,7 +437,7 @@ src/
     api/feed.ts
   layouts/BaseLayout.astro
   components/
-    sections/   Boot · MeltdownStage · QuestLog · SocialFeed · Manifesto · Services · Footer
+    sections/   Boot · FeaturedStage · QuestLog · SocialFeed · Manifesto · Services · Footer
     game/       GameCardCompact · VideoFacade
     bbs/        BBSTerminal · BBSPanelAPI · BBSPanelIframe
     ui/         Badge · ServiceCard · PortfolioCard · DialogueBox
@@ -508,7 +508,7 @@ YOUTUBE_CHANNEL_ID=         # YouTube RSS feed
 
 1. Scaffold Astro + Vercel adapter + sitemap; wire `@teamstep/design-system` / tokens + `BaseLayout` (confirm void background).
 2. Content Collections schema + seed Meltdown / Witch One (+ portfolio optional).
-3. MeltdownStage + QuestLog + GameCardCompact + Badge + flat CTAs.
+3. FeaturedStage + QuestLog + GameCardCompact + Badge + flat CTAs.
 4. Boot, Manifesto, Work (services + portfolio), Footer, NavDesktop, NavHUD.
 5. VideoFacade + game media assets.
 6. `/api/feed` + BBS components (Discord iframe last; Safari filter check).
