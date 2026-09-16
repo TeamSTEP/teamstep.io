@@ -2,13 +2,17 @@ import { Hero } from "@/components/ds-client/Hero";
 import { GameCardArchive } from "@/components/ds-client/GameCardArchive";
 import { GameCardFeatured } from "@/components/ds-client/GameCardFeatured";
 import { VideoFacade } from "@/components/ds-client/VideoFacade";
+import { DialogueBox } from "@/components/ds-client/DialogueBox";
+import { SocialFeed } from "@/components/ds-client/SocialFeed";
+import { ServicesSection } from "@/components/ServicesSection";
 import { isArchiveGame, loadGames } from "@/lib/games";
+import { loadServices } from "@/lib/services";
 import type { GamePlatform, GamePlatformTier } from "@/lib/games";
 
-// Phase 0/1's smoke test, extended for Phase 2: now rendering real game data (placeholder
-// art, real copy/structure) through GameCardFeatured/GameCardArchive, so the data layer and
-// these two components can be checked visually against the wireframe together. Still not
-// the final page — Phase 3 adds Manifesto/Services/Footer/BBS Board and real nav.
+// Phase 3: adds Manifesto/Services/BBS Board sections and real section ids for nav (see
+// app/layout.tsx and teamstep-landing-phase3-plan.md). Manifesto copy, Discord server id,
+// and service descriptions are all placeholders — content gaps tracked in that plan doc,
+// not engineering TODOs.
 //
 // Every design-system import here goes through components/ds-client/ — see that folder's
 // GameCardFeatured.tsx for why even hook-free components currently need a client wrapper
@@ -28,16 +32,19 @@ export default function Home() {
   const games = loadGames();
   const featured = games.find((game) => game.status === "main-quest");
   const archived = games.filter(isArchiveGame);
+  const services = loadServices();
 
   return (
     <>
-      <Hero
-        eyebrow="indie game studio"
-        tagline="Building the home for the indie game world — one step at a time."
-        ctaHref="#quest-log"
-        logoMarkSrc="/logo-mark-placeholder.svg"
-        logoMarkAlt="Team STEP logo mark (placeholder — swap for the real logo mark asset)"
-      />
+      <section id="hero">
+        <Hero
+          eyebrow="indie game studio"
+          tagline="Building the home for the indie game world — one step at a time."
+          ctaHref="#quest-log"
+          logoMarkSrc="/logo-mark-placeholder.svg"
+          logoMarkAlt="Team STEP logo mark (placeholder — swap for the real logo mark asset)"
+        />
+      </section>
       <section id="quest-log">
         {featured ? (
           <GameCardFeatured
@@ -70,6 +77,24 @@ export default function Home() {
             }}
           />
         ))}
+      </section>
+      <section id="bbs">
+        {/* discordServerId is a placeholder — real value needed before the Discord tab
+            works (Phase 3 content gap). fetchEndpoint is left at its /api/feed default:
+            there's no backing route yet (Phase 4, still open), and BBSPanelAPI/SocialFeed
+            already degrade to a clean status line rather than crashing when it 404s. */}
+        <SocialFeed discordServerId="000000000000000000" />
+      </section>
+      <section id="manifesto">
+        {/* text is placeholder copy — real manifesto text is a Phase 3 content gap. */}
+        <DialogueBox
+          avatarSrc="/logo-mark-placeholder.svg"
+          avatarAlt="Team STEP logo mark (placeholder — swap for the real logo mark asset)"
+          text="PLACEHOLDER COPY — replace with the real manifesto text. This is where Team STEP's actual voice goes: why the studio exists, what it believes about games, and why Meltdown is the thesis statement rather than a side project."
+        />
+      </section>
+      <section id="services">
+        <ServicesSection services={services} />
       </section>
     </>
   );

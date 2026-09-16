@@ -584,8 +584,10 @@
   dependencies:
     tslib "^2.8.0"
 
-"@teamstep/design-system@file:../brand-assets/packages/design-system":
+"@teamstep/design-system@^0.5.1":
   version "0.5.1"
+  resolved "https://npm.pkg.github.com/download/@teamstep/design-system/0.5.1/24990c6e1ce37dbc30c7be99be52b2b3e3c540d7#24990c6e1ce37dbc30c7be99be52b2b3e3c540d7"
+  integrity sha512-wZsGRHwcPj/AZ9mjmopMxfHDsS05wVmsVuBtuKiGEvw3iLsV1cpyxgSQbPcQRUXm65xzxW9g9jzPKipnqsyWJg==
   dependencies:
     "@fontsource/barlow-condensed" "^5.2.5"
     "@fontsource/nunito" "^5.2.5"
