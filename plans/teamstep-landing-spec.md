@@ -2,7 +2,7 @@
 
 > Handoff document for implementation. Covers design system, page structure, component architecture, data model, and tech stack.  
 > **Experience source of truth:** [`wireframe-v3-hybrid.html`](./wireframe-v3-hybrid.html) (approved).  
-> **Tech stack:** Astro 5 + Vercel + git Content Collections — locked in §9.
+> **Tech stack:** Astro 7 + Vercel + git Content Collections — locked in §9.
 
 ---
 
@@ -386,7 +386,7 @@ Vanilla or light framework islands — prefer minimal client JS.
 
 | Layer | Choice |
 |---|---|
-| Framework | **Astro 5** (TypeScript, strict) |
+| Framework | **Astro 7** (TypeScript, strict) |
 | Hosting | **Vercel** via `@astrojs/vercel` |
 | Rendering | **Hybrid** — prerender `index` at build; `GET /api/feed` as a Vercel serverless/server endpoint (`prerender: false`) |
 | Content | **Astro Content Collections** — git YAML (`src/content/games/*.yaml`, `src/content/portfolio/*.yaml`); optional MD for long copy. PR to update content is the editorial workflow. |
@@ -455,10 +455,17 @@ public/
 
 ```bash
 npm create astro@latest . -- --template minimal --typescript strict
-npx astro add vercel sitemap
+npx astro add vercel sitemap react
 npm install motion fast-xml-parser
-# @teamstep/design-system — link/publish from brand-assets per package workflow
+# @teamstep/design-system — see docs/design-system-workflow.md (local file: link or GitHub Packages)
 ```
+
+### Design system co-development
+
+Sibling repo `brand-assets` + local link. See [`docs/design-system-workflow.md`](../docs/design-system-workflow.md).
+
+- `pnpm ds:use-local` / `pnpm dev:all` while iterating on DS + site together
+- Publish DS to GitHub Packages first, then `pnpm ds:use-published` and bump for production deploys
 
 ---
 
@@ -516,8 +523,9 @@ YOUTUBE_CHANNEL_ID=         # YouTube RSS feed
 |---|---|
 | 1.0 | Initial design-session spec (v2 wireframe, Astro-assumed). |
 | 2.0 | Hybrid boot wireframe v3 approved. Featured Meltdown stage, scalable Quest Log phases, portfolio under Work, flat CTAs, quiet BBS. Tech stack deferred to §9. |
-| 2.1 | Tech stack locked: Astro 5 + Vercel hybrid + git Content Collections + colocated `/api/feed`. No CMS; Substack remains long-form. |
+| 2.1 | Tech stack locked: Astro 7 + Vercel hybrid + git Content Collections + colocated `/api/feed`. No CMS; Substack remains long-form. |
+| 2.2 | Scaffold + design-system local link workflow (`ds:use-local` / `ds:use-published` / `dev:all`). |
 
 ---
 
-*Document version: 2.1 — experience locked to wireframe v3; implementation stack locked (Astro + Vercel + git content).*
+*Document version: 2.2 — experience locked to wireframe v3; stack locked; DS co-dev workflow documented.*

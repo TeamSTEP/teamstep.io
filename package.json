@@ -1,0 +1,37 @@
+{
+  "name": "teamstep-io",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "dev:all": "node scripts/dev-with-ds.mjs",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "ds:use-local": "node scripts/ds-mode.mjs local",
+    "ds:use-published": "node scripts/ds-mode.mjs published",
+    "ds:build": "CI=true pnpm --dir ../brand-assets --filter @teamstep/design-system build",
+    "ds:watch": "CI=true pnpm --dir ../brand-assets --filter @teamstep/design-system dev"
+  },
+  "dependencies": {
+    "@astrojs/react": "^6.0.5",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/vercel": "^11.0.10",
+    "@teamstep/design-system": "file:../brand-assets/packages/design-system",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "astro": "^7.3.2",
+    "fast-xml-parser": "^5.2.5",
+    "motion": "^12.42.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "allowScripts": {
+    "esbuild": true,
+    "sharp": true
+  }
+}

@@ -1,13 +1,21 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# Team STEP — teamstep.io
 
-# This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-
-<!-- END:nextjs-agent-rules -->
+Astro landing page for Team STEP. Spec and wireframe live in `plans/`.
 
 ## Coding Style
 
-Keep the code clean and easy to read. Self-documenting code do not require comments. The code themselves should read naturally and logically. Only write comments for short annotations that genuinely cannot be expressed via code.
+Keep the code clean and easy to read. Self-documenting code do not require comments. Only write comments for short annotations that genuinely cannot be expressed via code.
+
+## Astro
+
+This is **not** a Next.js app. Before changing routing, content collections, adapters, or islands, read the relevant guide under https://docs.astro.build (and local notes in node_modules if present).
+
+Useful entry points:
+
+- [Content collections](https://docs.astro.build/en/guides/content-collections/)
+- [Framework components / islands](https://docs.astro.build/en/guides/framework-components/)
+- [Vercel adapter](https://docs.astro.build/en/guides/integrations-guide/vercel/)
+
+## Design system
+
+Prefer `@teamstep/design-system` exports over one-off UI. Local co-development: see `docs/design-system-workflow.md` (`pnpm ds:use-local`, `pnpm dev:all`).
