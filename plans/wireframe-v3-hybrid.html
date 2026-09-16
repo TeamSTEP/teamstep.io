@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Team STEP Landing — Wireframe v3 Hybrid Boot</title>
+<style>
+  :root {
+    --color-void: #231630;
+    --color-void-deep: #060610;
+    --color-shadow: #2d1e3e;
+    --color-mid: #4f476d;
+    --color-muted: #8a8db2;
+    --color-accent: #8591c9;
+    --color-ice: #e9f1f2;
+    --color-green: #3c7a45;
+    --color-green-hi: #5cba6a;
+    --color-amber: #9a6a18;
+    --color-amber-hi: #d4a830;
+    --color-blood: #6b2020;
+    --color-blood-hi: #c94040;
+    --color-teal: #2a6070;
+    --color-teal-hi: #4a9baf;
+    --radius-chip: 1px 6px 1px 6px;
+    --radius-card: 2px 12px 2px 12px;
+    --font-heading: Rajdhani, "Segoe UI", sans-serif;
+    --font-subtitle: Nunito, Georgia, serif;
+    --font-body: "Barlow Condensed", "Segoe UI", sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    --max: 1120px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #120a1a;
+    color: var(--color-ice);
+    font-family: var(--font-body);
+    line-height: 1.45;
+  }
+
+  body { padding: 32px 24px 64px; }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .doc-head {
+    max-width: 1280px;
+    margin: 0 auto 28px;
+  }
+
+  .doc-head h1 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ice);
+  }
+
+  .doc-head p {
+    margin-top: 8px;
+    max-width: 62ch;
+    color: var(--color-muted);
+    font-size: 16px;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    max-width: 1280px;
+    margin: 0 auto 20px;
+    border-bottom: 1px solid var(--color-mid);
+  }
+
+  .tb {
+    padding: 12px 18px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--color-mid);
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .tb.on {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+  }
+
+  .pv { display: none; max-width: 1280px; margin: 0 auto; }
+  .pv.on { display: block; }
+
+  /* Shared wireframe chrome */
+  .page {
+    background: var(--color-void);
+    border: 1px solid var(--color-mid);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  }
+
+  .pgrid {
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(79, 71, 109, 0.12) 20px),
+      repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(79, 71, 109, 0.12) 20px);
+  }
+
+  .note {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: rgba(6, 6, 16, 0.7);
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-card);
+  }
+
+  .note h2 {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+  }
+
+  .note ul {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+
+  .note li {
+    color: var(--color-muted);
+    font-size: 14px;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .note li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-mid);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: var(--radius-chip);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .chip-green {
+    background: rgba(60, 122, 69, 0.18);
+    border: 1px solid var(--color-green);
+    color: var(--color-green-hi);
+  }
+
+  .chip-amber {
+    background: rgba(154, 106, 24, 0.18);
+    border: 1px solid var(--color-amber);
+    color: var(--color-amber-hi);
+  }
+
+  .chip-muted {
+    background: rgba(45, 30, 62, 0.6);
+    border: 1px solid var(--color-mid);
+    color: var(--color-muted);
+  }
+
+  .chip-blood {
+    background: rgba(107, 32, 32, 0.22);
+    border: 1px solid var(--color-blood);
+    color: var(--color-blood-hi);
+  }
+
+  .chip-teal {
+    background: rgba(42, 96, 112, 0.25);
+    border: 1px solid var(--color-teal);
+    color: var(--color-teal-hi);
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: var(--radius-chip);
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .cta-primary {
+    background: var(--color-green);
+    border: 1px solid var(--color-green-hi);
+    color: var(--color-ice);
+  }
+
+  .cta-secondary {
+    background: transparent;
+    border: 1px solid var(--color-amber-hi);
+    color: var(--color-amber-hi);
+  }
+
+  .cta-ghost {
+    background: transparent;
+    border: 1px solid var(--color-mid);
+    color: var(--color-muted);
+  }
+
+  .media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #1a0f24 0%, #0d1a12 55%, #132018 100%);
+    border: 1px dashed rgba(92, 186, 106, 0.35);
+    border-radius: var(--radius-card);
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-align: center;
+  }
+
+  .chapter-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-mid);
+    margin-bottom: 20px;
+  }
+
+  /* ════════════ DESKTOP ════════════ */
+  .d-nav {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 0 40px;
+    background: rgba(35, 22, 48, 0.88);
+    border-bottom: 1px solid rgba(79, 71, 109, 0.5);
+    backdrop-filter: blur(10px);
+  }
+
+  .d-nav__mark {
+    width: 88px;
+    height: 28px;
+    border: 1px solid var(--color-mid);
+    border-radius: 1px 8px 1px 8px;
+    background: var(--color-shadow);
+  }
+
+  .d-nav__links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .d-nav__links span {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .d-nav__contact {
+    min-height: 36px;
+    padding: 0 14px;
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-chip);
+    color: var(--color-muted);
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Boot */
+  .d-boot {
+    position: relative;
+    min-height: 62vh;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 48px;
+    align-items: center;
+    padding: 72px 40px 96px;
+    overflow: hidden;
+  }
+
+  .d-boot__copy {
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .d-boot__eyebrow {
+    font-family: var(--font-subtitle);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--color-muted);
+  }
+
+  .d-boot__title {
+    font-family: var(--font-heading);
+    font-size: clamp(56px, 8vw, 88px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--color-ice);
+  }
+
+  .d-boot__tagline {
+    max-width: 36ch;
+    font-size: 20px;
+    color: var(--color-ice);
+  }
+
+  .d-boot__scroll {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    color: var(--color-muted);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+  }
+
+  .d-boot__scroll-line {
+    width: 1px;
+    height: 36px;
+    background: var(--color-mid);
+  }
+
+  .d-boot__mark-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .d-boot__ring {
+    width: 220px;
+    height: 220px;
+    border: 1px solid var(--color-mid);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: float 4.5s ease-in-out infinite;
+  }
+
+  .d-boot__mark {
+    width: 120px;
+    height: 120px;
+    border: 1px solid var(--color-accent);
+    border-radius: 50%;
+    background: var(--color-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-muted);
+    text-align: center;
+    letter-spacing: 0.06em;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .d-boot__peek {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 72px;
+    background:
+      linear-gradient(to top, rgba(13, 26, 18, 0.95), transparent),
+      linear-gradient(90deg, #1a2818, #0f1c14 40%, #1e2a1a);
+    border-top: 1px solid rgba(92, 186, 106, 0.25);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(92, 186, 106, 0.7);
+  }
+
+  /* Meltdown */
+  .d-melt {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0d1a12 0%, var(--color-void) 100%);
+    border-top: 2px solid var(--color-green);
+    padding: 64px 40px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .d-melt__badges { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .d-melt__stage {
+    width: 100%;
+    height: min(48vh, 420px);
+    border-color: rgba(92, 186, 106, 0.45);
+  }
+
+  .d-melt__meta {
+    max-width: var(--max);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .d-melt__subtitle {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-green-hi);
+  }
+
+  .d-melt__title {
+    font-family: var(--font-heading);
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .d-melt__desc {
+    max-width: 48ch;
+    font-size: 20px;
+    color: var(--color-muted);
+  }
+
+  .d-melt__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  /* Quest Log — scalable catalog of originals (not featured) */
+  .d-quest {
+    padding: 72px 40px 80px;
+    background: var(--color-void);
+    border-top: 1px solid rgba(79, 71, 109, 0.4);
+  }
+
+  .d-quest__inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .d-quest__heading {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .d-quest__lede {
+    max-width: 42ch;
+    margin-bottom: 36px;
+    font-size: 18px;
+    color: var(--color-muted);
+  }
+
+  .d-quest__group {
+    margin-bottom: 36px;
+  }
+
+  .d-quest__group:last-child {
+    margin-bottom: 0;
+  }
+
+  .d-quest__group-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-mid);
+  }
+
+  .d-quest__group-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(79, 71, 109, 0.45);
+  }
+
+  .d-quest__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .d-quest__grid--stack {
+    grid-template-columns: 1fr;
+  }
+
+  .d-qcard {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 18px;
+    align-items: center;
+    padding: 18px;
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-card);
+    background: rgba(45, 30, 62, 0.35);
+  }
+
+  .d-qcard--released {
+    border-color: rgba(92, 186, 106, 0.35);
+  }
+
+  .d-qcard--prototype {
+    border-color: rgba(212, 168, 48, 0.4);
+  }
+
+  .d-qcard--legacy {
+    border-color: rgba(107, 32, 32, 0.45);
+    opacity: 0.72;
+  }
+
+  .d-qcard__thumb {
+    height: 88px;
+    border: 1px dashed rgba(138, 141, 178, 0.35);
+    border-radius: 2px 8px 2px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-align: center;
+    color: var(--color-muted);
+  }
+
+  .d-qcard--released .d-qcard__thumb {
+    background: linear-gradient(145deg, #122018, #1a2818);
+    border-color: rgba(92, 186, 106, 0.35);
+    color: var(--color-green-hi);
+  }
+
+  .d-qcard--prototype .d-qcard__thumb {
+    background: linear-gradient(145deg, #22180a, #1a1408);
+    border-color: rgba(212, 168, 48, 0.4);
+    color: var(--color-amber-hi);
+  }
+
+  .d-qcard--legacy .d-qcard__thumb {
+    background: linear-gradient(145deg, #2a1010, #1a0a12);
+    border-color: rgba(201, 64, 64, 0.4);
+    color: var(--color-blood-hi);
+  }
+
+  .d-qcard__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .d-qcard__title {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .d-qcard__desc {
+    font-size: 15px;
+    color: var(--color-muted);
+    max-width: 36ch;
+  }
+
+  .d-qcard .cta {
+    min-height: 36px;
+    font-size: 13px;
+    padding: 0 14px;
+  }
+
+  /* Signal / BBS */
+  .d-signal {
+    min-height: 70vh;
+    padding: 72px 40px;
+    background: var(--color-void-deep);
+    border-top: 1px solid rgba(79, 71, 109, 0.35);
+  }
+
+  .d-signal__inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .d-signal__heading {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .d-terminal {
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: #080812;
+  }
+
+  .d-terminal__bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--color-shadow);
+    border-bottom: 1px solid rgba(79, 71, 109, 0.5);
+  }
+
+  .d-terminal__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-mid);
+  }
+
+  .d-terminal__title {
+    margin-left: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-muted);
+    letter-spacing: 0.08em;
+  }
+
+  .d-terminal__tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(79, 71, 109, 0.4);
+  }
+
+  .d-terminal__tab {
+    padding: 8px 14px;
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-chip);
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .d-terminal__tab.on {
+    color: var(--color-ice);
+    border-color: var(--color-accent);
+  }
+
+  .d-terminal__body {
+    position: relative;
+    padding: 24px 20px;
+    min-height: 220px;
+  }
+
+  .scanline {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(10, 8, 24, 0.1) 2px,
+      rgba(10, 8, 24, 0.1) 4px
+    );
+  }
+
+  .d-feed-row {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .d-feed-meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-mid);
+  }
+
+  .d-feed-lines span {
+    display: block;
+    height: 10px;
+    background: rgba(79, 71, 109, 0.35);
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  .d-feed-lines span:nth-child(1) { width: 92%; }
+  .d-feed-lines span:nth-child(2) { width: 68%; }
+  .d-feed-lines span:nth-child(3) { width: 80%; margin-bottom: 0; }
+
+  /* Manifesto */
+  .d-manifesto {
+    min-height: 70vh;
+    padding: 96px 40px;
+    background: var(--color-void);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(79, 71, 109, 0.35);
+  }
+
+  .d-manifesto__display {
+    max-width: 18ch;
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+
+  .d-dialogue {
+    width: min(100%, 640px);
+    text-align: left;
+    padding: 24px;
+    background: var(--color-shadow);
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-card);
+  }
+
+  .d-dialogue__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--color-accent);
+    background: var(--color-void);
+    margin-bottom: 14px;
+  }
+
+  .d-dialogue__text {
+    font-size: 18px;
+    color: var(--color-ice);
+  }
+
+  .d-dialogue__values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  /* Work */
+  .d-work {
+    min-height: 70vh;
+    padding: 80px 40px;
+    background: rgba(45, 30, 62, 0.25);
+    border-top: 1px solid rgba(79, 71, 109, 0.35);
+  }
+
+  .d-work__inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .d-work__heading {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+
+  .d-work__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .d-work__item {
+    padding: 28px 20px;
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-card);
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .d-work__icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-mid);
+    border-radius: 50%;
+  }
+
+  .d-work__name {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .d-work__blurb {
+    font-size: 16px;
+    color: var(--color-muted);
+    max-width: 28ch;
+  }
+
+  .d-work__contact {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .d-portfolio {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(79, 71, 109, 0.4);
+  }
+
+  .d-portfolio__heading {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .d-portfolio__lede {
+    max-width: 48ch;
+    margin-bottom: 24px;
+    font-size: 16px;
+    color: var(--color-muted);
+  }
+
+  .d-portfolio__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .d-pcard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 22px 20px;
+    border: 1px solid rgba(74, 155, 175, 0.35);
+    border-radius: var(--radius-card);
+    background: rgba(42, 96, 112, 0.08);
+  }
+
+  .d-pcard__thumb {
+    width: 100%;
+    height: 96px;
+    margin-bottom: 4px;
+    border: 1px dashed rgba(74, 155, 175, 0.4);
+    border-radius: 2px 8px 2px 8px;
+    background: linear-gradient(145deg, #102028, #1a2030);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--color-teal-hi);
+  }
+
+  .d-pcard__client {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-teal-hi);
+  }
+
+  .d-pcard__title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .d-pcard__desc {
+    font-size: 15px;
+    color: var(--color-muted);
+    max-width: 36ch;
+  }
+
+  .d-pcard .cta {
+    min-height: 36px;
+    font-size: 13px;
+  }
+
+  /* Credits */
+  .d-credits {
+    padding: 80px 40px 64px;
+    background: linear-gradient(180deg, var(--color-void), #0a0610);
+    text-align: center;
+    border-top: 1px solid rgba(79, 71, 109, 0.35);
+  }
+
+  .d-credits__mark {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    border: 1px solid var(--color-mid);
+    border-radius: 50%;
+    background: var(--color-shadow);
+  }
+
+  .d-credits__name {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .d-credits__tag {
+    margin-top: 8px;
+    font-family: var(--font-subtitle);
+    font-style: italic;
+    color: var(--color-muted);
+  }
+
+  .d-credits__socials {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .d-credits__socials span {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--color-mid);
+    border-radius: 50%;
+  }
+
+  /* ════════════ MOBILE ════════════ */
+  .phone {
+    width: 390px;
+    margin: 0 auto;
+    background: var(--color-void);
+    border: 2px solid var(--color-mid);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  }
+
+  .phone__notch {
+    width: 120px;
+    height: 22px;
+    margin: 10px auto 0;
+    background: #0a0610;
+    border-radius: 0 0 14px 14px;
+  }
+
+  .m-top {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    border-bottom: 1px solid rgba(79, 71, 109, 0.4);
+  }
+
+  .m-top__mark {
+    width: 64px;
+    height: 20px;
+    border: 1px solid var(--color-mid);
+    border-radius: 1px 6px 1px 6px;
+    background: var(--color-shadow);
+  }
+
+  .m-boot {
+    min-height: 58vh;
+    padding: 40px 20px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+  }
+
+  .m-boot__eyebrow {
+    font-family: var(--font-subtitle);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--color-muted);
+  }
+
+  .m-boot__title {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  .m-boot__tagline {
+    font-size: 17px;
+    color: var(--color-ice);
+    max-width: 28ch;
+  }
+
+  .m-boot__tap {
+    margin-top: 12px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    text-transform: lowercase;
+  }
+
+  .m-boot__peek {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 48px;
+    background: linear-gradient(to top, rgba(13, 26, 18, 0.95), transparent);
+    border-top: 1px solid rgba(92, 186, 106, 0.25);
+  }
+
+  .m-melt {
+    padding: 28px 18px 36px;
+    background: linear-gradient(180deg, #0d1a12, var(--color-void));
+    border-top: 2px solid var(--color-green);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .m-melt__stage {
+    height: 180px;
+  }
+
+  .m-melt__subtitle {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-green-hi);
+  }
+
+  .m-melt__title {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .m-melt__desc {
+    font-size: 16px;
+    color: var(--color-muted);
+  }
+
+  .m-melt__ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .m-melt__ctas .cta { width: 100%; }
+
+  .m-archive {
+    padding: 28px 18px;
+    border-top: 1px solid rgba(79, 71, 109, 0.35);
+  }
+
+  .m-quest__heading {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .m-quest__lede {
+    font-size: 14px;
+    color: var(--color-muted);
+    margin-bottom: 20px;
+  }
+
+  .m-quest__group {
+    margin-bottom: 20px;
+  }
+
+  .m-quest__group-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-mid);
+    margin-bottom: 10px;
+  }
+
+  .m-archive__row {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 14px;
+    padding: 16px;
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-card);
+    margin-bottom: 10px;
+    background: rgba(45, 30, 62, 0.35);
+  }
+
+  .m-archive__row:last-child {
+    margin-bottom: 0;
+  }
+
+  .m-archive__row.released {
+    border-color: rgba(92, 186, 106, 0.35);
+  }
+
+  .m-archive__row.prototype {
+    border-color: rgba(212, 168, 48, 0.4);
+  }
+
+  .m-archive__row.legacy {
+    border-color: rgba(107, 32, 32, 0.4);
+    opacity: 0.7;
+  }
+
+  .m-archive__thumb {
+    height: 72px;
+    background: #2a1010;
+    border: 1px dashed rgba(201, 64, 64, 0.35);
+    border-radius: 2px 8px 2px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--color-blood-hi);
+    text-align: center;
+  }
+
+  .m-archive__row.released .m-archive__thumb {
+    background: #122018;
+    border-color: rgba(92, 186, 106, 0.35);
+    color: var(--color-green-hi);
+  }
+
+  .m-archive__row.prototype .m-archive__thumb {
+    background: #22180a;
+    border-color: rgba(212, 168, 48, 0.4);
+    color: var(--color-amber-hi);
+  }
+
+  .m-archive__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .m-archive__title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .m-archive__desc {
+    font-size: 14px;
+    color: var(--color-muted);
+  }
+
+  .m-signal {
+    padding: 28px 18px;
+    background: var(--color-void-deep);
+    border-top: 1px solid rgba(79, 71, 109, 0.35);
+  }
+
+  .m-signal__heading {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .m-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .m-tabs span {
+    padding: 6px 10px;
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-chip);
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+  }
+
+  .m-tabs span.on {
+    color: var(--color-ice);
+    border-color: var(--color-accent);
+  }
+
+  .m-feed {
+    position: relative;
+    min-height: 140px;
+    padding: 16px;
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-card);
+    background: #080812;
+  }
+
+  .m-feed span {
+    display: block;
+    height: 8px;
+    background: rgba(79, 71, 109, 0.35);
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  .m-swipe {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--color-mid);
+    letter-spacing: 0.06em;
+  }
+
+  .m-manifesto {
+    padding: 48px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(79, 71, 109, 0.35);
+  }
+
+  .m-manifesto__display {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .m-dialogue {
+    text-align: left;
+    padding: 18px;
+    background: var(--color-shadow);
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-card);
+  }
+
+  .m-dialogue__avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--color-accent);
+    margin-bottom: 10px;
+    background: var(--color-void);
+  }
+
+  .m-dialogue__text {
+    font-size: 15px;
+    color: var(--color-ice);
+  }
+
+  .m-work {
+    padding: 28px 18px;
+    border-top: 1px solid rgba(79, 71, 109, 0.35);
+  }
+
+  .m-work__heading {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .m-work__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .m-work__item {
+    padding: 16px 12px;
+    border: 1px solid var(--color-mid);
+    border-radius: var(--radius-card);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .m-work__item.span {
+    grid-column: 1 / -1;
+  }
+
+  .m-work__icon {
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--color-mid);
+    border-radius: 50%;
+  }
+
+  .m-work__name {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .m-work__contact {
+    margin-top: 18px;
+    text-align: center;
+  }
+
+  .m-portfolio {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(79, 71, 109, 0.4);
+  }
+
+  .m-portfolio__heading {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .m-portfolio__lede {
+    font-size: 13px;
+    color: var(--color-muted);
+    margin-bottom: 14px;
+  }
+
+  .m-pcard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 14px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(74, 155, 175, 0.35);
+    border-radius: var(--radius-card);
+    background: rgba(42, 96, 112, 0.08);
+  }
+
+  .m-pcard:last-child {
+    margin-bottom: 0;
+  }
+
+  .m-pcard__client {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-teal-hi);
+  }
+
+  .m-pcard__title {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .m-pcard__desc {
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+
+  .m-credits {
+    padding: 36px 18px 20px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--color-void), #0a0610);
+    border-top: 1px solid rgba(79, 71, 109, 0.35);
+  }
+
+  .m-credits__mark {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
+    border: 1px solid var(--color-mid);
+    border-radius: 50%;
+    background: var(--color-shadow);
+  }
+
+  .m-credits__name {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .m-credits__socials {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .m-credits__socials span {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--color-mid);
+    border-radius: 50%;
+  }
+
+  .m-hud {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 8px 14px;
+    background: rgba(35, 22, 48, 0.95);
+    border-top: 1px solid rgba(79, 71, 109, 0.5);
+  }
+
+  .m-hud__item {
+    min-width: 56px;
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-mid);
+  }
+
+  .m-hud__item.on { color: var(--color-accent); }
+
+  .m-hud__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  .m-hud__item.on .m-hud__dot { background: var(--color-accent); }
+
+  @media (max-width: 720px) {
+    body { padding: 20px 12px 48px; }
+    .d-boot { grid-template-columns: 1fr; }
+    .d-work__grid { grid-template-columns: 1fr; }
+    .d-quest__grid { grid-template-columns: 1fr; }
+    .d-portfolio__grid { grid-template-columns: 1fr; }
+    .d-qcard { grid-template-columns: 1fr; }
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&family=Nunito:ital,wght@0,400;1,400&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <h1 class="sr-only">Team STEP landing page wireframe v3 — hybrid boot experience</h1>
+
+  <header class="doc-head">
+    <h1>Wireframe v3 · Hybrid Boot</h1>
+    <p>
+      Studio boot → Meltdown conversion stage → scalable Quest Log (released / prototype / archive)
+      → Signal → Manifesto → Work (services + portfolio). Compare with <code>wireframe-v2.html</code>.
+    </p>
+  </header>
+
+  <div class="tabs" role="tablist" aria-label="Viewport">
+    <button class="tb on" type="button" role="tab" aria-selected="true" data-view="dt">Desktop · 1280</button>
+    <button class="tb" type="button" role="tab" aria-selected="false" data-view="mb">Mobile · 390</button>
+  </div>
+
+  <!-- ════════════ DESKTOP ════════════ -->
+  <div class="pv on" id="p-dt" role="tabpanel">
+    <div class="page">
+
+      <nav class="d-nav" aria-label="Desktop sticky nav">
+        <div class="d-nav__mark" aria-hidden="true"></div>
+        <div class="d-nav__links">
+          <span>Home</span>
+          <span>Games</span>
+          <span>Feed</span>
+          <span>Work</span>
+        </div>
+        <div class="d-nav__contact">Contact</div>
+      </nav>
+
+      <section class="d-boot pgrid" id="boot" aria-label="Boot — studio identity">
+        <div class="d-boot__copy">
+          <p class="d-boot__eyebrow">indie game studio</p>
+          <h2 class="d-boot__title">Team Step</h2>
+          <p class="d-boot__tagline">Building the home for the indie game world.</p>
+          <a class="cta cta-ghost" href="#meltdown">▶ Enter</a>
+          <div class="d-boot__scroll">
+            <div class="d-boot__scroll-line" aria-hidden="true"></div>
+            <span>scroll</span>
+          </div>
+        </div>
+        <div class="d-boot__mark-wrap">
+          <div class="d-boot__ring">
+            <div class="d-boot__mark">logo mark<br />idle float</div>
+          </div>
+        </div>
+        <div class="d-boot__peek">Meltdown key art peeks here</div>
+      </section>
+
+      <section class="d-melt" id="meltdown" aria-label="Meltdown — conversion stage">
+        <div class="chapter-label">02 · Meltdown · ~100vh conversion</div>
+        <div class="d-melt__badges">
+          <span class="chip chip-green"><span class="dot" aria-hidden="true"></span> Main Quest</span>
+          <span class="chip chip-amber"><span class="dot" aria-hidden="true"></span> In Development</span>
+        </div>
+        <div class="media d-melt__stage">Key art · looping WebM · tap for trailer</div>
+        <div class="d-melt__meta">
+          <p class="d-melt__subtitle">Nuclear Reactor Simulator</p>
+          <h2 class="d-melt__title">Meltdown</h2>
+          <p class="d-melt__desc">
+            Manage an overworked reactor. Keep the city powered.
+            Try not to cause a meltdown. The full Steam release is coming.
+          </p>
+          <div class="d-melt__ctas">
+            <a class="cta cta-primary" href="#">Play free · itch.io</a>
+            <a class="cta cta-primary" href="#">Play Steam Demo</a>
+            <a class="cta cta-secondary" href="#">Wishlist full release</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="d-quest" id="quest-log" aria-label="Quest Log — originals catalog">
+        <div class="d-quest__inner">
+          <div class="chapter-label">03 · Quest Log · originals only · grows in density</div>
+          <h2 class="d-quest__heading">More from Team Step</h2>
+          <p class="d-quest__lede">Released titles, live prototypes, and paused projects. One featured stage above — everything else lives here.</p>
+
+          <div class="d-quest__group">
+            <div class="d-quest__group-label">Released</div>
+            <div class="d-quest__grid">
+              <article class="d-qcard d-qcard--released">
+                <div class="d-qcard__thumb">Released<br />poster</div>
+                <div class="d-qcard__body">
+                  <span class="chip chip-green">Released</span>
+                  <h3 class="d-qcard__title">Signal Drift</h3>
+                  <p class="d-qcard__desc">Placeholder released title — playable on storefronts.</p>
+                  <a class="cta cta-primary" href="#">Play on Steam</a>
+                </div>
+              </article>
+              <article class="d-qcard d-qcard--released">
+                <div class="d-qcard__thumb">Released<br />poster</div>
+                <div class="d-qcard__body">
+                  <span class="chip chip-green">Released</span>
+                  <h3 class="d-qcard__title">Neon Relay</h3>
+                  <p class="d-qcard__desc">Second released slot — same compact card pattern.</p>
+                  <a class="cta cta-primary" href="#">Play free · itch</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="d-quest__group">
+            <div class="d-quest__group-label">Prototypes</div>
+            <div class="d-quest__grid">
+              <article class="d-qcard d-qcard--prototype">
+                <div class="d-qcard__thumb">Proto<br />build</div>
+                <div class="d-qcard__body">
+                  <span class="chip chip-amber">Prototype</span>
+                  <h3 class="d-qcard__title">Project Helix</h3>
+                  <p class="d-qcard__desc">Active experiment — follow or play the latest build.</p>
+                  <a class="cta cta-secondary" href="#">Play build</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="d-quest__group">
+            <div class="d-quest__group-label">Archive</div>
+            <div class="d-quest__grid d-quest__grid--stack">
+              <article class="d-qcard d-qcard--legacy">
+                <div class="d-qcard__thumb">Witch One<br />poster</div>
+                <div class="d-qcard__body">
+                  <span class="chip chip-blood">Legacy</span>
+                  <h3 class="d-qcard__title">Witch One: Crucible</h3>
+                  <p class="d-qcard__desc">A magic assassin adventure. Shelved while Meltdown ships — but not forgotten.</p>
+                  <a class="cta cta-ghost" href="#">Download free · itch.io</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="d-signal" id="bbs-board" aria-label="Signal — live feed">
+        <div class="d-signal__inner">
+          <div class="chapter-label">04 · Signal · quiet terminal</div>
+          <h2 class="d-signal__heading">Live from the guild</h2>
+          <div class="d-terminal">
+            <div class="d-terminal__bar">
+              <span class="d-terminal__dot"></span>
+              <span class="d-terminal__dot"></span>
+              <span class="d-terminal__dot"></span>
+              <span class="d-terminal__title">BBS · Team Step</span>
+            </div>
+            <div class="d-terminal__tabs" role="tablist">
+              <span class="d-terminal__tab on">Bluesky</span>
+              <span class="d-terminal__tab">Substack</span>
+              <span class="d-terminal__tab">YouTube</span>
+              <span class="d-terminal__tab">Discord</span>
+            </div>
+            <div class="d-terminal__body">
+              <div class="scanline" aria-hidden="true"></div>
+              <div class="d-feed-row">
+                <div class="d-feed-meta">@teamstep</div>
+                <div class="d-feed-lines"><span></span><span></span><span></span></div>
+              </div>
+              <div class="d-feed-row">
+                <div class="d-feed-meta">2h ago</div>
+                <div class="d-feed-lines"><span></span><span></span></div>
+              </div>
+              <div class="d-feed-row">
+                <div class="d-feed-meta">yesterday</div>
+                <div class="d-feed-lines"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="d-manifesto" id="manifesto" aria-label="Manifesto">
+        <div class="chapter-label">05 · Manifesto · breath</div>
+        <p class="d-manifesto__display">Creativity is a human right.</p>
+        <div class="d-dialogue">
+          <div class="d-dialogue__avatar" aria-hidden="true"></div>
+          <p class="d-dialogue__text">One step at a time. Building the home for the indie game world.</p>
+          <div class="d-dialogue__values">
+            <span class="chip chip-muted">Creativity</span>
+            <span class="chip chip-muted">Progressive</span>
+            <span class="chip chip-muted">Fluidity</span>
+            <span class="chip chip-muted">Adaptability</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="d-work" id="services" aria-label="Work — services">
+        <div class="d-work__inner">
+          <div class="chapter-label">06 · Work · lean inventory</div>
+          <h2 class="d-work__heading">What we build</h2>
+          <div class="d-work__grid">
+            <article class="d-work__item">
+              <div class="d-work__icon" aria-hidden="true"></div>
+              <h3 class="d-work__name">Game Development</h3>
+              <p class="d-work__blurb">From prototype to shippable build.</p>
+              <a class="cta cta-ghost" href="#">Inspect ↗</a>
+            </article>
+            <article class="d-work__item">
+              <div class="d-work__icon" aria-hidden="true"></div>
+              <h3 class="d-work__name">Gamification</h3>
+              <p class="d-work__blurb">Systems that make progress feel playable.</p>
+              <a class="cta cta-ghost" href="#">Inspect ↗</a>
+            </article>
+            <article class="d-work__item">
+              <div class="d-work__icon" aria-hidden="true"></div>
+              <h3 class="d-work__name">Visual Art</h3>
+              <p class="d-work__blurb">Worlds, UI, and motion with a point of view.</p>
+              <a class="cta cta-ghost" href="#">Inspect ↗</a>
+            </article>
+          </div>
+
+          <div class="d-portfolio" id="portfolio">
+            <h3 class="d-portfolio__heading">Selected work</h3>
+            <p class="d-portfolio__lede">Client and commission projects — separate from the Quest Log. Teal chrome only; no game-world accents.</p>
+            <div class="d-portfolio__grid">
+              <article class="d-pcard">
+                <div class="d-pcard__thumb">case study art</div>
+                <span class="chip chip-teal">Portfolio</span>
+                <p class="d-pcard__client">Client · 2025</p>
+                <h4 class="d-pcard__title">Brand Quest Hub</h4>
+                <p class="d-pcard__desc">Gamified onboarding experience for a product launch.</p>
+                <a class="cta cta-ghost" href="#">View case ↗</a>
+              </article>
+              <article class="d-pcard">
+                <div class="d-pcard__thumb">case study art</div>
+                <span class="chip chip-teal">Portfolio</span>
+                <p class="d-pcard__client">Studio partner · 2024</p>
+                <h4 class="d-pcard__title">Arcade UI Pack</h4>
+                <p class="d-pcard__desc">Visual system and motion for a third-party title.</p>
+                <a class="cta cta-ghost" href="#">View case ↗</a>
+              </article>
+            </div>
+          </div>
+
+          <div class="d-work__contact">
+            <a class="cta cta-secondary" href="#">Get in touch →</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="d-credits" id="footer">
+        <div class="d-credits__mark" aria-hidden="true"></div>
+        <p class="d-credits__name">Team Step</p>
+        <p class="d-credits__tag">One step at a time.</p>
+        <div class="d-credits__socials" aria-label="Social links">
+          <span title="Bluesky"></span>
+          <span title="Substack"></span>
+          <span title="YouTube"></span>
+          <span title="Discord"></span>
+        </div>
+      </footer>
+    </div>
+
+    <aside class="note">
+      <h2>Desktop annotations</h2>
+      <ul>
+        <li><strong style="color:var(--color-ice)">Boot ~55–65vh</strong> — brand owns the first moment; Meltdown art peeks at the bottom edge for continuity.</li>
+        <li><strong style="color:var(--color-ice)">Meltdown ~100vh</strong> — only one featured conversion stage (`featured: true`); flat CTA row.</li>
+        <li><strong style="color:var(--color-ice)">Quest Log</strong> — originals only (`kind: original`), grouped by phase: Released · Prototypes · Archive. Compact cards; density grows, not viewport height.</li>
+        <li><strong style="color:var(--color-ice)">Portfolio</strong> — lives under Work (`kind: portfolio`), teal chrome, “View case” CTAs — never mixed into Quest Log.</li>
+        <li><strong style="color:var(--color-ice)">Signal</strong> — terminal chrome kept (scanline); F-keys and API/WIDGET badges removed.</li>
+        <li><strong style="color:var(--color-ice)">Nav</strong> — HOME → boot; GAMES → meltdown / quest-log; FEED → bbs-board; WORK → services + portfolio.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <!-- ════════════ MOBILE ════════════ -->
+  <div class="pv" id="p-mb" role="tabpanel" hidden>
+    <div class="phone">
+      <div class="phone__notch" aria-hidden="true"></div>
+      <div class="m-top"><div class="m-top__mark"></div></div>
+
+      <section class="m-boot pgrid" aria-label="Boot">
+        <p class="m-boot__eyebrow">indie game studio</p>
+        <h2 class="m-boot__title">Team Step</h2>
+        <p class="m-boot__tagline">Building the home for the indie game world.</p>
+        <a class="cta cta-ghost" href="#">▶ Enter</a>
+        <p class="m-boot__tap">tap anywhere to explore</p>
+        <div class="m-boot__peek" aria-hidden="true"></div>
+      </section>
+
+      <section class="m-melt" aria-label="Meltdown">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="chip chip-green"><span class="dot"></span> Main Quest</span>
+          <span class="chip chip-amber">In Dev</span>
+        </div>
+        <div class="media m-melt__stage">Meltdown · key art</div>
+        <p class="m-melt__subtitle">Nuclear Reactor Simulator</p>
+        <h2 class="m-melt__title">Meltdown</h2>
+        <p class="m-melt__desc">Manage an overworked reactor. Keep the city powered.</p>
+        <div class="m-melt__ctas">
+          <a class="cta cta-primary" href="#">Play free · itch</a>
+          <a class="cta cta-primary" href="#">Play Steam Demo</a>
+          <a class="cta cta-secondary" href="#">Wishlist Steam</a>
+        </div>
+      </section>
+
+      <section class="m-archive" id="m-quest-log" aria-label="Quest Log">
+        <h2 class="m-quest__heading">More from Team Step</h2>
+        <p class="m-quest__lede">Released · prototypes · archive</p>
+
+        <div class="m-quest__group">
+          <div class="m-quest__group-label">Released</div>
+          <div class="m-archive__row released">
+            <div class="m-archive__thumb">SD</div>
+            <div class="m-archive__body">
+              <span class="chip chip-green">Released</span>
+              <h3 class="m-archive__title">Signal Drift</h3>
+              <p class="m-archive__desc">Placeholder released title.</p>
+              <a class="cta cta-primary" href="#" style="min-height:36px;font-size:13px;">Play</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-quest__group">
+          <div class="m-quest__group-label">Prototypes</div>
+          <div class="m-archive__row prototype">
+            <div class="m-archive__thumb">HX</div>
+            <div class="m-archive__body">
+              <span class="chip chip-amber">Prototype</span>
+              <h3 class="m-archive__title">Project Helix</h3>
+              <p class="m-archive__desc">Active experiment build.</p>
+              <a class="cta cta-secondary" href="#" style="min-height:36px;font-size:13px;">Play build</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-quest__group">
+          <div class="m-quest__group-label">Archive</div>
+          <div class="m-archive__row legacy">
+            <div class="m-archive__thumb">WO</div>
+            <div class="m-archive__body">
+              <span class="chip chip-blood">Legacy</span>
+              <h3 class="m-archive__title">Witch One</h3>
+              <p class="m-archive__desc">Shelved while Meltdown ships.</p>
+              <a class="cta cta-ghost" href="#" style="min-height:36px;font-size:13px;">Download</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="m-signal" aria-label="Signal">
+        <h2 class="m-signal__heading">Live from the guild</h2>
+        <div class="m-tabs">
+          <span class="on">Bsky</span>
+          <span>Sub</span>
+          <span>YT</span>
+          <span>DC</span>
+        </div>
+        <div class="m-feed">
+          <div class="scanline" aria-hidden="true"></div>
+          <span style="width:90%"></span>
+          <span style="width:70%"></span>
+          <span style="width:82%"></span>
+          <span style="width:55%"></span>
+        </div>
+        <p class="m-swipe">← swipe panels →</p>
+      </section>
+
+      <section class="m-manifesto" aria-label="Manifesto">
+        <p class="m-manifesto__display">Creativity is a human right.</p>
+        <div class="m-dialogue">
+          <div class="m-dialogue__avatar"></div>
+          <p class="m-dialogue__text">One step at a time. Building the home for the indie game world.</p>
+        </div>
+      </section>
+
+      <section class="m-work" aria-label="Work">
+        <h2 class="m-work__heading">What we build</h2>
+        <div class="m-work__grid">
+          <article class="m-work__item">
+            <div class="m-work__icon"></div>
+            <h3 class="m-work__name">Game Dev</h3>
+            <a class="cta cta-ghost" href="#" style="min-height:32px;font-size:12px;">Inspect</a>
+          </article>
+          <article class="m-work__item">
+            <div class="m-work__icon"></div>
+            <h3 class="m-work__name">Gamify</h3>
+            <a class="cta cta-ghost" href="#" style="min-height:32px;font-size:12px;">Inspect</a>
+          </article>
+          <article class="m-work__item span">
+            <div class="m-work__icon"></div>
+            <h3 class="m-work__name">Visual Art</h3>
+            <a class="cta cta-ghost" href="#" style="min-height:32px;font-size:12px;">Inspect</a>
+          </article>
+        </div>
+
+        <div class="m-portfolio">
+          <h3 class="m-portfolio__heading">Selected work</h3>
+          <p class="m-portfolio__lede">Portfolio — not in Quest Log</p>
+          <article class="m-pcard">
+            <span class="chip chip-teal">Portfolio</span>
+            <p class="m-pcard__client">Client · 2025</p>
+            <h4 class="m-pcard__title">Brand Quest Hub</h4>
+            <p class="m-pcard__desc">Gamified onboarding for a product launch.</p>
+            <a class="cta cta-ghost" href="#" style="min-height:32px;font-size:12px;">View case</a>
+          </article>
+          <article class="m-pcard">
+            <span class="chip chip-teal">Portfolio</span>
+            <p class="m-pcard__client">Partner · 2024</p>
+            <h4 class="m-pcard__title">Arcade UI Pack</h4>
+            <p class="m-pcard__desc">Visual system for a third-party title.</p>
+            <a class="cta cta-ghost" href="#" style="min-height:32px;font-size:12px;">View case</a>
+          </article>
+        </div>
+
+        <div class="m-work__contact">
+          <a class="cta cta-secondary" href="#">Get in touch →</a>
+        </div>
+      </section>
+
+      <footer class="m-credits">
+        <div class="m-credits__mark"></div>
+        <p class="m-credits__name">Team Step</p>
+        <div class="m-credits__socials">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </footer>
+
+      <nav class="m-hud" aria-label="Mobile HUD">
+        <div class="m-hud__item on"><span class="m-hud__dot"></span>Home</div>
+        <div class="m-hud__item"><span class="m-hud__dot"></span>Games</div>
+        <div class="m-hud__item"><span class="m-hud__dot"></span>Feed</div>
+        <div class="m-hud__item"><span class="m-hud__dot"></span>Work</div>
+      </nav>
+    </div>
+
+    <aside class="note">
+      <h2>Mobile annotations</h2>
+      <ul>
+        <li><strong style="color:var(--color-ice)">Boot</strong> — no floating logo mark; wordmark + tagline + Enter; tap-to-explore replaces scroll cue.</li>
+        <li><strong style="color:var(--color-ice)">Meltdown</strong> — stacked art → copy → full-width CTA stack always visible (no hover).</li>
+        <li><strong style="color:var(--color-ice)">Quest Log</strong> — stacked groups (Released / Prototypes / Archive); one card per row.</li>
+        <li><strong style="color:var(--color-ice)">Work + Portfolio</strong> — services 2-up; Selected work stacked below with teal Portfolio badges.</li>
+        <li><strong style="color:var(--color-ice)">HUD</strong> — HOME · GAMES · FEED · WORK; GAMES covers meltdown + quest-log.</li>
+      </ul>
+    </aside>
+  </div>
+
+<script>
+(function () {
+  var tabs = document.querySelectorAll(".tb");
+  var panels = {
+    dt: document.getElementById("p-dt"),
+    mb: document.getElementById("p-mb")
+  };
+
+  tabs.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var view = btn.getAttribute("data-view");
+      tabs.forEach(function (t) {
+        t.classList.toggle("on", t === btn);
+        t.setAttribute("aria-selected", t === btn ? "true" : "false");
+      });
+      Object.keys(panels).forEach(function (key) {
+        var on = key === view;
+        panels[key].classList.toggle("on", on);
+        if (on) panels[key].removeAttribute("hidden");
+        else panels[key].setAttribute("hidden", "");
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
