@@ -3,7 +3,7 @@
  * Switch @teamstep/design-system between sibling-repo file: link and GitHub Packages.
  *
  *   pnpm ds:use-local       → develop against ../brand-assets (symlink)
- *   pnpm ds:use-published   → consume published ^0.5.x from GitHub Packages
+ *   pnpm ds:use-published   → consume published ^1.0.x from GitHub Packages
  */
 import { execSync } from "node:child_process";
 import fs from "node:fs";
@@ -15,7 +15,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(root, "..");
 const pkgPath = path.join(repoRoot, "package.json");
 const localDs = path.resolve(repoRoot, "../brand-assets/packages/design-system");
-const publishedRange = "^0.5.1";
+const publishedRange = "^1.0.0";
 
 if (mode !== "local" && mode !== "published") {
   console.error("Usage: node scripts/ds-mode.mjs <local|published>");
@@ -45,4 +45,6 @@ if (mode === "local") {
 }
 
 fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`);
-execSync("pnpm install", { cwd: repoRoot, stdio: "inherit" });
+const env = { ...process.env };
+delete env.CI;
+execSync("pnpm install", { cwd: repoRoot, stdio: "inherit", env });

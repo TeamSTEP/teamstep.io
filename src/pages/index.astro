@@ -14,6 +14,7 @@ import { getFeaturedGame, toFeaturedStage, toQuestLog } from "../lib/games";
 import { toPortfolioCards } from "../lib/portfolio";
 import { FeaturedSection } from "../components/FeaturedSection";
 import { WorkSection } from "../components/WorkSection";
+import { site, socialLinks } from "../site.config";
 import "../styles/sections.css";
 
 const games = await getCollection("games");
@@ -23,35 +24,28 @@ const featuredStage = featured ? toFeaturedStage(featured) : null;
 const questLog = toQuestLog(games);
 const portfolio = toPortfolioCards(portfolioEntries);
 
-const discordServerId = import.meta.env.PUBLIC_DISCORD_SERVER_ID || "0";
-const contactHref = "mailto:hello@teamstep.gg";
-const logoMark =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='112'%3E%3Ccircle cx='56' cy='56' r='52' fill='none' stroke='%238591C9' stroke-width='2'/%3E%3Ccircle cx='56' cy='56' r='28' fill='%234f476d'/%3E%3C/svg%3E";
+const desktopLinks = site.nav.map(({ label, href }) => ({ label, href }));
+const hudItems = site.nav.map(({ label, sectionId }) => ({ label, sectionId }));
 ---
 
 <BaseLayout>
   <NavDesktop
     client:load
-    links={[
-      { label: "HOME", href: "#boot" },
-      { label: "GAMES", href: "#meltdown" },
-      { label: "FEED", href: "#bbs-board" },
-      { label: "WORK", href: "#services" },
-    ]}
-    contactHref={contactHref}
+    links={desktopLinks}
+    contactHref={site.contactHref}
   />
 
   <main>
     <div id="boot" data-section="home" data-reveal>
       <Boot
         client:load
-        eyebrow="indie game studio"
-        tagline="Building the home for the indie game world."
-        ctaHref="#meltdown"
-        ctaLabel="ENTER"
-        logoMarkSrc={logoMark}
-        logoMarkAlt="Team STEP logo mark"
-        peekLabel="Meltdown key art peeks here"
+        eyebrow={site.boot.eyebrow}
+        tagline={site.boot.tagline}
+        ctaHref={site.boot.ctaHref}
+        ctaLabel={site.boot.ctaLabel}
+        logoMarkSrc={site.logoMark}
+        logoMarkAlt={`${site.name} logo mark`}
+        peekLabel={site.boot.peekLabel}
         peekSrc={featured?.data.media.poster}
       />
     </div>
@@ -77,44 +71,35 @@ const logoMark =
 
     <section id="bbs-board" data-section="feed" class="signal" data-reveal>
       <div class="signal__inner">
-        <h2 class="signal__heading">Live from the guild</h2>
-        <SocialFeed client:load discordServerId={discordServerId} fetchEndpoint="/api/feed" />
+        <h2 class="signal__heading">{site.feed.heading}</h2>
+        <SocialFeed
+          client:load
+          discordServerId={site.social.discord.serverId || "0"}
+          fetchEndpoint={site.feed.endpoint}
+        />
       </div>
     </section>
 
     <section id="manifesto" class="manifesto" data-reveal>
-      <p class="manifesto__display">Creativity is a human right.</p>
+      <p class="manifesto__display">{site.manifesto.display}</p>
       <DialogueBox
         client:visible
-        avatarSrc={logoMark}
-        avatarAlt="Team STEP"
-        text="One step at a time. Building the home for the indie game world."
+        avatarSrc={site.logoMark}
+        avatarAlt={site.name}
+        text={site.manifesto.dialogue}
       />
     </section>
 
     <div data-reveal>
-      <WorkSection client:load portfolio={portfolio} contactHref={contactHref} />
+      <WorkSection client:load portfolio={portfolio} contactHref={site.contactHref} />
     </div>
   </main>
 
   <Footer
-    studioName="Team STEP"
-    tagline="One step at a time."
-    socials={[
-      { platform: "bluesky", href: "https://bsky.app/profile/teamstep.bsky.social", label: "Team STEP on Bluesky" },
-      { platform: "substack", href: "https://teamstep.substack.com", label: "Team STEP on Substack" },
-      { platform: "youtube", href: "https://www.youtube.com/@teamstep", label: "Team STEP on YouTube" },
-      { platform: "discord", href: "https://discord.gg/JPUaPmQvSZ", label: "Team STEP on Discord" },
-    ]}
+    studioName={site.name}
+    tagline={site.tagline}
+    socials={[...socialLinks]}
   />
 
-  <NavHUD
-    client:load
-    items={[
-      { label: "HOME", sectionId: "boot" },
-      { label: "GAMES", sectionId: "meltdown" },
-      { label: "FEED", sectionId: "bbs-board" },
-      { label: "WORK", sectionId: "services" },
-    ]}
-  />
+  <NavHUD client:load items={hudItems} />
 </BaseLayout>

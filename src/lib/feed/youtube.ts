@@ -1,8 +1,9 @@
 import { XMLParser } from "fast-xml-parser";
+import { site } from "../../site.config";
 import type { UnifiedPost } from "./types";
 
 export async function fetchYouTube(): Promise<UnifiedPost[]> {
-  const channelId = import.meta.env.YOUTUBE_CHANNEL_ID;
+  const channelId = site.social.youtube.channelId;
   if (!channelId) return [];
 
   const rss = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
@@ -20,7 +21,7 @@ export async function fetchYouTube(): Promise<UnifiedPost[]> {
     return {
       platform: "youtube" as const,
       id,
-      author: "Team STEP",
+      author: site.name,
       text: String(entry.title ?? ""),
       url: `https://www.youtube.com/watch?v=${id}`,
       date: new Date(String(entry.published ?? Date.now())).toISOString(),

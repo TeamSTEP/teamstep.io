@@ -1,10 +1,9 @@
 import { XMLParser } from "fast-xml-parser";
+import { site } from "../../site.config";
 import type { UnifiedPost } from "./types";
 
-const RSS = "https://teamstep.substack.com/feed";
-
 export async function fetchSubstack(): Promise<UnifiedPost[]> {
-  const xml = await fetch(RSS).then((r) => {
+  const xml = await fetch(site.social.substack.feed).then((r) => {
     if (!r.ok) throw new Error(`Substack ${r.status}`);
     return r.text();
   });
@@ -14,7 +13,7 @@ export async function fetchSubstack(): Promise<UnifiedPost[]> {
   return items.map((item: Record<string, unknown>) => ({
     platform: "substack" as const,
     id: String(item.guid?.["#text"] ?? item.guid ?? item.link),
-    author: "Team STEP",
+    author: site.name,
     text: String(item.title ?? ""),
     url: String(item.link ?? ""),
     date: new Date(String(item.pubDate ?? Date.now())).toISOString(),

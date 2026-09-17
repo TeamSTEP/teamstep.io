@@ -32,8 +32,6 @@ pnpm dev:all
 3. Astro Vite picks up the symlink and hot-reloads the page.
 4. Fix DS issues in Storybook (`pnpm storybook` in brand-assets) *or* against this live page.
 
-`astro.config.mjs` detects the symlink and opens Vite FS allowlist / watch for the sibling package.
-
 ## Ship DS before the site
 
 When a DS change should land independently of the landing page:

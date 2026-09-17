@@ -2,6 +2,7 @@
 import "@teamstep/design-system/tokens.css";
 import "@teamstep/design-system/styles.css";
 import "../styles/global.css";
+import { sameAs, site } from "../site.config";
 
 interface Props {
   title?: string;
@@ -9,21 +10,16 @@ interface Props {
 }
 
 const {
-  title = "Team STEP — Indie Game Studio",
-  description = "Building the home for the indie game world. Creators of Meltdown.",
+  title = site.title,
+  description = site.description,
 } = Astro.props;
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Team STEP",
-  url: "https://teamstep.gg",
-  sameAs: [
-    "https://bsky.app/profile/teamstep.bsky.social",
-    "https://teamstep.itch.io",
-    "https://teamstep.substack.com",
-    "https://discord.gg/JPUaPmQvSZ",
-  ],
+  name: site.name,
+  url: site.url,
+  sameAs,
 };
 ---
 

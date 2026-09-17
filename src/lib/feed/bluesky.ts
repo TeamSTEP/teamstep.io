@@ -1,11 +1,12 @@
+import { site } from "../../site.config";
 import type { UnifiedPost } from "./types";
 
 const BASE = "https://public.api.bsky.app/xrpc";
-const HANDLE = "teamstep.bsky.social";
 
 export async function fetchBluesky(): Promise<UnifiedPost[]> {
+  const handle = site.social.bluesky.handle;
   const res = await fetch(
-    `${BASE}/app.bsky.feed.getAuthorFeed?actor=${HANDLE}&limit=10`,
+    `${BASE}/app.bsky.feed.getAuthorFeed?actor=${handle}&limit=10`,
   );
   if (!res.ok) throw new Error(`Bluesky ${res.status}`);
   const { feed } = (await res.json()) as {

@@ -469,13 +469,9 @@ Sibling repo `brand-assets` + local link. See [`docs/design-system-workflow.md`]
 
 ---
 
-## 10. Environment Variables
+## 10. Site config
 
-```bash
-PUBLIC_DISCORD_SERVER_ID=   # Discord widget embed
-YOUTUBE_CHANNEL_ID=         # YouTube RSS feed
-# Public social feeds need no secret API keys
-```
+Social IDs and landing-page knobs live in `src/site.config.ts` (`discord.serverId`, `youtube.channelId`, contact, nav, copy). Public social feeds need no secret API keys.
 
 ---
 
@@ -491,7 +487,7 @@ YOUTUBE_CHANNEL_ID=         # YouTube RSS feed
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Team STEP",
-  "url": "https://teamstep.gg",
+  "url": "https://teamstep.io",
   "sameAs": [
     "https://bsky.app/profile/teamstep.bsky.social",
     "https://teamstep.itch.io",

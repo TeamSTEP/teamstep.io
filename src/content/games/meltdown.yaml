@@ -25,9 +25,9 @@ platforms:
   - platform: steam
     tier: full
     label: Wishlist full release
-    url: https://store.steampowered.com/app/4561950/Meltdown_Demo/
+    url: https://store.steampowered.com/app/3570680/Meltdown/
     available: false
 
 media:
-  poster: /games/meltdown/poster.svg
+  poster: /games/meltdown/cover.png
 

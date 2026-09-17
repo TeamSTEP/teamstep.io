@@ -21,7 +21,7 @@
     "@astrojs/react": "^6.0.5",
     "@astrojs/sitemap": "^3.7.4",
     "@astrojs/vercel": "^11.0.10",
-    "@teamstep/design-system": "file:../brand-assets/packages/design-system",
+    "@teamstep/design-system": "^1.0.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "astro": "^7.3.2",
