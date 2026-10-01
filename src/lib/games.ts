@@ -25,8 +25,8 @@ export function toFeaturedStage(
   const pending = game.data.platforms.filter((p) => !p.available);
 
   const ctas: FeaturedStageCta[] = [
-    ...playable.map((p) => ({
-      variant: "primary" as const,
+    ...playable.map((p, index) => ({
+      variant: (index === 0 ? "primary" : "ghost") as FeaturedStageCta["variant"],
       label: p.label.toUpperCase(),
       href: p.url,
       icon: platformIcon(p.platform),

@@ -127,3 +127,27 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+.signal-feed .ds-bbs-terminal__body {
+  box-sizing: border-box;
+  height: 28rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.signal-feed .ds-bbs-terminal__body:has(> .ds-bbs-panel-iframe) {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.signal-feed .ds-bbs-panel-iframe {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+}
+
+.signal-feed .ds-bbs-panel-iframe__frame {
+  height: 100%;
+  min-height: 100%;
+}

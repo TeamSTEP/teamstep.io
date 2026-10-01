@@ -8,11 +8,11 @@ import {
   NavDesktop,
   NavHUD,
   QuestLog,
-  SocialFeed,
 } from "@teamstep/design-system";
 import { getFeaturedGame, toFeaturedStage, toQuestLog } from "../lib/games";
 import { toPortfolioCards } from "../lib/portfolio";
 import { FeaturedSection } from "../components/FeaturedSection";
+import { SocialFeed } from "../components/SocialFeed";
 import { WorkSection } from "../components/WorkSection";
 import { site, socialLinks } from "../site.config";
 import "../styles/sections.css";
@@ -46,6 +46,19 @@ const hudItems = site.nav.map(({ label, sectionId }) => ({ label, sectionId }));
         logoMarkSrc={site.logoMark}
         logoMarkAlt={`${site.name} logo mark`}
         peekLabel={site.boot.peekLabel}
+        peekTitle={featured?.data.title}
+        peekMeta={
+          featured
+            ? [
+                "Main quest",
+                featured.data.platforms.some((p) => !p.available && p.tier === "full")
+                  ? "in development"
+                  : null,
+              ]
+                .filter(Boolean)
+                .join(" · ")
+            : undefined
+        }
         peekSrc={featured?.data.media.poster}
       />
     </div>

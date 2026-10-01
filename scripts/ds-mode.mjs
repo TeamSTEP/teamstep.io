@@ -15,7 +15,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(root, "..");
 const pkgPath = path.join(repoRoot, "package.json");
 const localDs = path.resolve(repoRoot, "../brand-assets/packages/design-system");
-const publishedRange = "^1.0.0";
+const publishedRange = "^1.1.0";
 
 if (mode !== "local" && mode !== "published") {
   console.error("Usage: node scripts/ds-mode.mjs <local|published>");

@@ -18,8 +18,8 @@ importers:
         specifier: ^11.0.10
         version: 11.0.10(astro@7.3.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@24.13.4)(@vercel/functions@3.9.7))(react@19.3.0)
       '@teamstep/design-system':
-        specifier: ^1.0.0
-        version: 1.0.0(motion@12.43.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: ^1.1.0
+        version: 1.1.0(motion@12.43.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@types/react':
         specifier: ^19.3.0
         version: 19.3.0
@@ -812,8 +812,8 @@ packages:
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
 
-  '@teamstep/design-system@1.0.0':
-    resolution: {integrity: sha512-/baS3mDUJfgbMXlFd8L1F5Y/zjRiZtENQcP+DAVgemkfwmGXfsjjs9D8INE61D/bDyzaBpRjfezLmH0uKYeBgw==, tarball: https://npm.pkg.github.com/download/@teamstep/design-system/1.0.0/4b32abb86688c9eb1f9f334053cbe060cb940500}
+  '@teamstep/design-system@1.1.0':
+    resolution: {integrity: sha512-Lr4P1CN88wj/1LHrSpOPA+tnOwjiRogzRd11ADU5Mb8Bdm31pH8lPjTYcpc/Yy/yUqnx4nUZV2PLvCY2s7aI2A==, tarball: https://npm.pkg.github.com/download/@teamstep/design-system/1.1.0/35664dee033ccb9de3c8ca096faff35e7148f411}
     peerDependencies:
       motion: ^12.0.0
       react: ^19.0.0
@@ -2681,7 +2681,7 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@teamstep/design-system@1.0.0(motion@12.43.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@teamstep/design-system@1.1.0(motion@12.43.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
     dependencies:
       '@fontsource/barlow-condensed': 5.3.0
       '@fontsource/nunito': 5.3.0

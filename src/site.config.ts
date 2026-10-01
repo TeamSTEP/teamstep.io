@@ -3,9 +3,9 @@
 export const site = {
   name: "Team STEP",
   url: "https://teamstep.io",
-  title: "Team STEP — Indie Game Studio",
+  title: "Team STEP",
   description:
-    "Building the home for the indie game world. Creators of Meltdown.",
+    "Building the home for the indie game world.",
   tagline: "One step at a time.",
   contactEmail: "hello@teamstep.io",
   contactHref: "mailto:hello@teamstep.io",
@@ -14,11 +14,11 @@ export const site = {
     "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='112'%3E%3Ccircle cx='56' cy='56' r='52' fill='none' stroke='%238591C9' stroke-width='2'/%3E%3Ccircle cx='56' cy='56' r='28' fill='%234f476d'/%3E%3C/svg%3E",
 
   boot: {
-    eyebrow: "indie game studio",
+    eyebrow: "brought to you by passionate creators",
     tagline: "Building the home for the indie game world.",
     ctaHref: "#meltdown",
     ctaLabel: "ENTER",
-    peekLabel: "Meltdown key art peeks here",
+    peekLabel: "Current project",
   },
 
   manifesto: {
