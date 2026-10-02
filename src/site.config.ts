@@ -16,7 +16,7 @@ export const site = {
 
   boot: {
     eyebrow: "brought to you by passionate creators",
-    tagline: "Building the home for the indie game world.",
+    tagline: "When the world feels too crazy, a bit of gaming calms the nerves",
     ctaHref: "#meltdown",
     ctaLabel: "ENTER",
     peekLabel: "Current project",

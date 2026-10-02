@@ -161,6 +161,7 @@
   position: fixed;
   inset-inline: 0;
   bottom: 0;
+  width: 100%;
   padding-bottom: env(safe-area-inset-bottom, 0rem);
 }
 
@@ -200,10 +201,11 @@
   }
 }
 
-/* Main quest: peek grows out, stage grows in (Motion drives --mq-progress). */
+/* Main quest: peek grows out, stage grows in (Motion drives --mq-progress).
+   Scale Y only — uniform scale was widening the document and shorting the fixed NavHUD. */
 .ds-boot__peek {
   transform-origin: center bottom;
-  transform: scale(calc(1 + var(--mq-progress) * 0.35));
+  transform: scaleY(calc(1 + var(--mq-progress) * 0.35));
   opacity: clamp(0, calc(1 - var(--mq-progress) * 1.75), 1);
   will-change: transform, opacity;
 }
@@ -214,6 +216,7 @@ html:not([data-mq-progress="0"]) .ds-boot__peek {
 
 html[data-mq-progress="1"] .ds-boot__peek {
   transform: none;
+  visibility: hidden;
 }
 
 #meltdown .ds-featured-stage {

@@ -97,7 +97,7 @@ export const toQuestLog = (games: Game[]): QuestLogProps => {
 
   return {
     heading: "More from Team Step",
-    lede: "Released titles, live prototypes, and paused projects. One featured stage above — everything else lives here.",
+    lede: "Take a look at our past and upcoming projects!",
     groups,
   };
 }

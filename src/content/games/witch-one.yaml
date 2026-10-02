@@ -3,7 +3,7 @@ title: "Witch One: Crucible"
 slug: witch-one-crucible
 subtitle: Action Roguelite
 description: >
-  A magic assassin adventure. Shelved while Meltdown ships — but not forgotten.
+  A magic assassin adventure to save the kingdom
 phase: legacy
 featured: false
 sortOrder: 1
@@ -11,9 +11,9 @@ sortOrder: 1
 platforms:
   - platform: itch
     tier: free
-    label: Download free
+    label: Play Now
     url: https://teamstep.itch.io/witch-one-crucible
     available: true
 
 media:
-  poster: /games/witch-one/poster.svg
+  poster: /games/witch-one/poster.png
