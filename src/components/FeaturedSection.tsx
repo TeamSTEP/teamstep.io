@@ -20,7 +20,7 @@ export const FeaturedSection = ({
   loopSrc,
   trailerUrl,
 }: FeaturedSectionProps) => {
-  useMainQuestExpand(true);
+  useMainQuestExpand();
 
   return (
     <FeaturedStage
@@ -35,4 +35,4 @@ export const FeaturedSection = ({
       }
     />
   );
-}
+};

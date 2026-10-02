@@ -200,101 +200,42 @@
   }
 }
 
-/* Main quest: peek zooms into FeaturedStage (driven by --mq-progress). */
-.mq-morph-thumb {
-  position: fixed;
-  z-index: 15;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-  border: 0.0625rem solid color-mix(in srgb, var(--color-game-green) 45%, transparent);
-  border-radius: var(--radius-card-md);
-  background: var(--color-background-recessed);
-  will-change: top, left, width, height, opacity;
-}
-
-.mq-morph-thumb.is-active {
-  border-radius: calc(
-    var(--radius-card-md) + (var(--radius-card-lg) - var(--radius-card-md)) * var(--mq-progress)
-  );
-}
-
-.mq-morph-thumb img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-}
-
+/* Main quest: peek grows out, stage grows in (Motion drives --mq-progress). */
 .ds-boot__peek {
-  transition: background-color 200ms ease, border-color 200ms ease;
+  transform-origin: center bottom;
+  transform: scale(calc(1 + var(--mq-progress) * 0.35));
+  opacity: clamp(0, calc(1 - var(--mq-progress) * 1.75), 1);
+  will-change: transform, opacity;
 }
 
-.ds-boot__peek.is-expanding {
-  border-top-color: transparent;
-  background: transparent;
-}
-
-.ds-boot__peek.is-expanding .ds-boot__peek-copy,
-.ds-boot__peek.is-expanded .ds-boot__peek-copy {
-  opacity: calc(1 - var(--mq-progress));
+html:not([data-mq-progress="0"]) .ds-boot__peek {
   pointer-events: none;
-}
-
-.ds-boot__peek.is-expanded {
-  pointer-events: none;
-}
-
-.ds-boot__peek.is-expanded .ds-boot__peek-thumb {
-  opacity: 0;
 }
 
 #meltdown .ds-featured-stage {
-  --mq-reveal: var(--mq-progress);
+  transform-origin: center top;
+  transform: scale(calc(0.96 + var(--mq-progress) * 0.04));
+  opacity: clamp(0, calc((var(--mq-progress) - 0.4) / 0.6), 1);
+  will-change: transform, opacity;
 }
 
-#meltdown .ds-featured-stage__badges,
-#meltdown .ds-featured-stage__subtitle,
-#meltdown .ds-featured-stage__title,
-#meltdown .ds-featured-stage__description,
-#meltdown .ds-featured-stage__ctas {
-  opacity: var(--mq-reveal);
-  transform: translateY(calc((1 - var(--mq-reveal)) * 1.25rem));
-  will-change: opacity, transform;
-}
-
-#meltdown .ds-featured-stage__media {
-  opacity: clamp(0, calc((var(--mq-progress) - 0.72) / 0.28), 1);
-}
-
-#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__badges,
-#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__subtitle,
-#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__title,
-#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__description,
-#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__ctas,
-#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__media {
-  opacity: 1;
+html[data-mq-progress="1"] #meltdown .ds-featured-stage {
   transform: none;
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mq-morph-thumb {
-    display: none;
-  }
-
-  #meltdown .ds-featured-stage__badges,
-  #meltdown .ds-featured-stage__subtitle,
-  #meltdown .ds-featured-stage__title,
-  #meltdown .ds-featured-stage__description,
-  #meltdown .ds-featured-stage__ctas,
-  #meltdown .ds-featured-stage__media {
-    opacity: 1;
+  .ds-boot__peek,
+  #meltdown .ds-featured-stage {
     transform: none;
   }
 
-  .ds-boot__peek.is-expanded .ds-boot__peek-thumb {
-    opacity: 0;
+  .ds-boot__peek {
+    opacity: calc(1 - var(--mq-progress));
+  }
+
+  #meltdown .ds-featured-stage {
+    opacity: var(--mq-progress);
   }
 }
 

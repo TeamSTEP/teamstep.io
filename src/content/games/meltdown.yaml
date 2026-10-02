@@ -10,23 +10,23 @@ featured: true
 sortOrder: 1
 
 platforms:
+  - platform: steam
+    tier: full
+    label: Wishlist on Steam
+    url: https://store.steampowered.com/app/3570680/Meltdown/
+    available: true
+
   - platform: itch
     tier: demo
-    label: Play free in browser
+    label: Play on Itch.io
     url: https://teamstep.itch.io/meltdown
     available: true
 
   - platform: steam
     tier: demo
-    label: Play Steam Demo
+    label: Get the Demo
     url: https://store.steampowered.com/app/4561950/Meltdown_Demo/
     available: true
-
-  - platform: steam
-    tier: full
-    label: Wishlist full release
-    url: https://store.steampowered.com/app/3570680/Meltdown/
-    available: false
 
 media:
   poster: /games/meltdown/cover.png
