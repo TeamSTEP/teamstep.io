@@ -1,0 +1,259 @@
+.work {
+  box-sizing: border-box;
+  padding-block: var(--spacing-section);
+  padding-inline: max(var(--spacing-xl), calc((100% - var(--layout-content-max)) / 2));
+  background: color-mix(in srgb, var(--color-surface) 35%, transparent);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.work__inner {
+  width: 100%;
+  margin: 0;
+}
+
+.work__heading {
+  margin: 0 0 var(--spacing-xl);
+  font-family: var(--font-family-heading);
+  font-size: clamp(26px, 4.5vw, 34px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.work__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 720px) {
+  .work__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.work__icon {
+  display: block;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 50%;
+}
+
+.work__portfolio {
+  margin-top: var(--spacing-3xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.work__portfolio-heading {
+  margin: 0 0 var(--spacing-sm);
+  font-family: var(--font-family-heading);
+  font-size: clamp(20px, 3.2vw, 26px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.work__portfolio-lede {
+  margin: 0 0 var(--spacing-lg);
+  max-width: 48ch;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  font-size: clamp(18px, 2.6vw, 20px);
+}
+
+.work__portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 720px) {
+  .work__portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.work__contact {
+  margin-top: var(--spacing-xl);
+  text-align: center;
+}
+
+.manifesto {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  box-sizing: border-box;
+  padding-block: var(--spacing-section);
+  padding-inline: max(var(--spacing-xl), calc((100% - var(--layout-content-max)) / 2));
+  text-align: center;
+  border-top: 1px solid var(--color-border-default);
+}
+
+.manifesto .ds-dialogue-box {
+  width: min(100%, 640px);
+}
+
+.manifesto__display {
+  margin: 0;
+  max-width: 18ch;
+  font-family: var(--font-family-heading);
+  font-size: clamp(40px, 5.5vw, 60px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.signal {
+  box-sizing: border-box;
+  padding-block: var(--spacing-section);
+  padding-inline: max(var(--spacing-xl), calc((100% - var(--layout-content-max)) / 2));
+  background: var(--color-background-recessed);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.signal__inner {
+  width: 100%;
+  margin: 0;
+}
+
+.signal__heading {
+  margin: 0 0 var(--spacing-lg);
+  font-family: var(--font-family-heading);
+  font-size: clamp(26px, 4.5vw, 34px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.signal-feed .ds-bbs-terminal__body {
+  box-sizing: border-box;
+  height: 28rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.signal-feed .ds-bbs-terminal__body:has(> .ds-bbs-panel-iframe) {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.signal-feed .ds-bbs-panel-iframe {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+}
+
+.signal-feed .ds-bbs-panel-iframe__frame {
+  height: 100%;
+  min-height: 100%;
+}
+
+/* Published DS overrides — remove when package includes these. */
+.ds-nav-desktop {
+  height: var(--nav-top-height);
+}
+
+.ds-nav-hud {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: env(safe-area-inset-bottom, 0rem);
+}
+
+@media (width >= 48rem) {
+  .ds-nav-hud {
+    display: none;
+  }
+}
+
+.ds-boot {
+  min-height: calc(100svh - var(--nav-top-height) - var(--nav-hud-height));
+  min-height: calc(100dvh - var(--nav-top-height) - var(--nav-hud-height));
+}
+
+.ds-boot__peek {
+  /* Keep the strip clear of the fixed HUD / browser chrome. */
+  margin-bottom: 0;
+  padding-bottom: max(var(--spacing-md), 0.5rem);
+}
+
+@container (max-width: 30rem) {
+  .ds-boot__peek {
+    grid-template-columns: minmax(0, 1fr) auto;
+    justify-items: initial;
+    gap: var(--spacing-sm);
+    min-height: clamp(5rem, 14vh, 7rem);
+    padding-block: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .ds-boot__peek-thumb {
+    order: 0;
+    width: clamp(5.5rem, 28cqi, 7.5rem);
+  }
+
+  .ds-boot__peek-title {
+    font-size: clamp(1.125rem, 5cqi, 1.5rem);
+  }
+}
+
+/* Main quest: peek grows out, stage grows in (Motion drives --mq-progress).
+   Scale Y only — uniform scale was widening the document and shorting the fixed NavHUD. */
+.ds-boot__peek {
+  transform-origin: center bottom;
+  transform: scaleY(calc(1 + var(--mq-progress) * 0.35));
+  opacity: clamp(0, calc(1 - var(--mq-progress) * 1.75), 1);
+  will-change: transform, opacity;
+}
+
+html:not([data-mq-progress="0"]) .ds-boot__peek {
+  pointer-events: none;
+}
+
+html[data-mq-progress="1"] .ds-boot__peek {
+  transform: none;
+  visibility: hidden;
+}
+
+#meltdown .ds-featured-stage {
+  transform-origin: center top;
+  transform: scale(calc(0.96 + var(--mq-progress) * 0.04));
+  opacity: clamp(0, calc((var(--mq-progress) - 0.4) / 0.6), 1);
+  will-change: transform, opacity;
+}
+
+html[data-mq-progress="1"] #meltdown .ds-featured-stage {
+  transform: none;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-boot__peek,
+  #meltdown .ds-featured-stage {
+    transform: none;
+  }
+
+  .ds-boot__peek {
+    opacity: calc(1 - var(--mq-progress));
+  }
+
+  #meltdown .ds-featured-stage {
+    opacity: var(--mq-progress);
+  }
+}
+
+/* Wide / short viewports: keep Boot as one screen composition. */
+@media (width >= 48rem) and (height < 48rem) {
+  .ds-boot__inner {
+    padding-block: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .ds-boot__peek {
+    min-height: clamp(4.5rem, 18vh, 6rem);
+    padding-block: var(--spacing-sm);
+  }
+}

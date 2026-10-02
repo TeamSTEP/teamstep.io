@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import {
+  Boot,
+  DialogueBox,
+  Footer,
+  NavDesktop,
+  NavHUD,
+  QuestLog,
+} from "@teamstep/design-system";
+import { getFeaturedGame, toFeaturedStage, toQuestLog } from "../lib/games";
+import { toPortfolioCards } from "../lib/portfolio";
+import { FeaturedSection } from "../components/FeaturedSection";
+import { SocialFeed } from "../components/SocialFeed";
+import { WorkSection } from "../components/WorkSection";
+import { site, socialLinks } from "../site.config";
+import "../styles/sections.css";
+
+const games = await getCollection("games");
+const portfolioEntries = await getCollection("portfolio");
+const featured = getFeaturedGame(games);
+const featuredStage = featured ? toFeaturedStage(featured) : null;
+const questLog = toQuestLog(games);
+const portfolio = toPortfolioCards(portfolioEntries);
+
+const desktopLinks = site.nav.map(({ label, href }) => ({ label, href }));
+const hudItems = site.nav.map(({ label, sectionId }) => ({ label, sectionId }));
+---
+
+<BaseLayout>
+  <NavDesktop
+    client:load
+    links={desktopLinks}
+    contactHref={site.contactHref}
+  />
+
+  <main>
+    <div id="boot" data-section="home" data-reveal>
+      <Boot
+        client:load
+        eyebrow={site.boot.eyebrow}
+        tagline={site.boot.tagline}
+        ctaHref={site.boot.ctaHref}
+        ctaLabel={site.boot.ctaLabel}
+        logoMarkSrc={site.logoMark}
+        logoMarkAlt={`${site.name} logo mark`}
+        peekLabel={site.boot.peekLabel}
+        peekTitle={featured?.data.title}
+        peekMeta={
+          featured
+            ? [
+                "Main quest",
+                featured.data.platforms.some((p) => !p.available && p.tier === "full")
+                  ? "in development"
+                  : null,
+              ]
+                .filter(Boolean)
+                .join(" · ")
+            : undefined
+        }
+        peekSrc={featured?.data.media.poster}
+      />
+    </div>
+
+    {
+      featuredStage && featured ? (
+        <div id="meltdown" data-section="games" data-reveal>
+          <FeaturedSection
+            client:load
+            stage={featuredStage}
+            posterSrc={featured.data.media.poster}
+            posterAlt={`${featured.data.title} key art`}
+            loopSrc={featured.data.media.loop}
+            trailerUrl={featured.data.media.trailer}
+          />
+        </div>
+      ) : null
+    }
+
+    <div id="quest-log" data-reveal>
+      <QuestLog {...questLog} />
+    </div>
+
+    <section id="bbs-board" data-section="feed" class="signal" data-reveal>
+      <div class="signal__inner">
+        <h2 class="signal__heading">{site.feed.heading}</h2>
+        <SocialFeed
+          client:load
+          discordServerId={site.social.discord.serverId || "0"}
+          fetchEndpoint={site.feed.endpoint}
+        />
+      </div>
+    </section>
+
+    <section id="manifesto" class="manifesto" data-reveal>
+      <p class="manifesto__display">{site.manifesto.display}</p>
+      <DialogueBox
+        client:visible
+        avatarSrc={site.logoMark}
+        avatarAlt={site.name}
+        text={site.manifesto.dialogue}
+      />
+    </section>
+
+    <div data-reveal>
+      <WorkSection client:load portfolio={portfolio} contactHref={site.contactHref} />
+    </div>
+  </main>
+
+  <Footer
+    studioName={site.name}
+    tagline={site.tagline}
+    socials={[...socialLinks]}
+  />
+
+  <NavHUD client:load items={hudItems} />
+</BaseLayout>

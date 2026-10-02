@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  packages: read
 
 concurrency:
   group: pages
@@ -26,12 +27,16 @@ jobs:
         with:
           node-version: '20'
           cache: yarn
+          registry-url: https://npm.pkg.github.com
+          scope: '@teamstep'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
         run: yarn build

@@ -3,21 +3,25 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# build
+/dist
+/.astro
+/.vercel
 
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
 # misc
 .DS_Store
 *.pem
+.npmrc
 
 # debug
 npm-debug.log*
@@ -25,15 +29,15 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# local env files
-.env*.local
-
-# vercel
-.vercel
+# env
+.env
+.env.*
+!.env.example
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
-# contentlayer
-.contentlayer
+# local tooling
+.gitignore.astro
+AGENTS.astro.md
+README.astro.md

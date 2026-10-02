@@ -1,0 +1,33 @@
+kind: original
+title: Meltdown
+slug: meltdown
+subtitle: Nuclear Reactor Simulator
+description: >
+  Manage an overworked reactor. Keep the city powered.
+  Try not to cause a meltdown. The full Steam release is coming.
+phase: shipping
+featured: true
+sortOrder: 1
+
+platforms:
+  - platform: steam
+    tier: full
+    label: Wishlist on Steam
+    url: https://store.steampowered.com/app/3570680/Meltdown/
+    available: true
+
+  - platform: itch
+    tier: demo
+    label: Play on Itch.io
+    url: https://teamstep.itch.io/meltdown
+    available: true
+
+  - platform: steam
+    tier: demo
+    label: Get the Demo
+    url: https://store.steampowered.com/app/4561950/Meltdown_Demo/
+    available: true
+
+media:
+  poster: /games/meltdown/cover.png
+

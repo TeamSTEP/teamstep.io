@@ -1,0 +1,5 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+minimumReleaseAgeExclude:
+  - '@teamstep/design-system@1.0.0 || 1.1.0 || 1.1.1 || 1.1.2'
