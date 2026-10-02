@@ -3,13 +3,14 @@
 export const site = {
   name: "Team STEP",
   url: "https://teamstep.io",
-  title: "Team STEP",
+  title: "Team STEP | Making Indie Games",
   description:
     "Building the home for the indie game world.",
   tagline: "One step at a time.",
   contactEmail: "hello@teamstep.io",
   contactHref: "mailto:hello@teamstep.io",
 
+  // todo: this is still using the placeholder logo
   logoMark:
     "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='112'%3E%3Ccircle cx='56' cy='56' r='52' fill='none' stroke='%238591C9' stroke-width='2'/%3E%3Ccircle cx='56' cy='56' r='28' fill='%234f476d'/%3E%3C/svg%3E",
 

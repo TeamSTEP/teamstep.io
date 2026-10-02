@@ -19,11 +19,13 @@
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
   font-size: clamp(1rem, 0.45vw + 0.9rem, 1.1875rem);
 }
 
 body {
+  overflow-x: clip;
   margin: 0;
   min-height: 100svh;
   min-height: 100dvh;
@@ -33,6 +35,11 @@ body {
   font-family: var(--font-family-body);
   font-size: 1.125rem;
   line-height: 1.5;
+}
+
+#boot,
+.ds-boot {
+  overflow-x: clip;
 }
 
 [data-reveal] {

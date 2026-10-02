@@ -212,6 +212,10 @@ html:not([data-mq-progress="0"]) .ds-boot__peek {
   pointer-events: none;
 }
 
+html[data-mq-progress="1"] .ds-boot__peek {
+  transform: none;
+}
+
 #meltdown .ds-featured-stage {
   transform-origin: center top;
   transform: scale(calc(0.96 + var(--mq-progress) * 0.04));

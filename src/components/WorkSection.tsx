@@ -7,7 +7,7 @@ import {
   type PortfolioCardProps,
 } from "@teamstep/design-system";
 
-// todo: should be stored in the contents folder
+// todo: should be stored in the contents folder, and each services should be a full page
 const SERVICES = [
   {
     id: "game-dev",
