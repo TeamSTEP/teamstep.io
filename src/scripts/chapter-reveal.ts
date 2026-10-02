@@ -2,7 +2,7 @@
  * Lightweight chapter reveal. Respects prefers-reduced-motion.
  * Attach via BaseLayout; observes [data-reveal] elements.
  */
-export function initChapterReveal() {
+export const initChapterReveal = () => {
   if (typeof window === "undefined") return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
@@ -22,6 +22,7 @@ export function initChapterReveal() {
         observer.unobserve(entry.target);
       }
     },
+    // todo: bad pattern
     { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
   );
 

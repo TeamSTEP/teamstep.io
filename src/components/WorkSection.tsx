@@ -7,6 +7,7 @@ import {
   type PortfolioCardProps,
 } from "@teamstep/design-system";
 
+// todo: should be stored in the contents folder
 const SERVICES = [
   {
     id: "game-dev",
@@ -36,7 +37,7 @@ export interface WorkSectionProps {
   contactHref: string;
 }
 
-export function WorkSection({ portfolio, contactHref }: WorkSectionProps) {
+export const WorkSection = ({ portfolio, contactHref }: WorkSectionProps) => {
   const [openId, setOpenId] = useState<string | null>(null);
   const open = SERVICES.find((s) => s.id === openId);
 

@@ -9,18 +9,18 @@ import type {
 
 type Game = CollectionEntry<"games">;
 
-function platformIcon(platform: Game["data"]["platforms"][number]["platform"]) {
+const platformIcon = (platform: Game["data"]["platforms"][number]["platform"]) => {
   if (platform === "itch" || platform === "browser") return "gamepad" as const;
   return "hexagon" as const;
 }
 
-export function getFeaturedGame(games: Game[]) {
+export const getFeaturedGame = (games: Game[]) => {
   return games.find((game) => game.data.featured);
 }
 
-export function toFeaturedStage(
+export const toFeaturedStage = (
   game: Game,
-): Omit<FeaturedStageProps, "media"> {
+): Omit<FeaturedStageProps, "media"> => {
   const playable = game.data.platforms.filter((p) => p.available);
   const pending = game.data.platforms.filter((p) => !p.available);
 
@@ -48,7 +48,7 @@ export function toFeaturedStage(
   };
 }
 
-function toArchiveCard(game: Game): GameCardArchiveProps | null {
+const toArchiveCard = (game: Game): GameCardArchiveProps | null => {
   const { phase } = game.data;
   if (phase !== "released" && phase !== "prototype" && phase !== "legacy" && phase !== "paused") {
     return null;
@@ -72,7 +72,7 @@ function toArchiveCard(game: Game): GameCardArchiveProps | null {
   };
 }
 
-export function toQuestLog(games: Game[]): QuestLogProps {
+export const toQuestLog = (games: Game[]): QuestLogProps => {
   const catalog = games
     .filter((game) => !game.data.featured)
     .sort((a, b) => a.data.sortOrder - b.data.sortOrder);

@@ -3,7 +3,7 @@ import type { UnifiedPost } from "./types";
 
 const BASE = "https://public.api.bsky.app/xrpc";
 
-export async function fetchBluesky(): Promise<UnifiedPost[]> {
+export const fetchBluesky = async (): Promise<UnifiedPost[]> => {
   const handle = site.social.bluesky.handle;
   const res = await fetch(
     `${BASE}/app.bsky.feed.getAuthorFeed?actor=${handle}&limit=10`,

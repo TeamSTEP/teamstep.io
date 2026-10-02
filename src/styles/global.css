@@ -1,5 +1,15 @@
 :root {
   color-scheme: dark;
+  --nav-top-height: 4.5rem;
+  --nav-hud-height: 0rem;
+  --mq-progress: 0;
+}
+
+@media (width < 48rem) {
+  :root {
+    /* Fixed NavHUD + safe area + breathing room above the bar. */
+    --nav-hud-height: calc(5.75rem + env(safe-area-inset-bottom, 0rem));
+  }
 }
 
 *,
@@ -10,12 +20,14 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: clamp(16px, 0.45vw + 14.5px, 19px);
+  font-size: clamp(1rem, 0.45vw + 0.9rem, 1.1875rem);
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  padding-bottom: var(--nav-hud-height);
   background: var(--color-void);
   color: var(--color-ice);
   font-family: var(--font-family-body);
@@ -25,7 +37,7 @@ body {
 
 [data-reveal] {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(1.125rem);
   transition:
     opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 700ms cubic-bezier(0.22, 1, 0.36, 1);

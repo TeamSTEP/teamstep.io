@@ -7,3 +7,10 @@ export interface UnifiedPost {
   date: string;
   thumb?: string;
 }
+
+export interface RssItem {
+  guid?: { "#text": string } | string;
+  link?: string;
+  title?: string;
+  pubDate?: string;
+}

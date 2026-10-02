@@ -2,7 +2,7 @@ import { XMLParser } from "fast-xml-parser";
 import { site } from "../../site.config";
 import type { UnifiedPost } from "./types";
 
-export async function fetchYouTube(): Promise<UnifiedPost[]> {
+export const fetchYouTube = async (): Promise<UnifiedPost[]> => {
   const channelId = site.social.youtube.channelId;
   if (!channelId) return [];
 
@@ -12,12 +12,16 @@ export async function fetchYouTube(): Promise<UnifiedPost[]> {
     return r.text();
   });
   const data = new XMLParser({ ignoreAttributes: false }).parse(xml);
-  const entries = ([] as unknown[]).concat(data?.feed?.entry ?? []).slice(0, 5);
+  const entries = ([] as Record<string, unknown>[])
+    .concat(data?.feed?.entry ?? [])
+    .slice(0, 5);
 
   return entries.map((entry: Record<string, unknown>) => {
     const id = String(entry["yt:videoId"] ?? entry.id ?? "");
     const media = entry["media:group"] as Record<string, unknown> | undefined;
-    const thumb = media?.["media:thumbnail"] as Record<string, string> | undefined;
+    const thumb = media?.["media:thumbnail"] as
+      | Record<string, string>
+      | undefined;
     return {
       platform: "youtube" as const,
       id,

@@ -3,7 +3,7 @@ import type { PortfolioCardProps } from "@teamstep/design-system";
 
 type Portfolio = CollectionEntry<"portfolio">;
 
-export function toPortfolioCards(entries: Portfolio[]): PortfolioCardProps[] {
+export const toPortfolioCards = (entries: Portfolio[]): PortfolioCardProps[] => {
   return [...entries]
     .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
     .map((entry) => ({

@@ -20,16 +20,17 @@ export interface SocialFeedProps {
   discordServerId: string;
 }
 
-export function SocialFeed({
+export const SocialFeed = ({
   fetchEndpoint = "/api/feed",
   discordServerId,
-}: SocialFeedProps) {
+}: SocialFeedProps) => {
   const [activeTab, setActiveTab] = useState<FeedTab>("bluesky");
   const [posts, setPosts] = useState<UnifiedPost[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const cacheRef = useRef<Map<FeedTab, UnifiedPost[]>>(new Map());
 
+  // todo: add a time-based auto form change
   const loadPlatform = useCallback(
     async (tab: FeedTab) => {
       if (tab === "discord") {
@@ -75,7 +76,7 @@ export function SocialFeed({
   return (
     <div className="ds-social-feed signal-feed">
       <BBSTerminal
-        title="BBS·TEAMSTEP·v1.0 ─ SIGNAL ACQUIRED"
+        title="Team STEP Social Network"
         tabs={TABS}
         activeTabId={activeTab}
         onTabChange={(tabId) => setActiveTab(tabId as FeedTab)}

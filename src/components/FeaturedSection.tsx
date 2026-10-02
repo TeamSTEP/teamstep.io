@@ -3,6 +3,7 @@ import {
   VideoFacade,
   type FeaturedStageProps,
 } from "@teamstep/design-system";
+import { useMainQuestExpand } from "../hooks/useMainQuestExpand";
 
 export interface FeaturedSectionProps {
   stage: Omit<FeaturedStageProps, "media">;
@@ -12,13 +13,15 @@ export interface FeaturedSectionProps {
   trailerUrl?: string;
 }
 
-export function FeaturedSection({
+export const FeaturedSection = ({
   stage,
   posterSrc,
   posterAlt,
   loopSrc,
   trailerUrl,
-}: FeaturedSectionProps) {
+}: FeaturedSectionProps) => {
+  useMainQuestExpand(true);
+
   return (
     <FeaturedStage
       {...stage}

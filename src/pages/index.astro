@@ -67,7 +67,7 @@ const hudItems = site.nav.map(({ label, sectionId }) => ({ label, sectionId }));
       featuredStage && featured ? (
         <div id="meltdown" data-section="games" data-reveal>
           <FeaturedSection
-            client:visible
+            client:load
             stage={featuredStage}
             posterSrc={featured.data.media.poster}
             posterAlt={`${featured.data.title} key art`}

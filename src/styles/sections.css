@@ -151,3 +151,161 @@
   height: 100%;
   min-height: 100%;
 }
+
+/* Published DS overrides — remove when package includes these. */
+.ds-nav-desktop {
+  height: var(--nav-top-height);
+}
+
+.ds-nav-hud {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  padding-bottom: env(safe-area-inset-bottom, 0rem);
+}
+
+@media (width >= 48rem) {
+  .ds-nav-hud {
+    display: none;
+  }
+}
+
+.ds-boot {
+  min-height: calc(100svh - var(--nav-top-height) - var(--nav-hud-height));
+  min-height: calc(100dvh - var(--nav-top-height) - var(--nav-hud-height));
+}
+
+.ds-boot__peek {
+  /* Keep the strip clear of the fixed HUD / browser chrome. */
+  margin-bottom: 0;
+  padding-bottom: max(var(--spacing-md), 0.5rem);
+}
+
+@container (max-width: 30rem) {
+  .ds-boot__peek {
+    grid-template-columns: minmax(0, 1fr) auto;
+    justify-items: initial;
+    gap: var(--spacing-sm);
+    min-height: clamp(5rem, 14vh, 7rem);
+    padding-block: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .ds-boot__peek-thumb {
+    order: 0;
+    width: clamp(5.5rem, 28cqi, 7.5rem);
+  }
+
+  .ds-boot__peek-title {
+    font-size: clamp(1.125rem, 5cqi, 1.5rem);
+  }
+}
+
+/* Main quest: peek zooms into FeaturedStage (driven by --mq-progress). */
+.mq-morph-thumb {
+  position: fixed;
+  z-index: 15;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  border: 0.0625rem solid color-mix(in srgb, var(--color-game-green) 45%, transparent);
+  border-radius: var(--radius-card-md);
+  background: var(--color-background-recessed);
+  will-change: top, left, width, height, opacity;
+}
+
+.mq-morph-thumb.is-active {
+  border-radius: calc(
+    var(--radius-card-md) + (var(--radius-card-lg) - var(--radius-card-md)) * var(--mq-progress)
+  );
+}
+
+.mq-morph-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.ds-boot__peek {
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.ds-boot__peek.is-expanding {
+  border-top-color: transparent;
+  background: transparent;
+}
+
+.ds-boot__peek.is-expanding .ds-boot__peek-copy,
+.ds-boot__peek.is-expanded .ds-boot__peek-copy {
+  opacity: calc(1 - var(--mq-progress));
+  pointer-events: none;
+}
+
+.ds-boot__peek.is-expanded {
+  pointer-events: none;
+}
+
+.ds-boot__peek.is-expanded .ds-boot__peek-thumb {
+  opacity: 0;
+}
+
+#meltdown .ds-featured-stage {
+  --mq-reveal: var(--mq-progress);
+}
+
+#meltdown .ds-featured-stage__badges,
+#meltdown .ds-featured-stage__subtitle,
+#meltdown .ds-featured-stage__title,
+#meltdown .ds-featured-stage__description,
+#meltdown .ds-featured-stage__ctas {
+  opacity: var(--mq-reveal);
+  transform: translateY(calc((1 - var(--mq-reveal)) * 1.25rem));
+  will-change: opacity, transform;
+}
+
+#meltdown .ds-featured-stage__media {
+  opacity: clamp(0, calc((var(--mq-progress) - 0.72) / 0.28), 1);
+}
+
+#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__badges,
+#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__subtitle,
+#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__title,
+#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__description,
+#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__ctas,
+#meltdown .ds-featured-stage.is-expanded .ds-featured-stage__media {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mq-morph-thumb {
+    display: none;
+  }
+
+  #meltdown .ds-featured-stage__badges,
+  #meltdown .ds-featured-stage__subtitle,
+  #meltdown .ds-featured-stage__title,
+  #meltdown .ds-featured-stage__description,
+  #meltdown .ds-featured-stage__ctas,
+  #meltdown .ds-featured-stage__media {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ds-boot__peek.is-expanded .ds-boot__peek-thumb {
+    opacity: 0;
+  }
+}
+
+/* Wide / short viewports: keep Boot as one screen composition. */
+@media (width >= 48rem) and (height < 48rem) {
+  .ds-boot__inner {
+    padding-block: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .ds-boot__peek {
+    min-height: clamp(4.5rem, 18vh, 6rem);
+    padding-block: var(--spacing-sm);
+  }
+}
