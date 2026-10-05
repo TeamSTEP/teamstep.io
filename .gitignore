@@ -21,7 +21,6 @@
 # misc
 .DS_Store
 *.pem
-.npmrc
 
 # debug
 npm-debug.log*
@@ -41,3 +40,6 @@ yarn-error.log*
 .gitignore.astro
 AGENTS.astro.md
 README.astro.md
+/.pnpm-store
+.vercel
+.env*
