@@ -8,6 +8,7 @@ Team STEP is an independent game studio building the home for the indie game wor
 
 - [Meltdown](https://teamstep.io/games/meltdown/): Manage an overworked reactor, keep the city powered, try not to cause a meltdown. Steam wishlist + demo, itch.io demo.
 - [Witch One: Crucible](https://teamstep.io/games/witch-one-crucible/): A magic assassin adventure to save the kingdom. On itch.io.
+- [Witch One](https://teamstep.io/games/witch-one/): 2D online hide-and-seek battle-royale (the original multiplayer version). Play the alpha at play.witchone.io.
 
 ## Studio
 

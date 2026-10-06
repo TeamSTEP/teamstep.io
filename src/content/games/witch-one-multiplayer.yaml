@@ -1,0 +1,21 @@
+kind: original
+title: "Witch One"
+slug: witch-one
+subtitle: 2D Hide & Seek Battle Royale
+description: >
+  A 2D online hide-and-seek battle-royale game inspired by the
+  asymmetric play of Dead by Daylight and the deception of Among Us.
+  One player becomes the invisible Cursed One hunting the rest.
+phase: legacy
+featured: false
+sortOrder: 2
+
+platforms:
+  - platform: browser
+    tier: free
+    label: Play the Alpha
+    url: https://play.witchone.io/
+    available: true
+
+media:
+  poster: /games/witch-one-multiplayer/poster.png
