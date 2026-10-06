@@ -3,9 +3,9 @@
 export const site = {
   name: "Team STEP",
   url: "https://teamstep.io",
-  title: "Team STEP | Making Indie Games",
+  title: "Team STEP — Indie Game Studio | Meltdown & Witch One: Crucible",
   description:
-    "Building the home for the indie game world.",
+    "Independent game studio behind Meltdown, a nuclear-reactor management sim on Steam, and Witch One: Crucible, a magic-assassin action roguelite.",
   tagline: "One step at a time.",
   contactEmail: "hello@teamstep.io",
   contactHref: "mailto:hello@teamstep.io",
@@ -95,5 +95,6 @@ export const sameAs = [
   site.social.bluesky.href,
   site.social.itch.href,
   site.social.substack.href,
+  site.social.youtube.href,
   site.social.discord.href,
 ];

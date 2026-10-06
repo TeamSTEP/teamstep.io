@@ -1,0 +1,25 @@
+# https://teamstep.io/robots.txt
+# All search and AI crawlers welcome: visibility is the goal.
+
+User-agent: *
+Allow: /
+
+# AI search / answer-engine crawlers
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://teamstep.io/sitemap-index.xml

@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+import { site } from "../../site.config";
+
+export const getStaticPaths = async () => {
+  const games = await getCollection("games");
+  return games.map((g) => ({
+    params: { slug: g.data.slug },
+    props: { game: g },
+  }));
+};
+
+const { game } = Astro.props;
+const g = game.data;
+const url = new URL(`/games/${g.slug}/`, site.url).href;
+const title = `${g.title} — ${site.name}`;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  name: g.title,
+  description: g.description,
+  url,
+  applicationCategory: "Game",
+  genre: g.subtitle,
+  publisher: { "@type": "Organization", name: site.name, url: site.url },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={g.description} />
+    <link rel="canonical" href={url} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={g.description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={new URL(g.media.poster, site.url).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={g.description} />
+    <meta name="twitter:image" content={new URL(g.media.poster, site.url).href} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <main>
+      <h1>{g.title}</h1>
+      <p><strong>{g.subtitle}</strong></p>
+      <p>{g.description}</p>
+      <ul>
+        {g.platforms.map((p) => (
+          <li><a href={p.url}>{p.label}</a></li>
+        ))}
+      </ul>
+      <p><a href={site.url}>← {site.name}</a></p>
+    </main>
+  </body>
+</html>
