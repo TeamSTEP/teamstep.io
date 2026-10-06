@@ -3,7 +3,7 @@ import { dirname } from "node:path";
 import sharp from "sharp";
 
 // Build-time default OG image: Team STEP logo centered on the brand
-// background, with the slogan as a subtext below. Runs before `astro build`.
+// background, with the manifesto slogan as a subtext below.
 
 const LOGO = "public/teamstep-logo.png";
 const OUT = "public/og/default.png";
@@ -11,13 +11,18 @@ const SIZE = { width: 1200, height: 630 };
 const BG = "#231630"; // --color-void (site background)
 const ACCENT = "#8591C9"; // brand lavender (logo text / ring)
 
-// Slogan is the single source of truth in site.config.ts (site.tagline).
+// Slogan = site.manifesto.display in site.config.ts (single source of truth).
 const config = readFileSync("src/site.config.ts", "utf8");
-const slogan = config.match(/tagline:\s*"([^"]+)"/)?.[1] ?? "One step at a time.";
+const slogan =
+  config.match(/manifesto:\s*\{[\s\S]*?display:\s*"([^"]+)"/)?.[1] ??
+  "Creativity is a human right.";
 
-const logo = readFileSync(LOGO).toString("base64");
+const logoBuf = readFileSync(LOGO);
+const { width: lw, height: lh } = await sharp(logoBuf).metadata();
+const logo = logoBuf.toString("base64");
+
 const logoW = 480;
-const logoH = Math.round((logoW * 170) / 320); // preserve 320:170 aspect -> 255
+const logoH = Math.round((logoW * lh) / lw); // preserve aspect
 const logoX = Math.round((SIZE.width - logoW) / 2);
 const logoY = 150;
 const sloganY = logoY + logoH + 72; // text baseline below the logo
