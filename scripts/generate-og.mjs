@@ -1,45 +1,33 @@
-import { readdirSync, readFileSync, mkdirSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { readFileSync, mkdirSync } from "node:fs";
+import { dirname } from "node:path";
 import sharp from "sharp";
 
-// Build-time default OG image: the featured game's cover art with the
-// Team STEP logo overlaid in the bottom-right corner (1/4 of the poster).
-// Runs before `astro build` so /og/default.png always reflects the game
-// currently flagged `featured: true`.
+// Build-time default OG image: Team STEP logo centered on the brand
+// background, with the slogan as a subtext below. Runs before `astro build`.
 
-const GAMES_DIR = "src/content/games";
 const LOGO = "public/teamstep-logo.png";
 const OUT = "public/og/default.png";
 const SIZE = { width: 1200, height: 630 };
-const LOGO_WIDTH = 600; // half the poster width -> bottom-right quadrant (1/4 area)
+const BG = "#231630"; // --color-void (site background)
+const ACCENT = "#8591C9"; // brand lavender (logo text / ring)
 
-function findFeaturedPoster() {
-  for (const f of readdirSync(GAMES_DIR)) {
-    if (!f.endsWith(".yaml") && !f.endsWith(".yml")) continue;
-    const text = readFileSync(join(GAMES_DIR, f), "utf8");
-    if (!/featured:\s*true/i.test(text)) continue;
-    const m = text.match(/poster:\s*(\S+)/);
-    if (m) return m[1].trim();
-  }
-  return null;
-}
+// Slogan is the single source of truth in site.config.ts (site.tagline).
+const config = readFileSync("src/site.config.ts", "utf8");
+const slogan = config.match(/tagline:\s*"([^"]+)"/)?.[1] ?? "One step at a time.";
 
-const poster = findFeaturedPoster();
-if (!poster) {
-  console.warn("[generate-og] no featured game found; leaving /og/default.png unchanged");
-  process.exit(0);
-}
+const logo = readFileSync(LOGO).toString("base64");
+const logoW = 480;
+const logoH = Math.round((logoW * 170) / 320); // preserve 320:170 aspect -> 255
+const logoX = Math.round((SIZE.width - logoW) / 2);
+const logoY = 150;
+const sloganY = logoY + logoH + 72; // text baseline below the logo
 
-const coverPath = join("public", poster.replace(/^\//, ""));
+const svg = `<svg width="${SIZE.width}" height="${SIZE.height}" xmlns="http://www.w3.org/2000/svg">
+  <rect width="${SIZE.width}" height="${SIZE.height}" fill="${BG}"/>
+  <image href="data:image/png;base64,${logo}" x="${logoX}" y="${logoY}" width="${logoW}" height="${logoH}"/>
+  <text x="${SIZE.width / 2}" y="${sloganY}" text-anchor="middle" fill="${ACCENT}" font-family="DejaVu Sans, sans-serif" font-size="40" letter-spacing="1">${slogan}</text>
+</svg>`;
 
 mkdirSync(dirname(OUT), { recursive: true });
-
-const logo = await sharp(LOGO).resize(LOGO_WIDTH, null).png().toBuffer();
-
-await sharp(coverPath)
-  .resize(SIZE.width, SIZE.height, { fit: "cover", position: "centre" })
-  .composite([{ input: logo, gravity: "southeast" }])
-  .png()
-  .toFile(OUT);
-
-console.log(`[generate-og] wrote ${OUT} (cover: ${coverPath})`);
+await sharp(Buffer.from(svg)).png().toFile(OUT);
+console.log(`[generate-og] wrote ${OUT} (slogan: "${slogan}")`);
