@@ -3,9 +3,9 @@
 export const site = {
   name: "Team STEP",
   url: "https://teamstep.io",
-  title: "Team STEP — Indie Game Studio | Meltdown & Witch One: Crucible",
+  title: "Team STEP | The Indie Game Studio Working on Meltdown",
   description:
-    "Independent game studio behind Meltdown, a nuclear-reactor management sim on Steam, and Witch One: Crucible, a magic-assassin action roguelite.",
+    "Independent game studio behind Meltdown, a nuclear-reactor management sim. Current available on Steam.",
   tagline: "One step at a time.",
   contactEmail: "hello@teamstep.io",
   contactHref: "mailto:hello@teamstep.io",
