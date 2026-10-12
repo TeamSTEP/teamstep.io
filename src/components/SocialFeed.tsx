@@ -24,7 +24,7 @@ export const SocialFeed = ({
   fetchEndpoint = "/api/feed",
   discordServerId,
 }: SocialFeedProps) => {
-  const [activeTab, setActiveTab] = useState<FeedTab>("bluesky");
+  const [activeTab, setActiveTab] = useState<FeedTab>("discord");
   const [posts, setPosts] = useState<UnifiedPost[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
