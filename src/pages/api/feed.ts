@@ -1,25 +1,26 @@
 import type { APIRoute } from "astro";
-import { fetchBluesky } from "../../lib/feed/bluesky";
-import { fetchSubstack } from "../../lib/feed/substack";
-import { fetchYouTube } from "../../lib/feed/youtube";
-import type { UnifiedPost } from "../../lib/feed/types";
+import { fetchSourceItems, hasFetcher } from "../../lib/feed/fetchers";
 
 export const prerender = false;
 
 export const GET: APIRoute = async ({ url }) => {
-  const platform = url.searchParams.get("platform");
-  let posts: UnifiedPost[] = [];
+  const source = url.searchParams.get("source");
+
+  if (!source || !hasFetcher(source)) {
+    return new Response(JSON.stringify({ error: "Invalid source" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
   try {
-    if (platform === "bluesky") posts = await fetchBluesky();
-    else if (platform === "substack") posts = await fetchSubstack();
-    else if (platform === "youtube") posts = await fetchYouTube();
-    else {
-      return new Response(JSON.stringify({ error: "Invalid platform" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
+    const items = await fetchSourceItems(source);
+    return new Response(JSON.stringify(items), {
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "s-maxage=300, stale-while-revalidate",
+      },
+    });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Feed fetch failed";
     return new Response(JSON.stringify({ error: message }), {
@@ -27,11 +28,4 @@ export const GET: APIRoute = async ({ url }) => {
       headers: { "Content-Type": "application/json" },
     });
   }
-
-  return new Response(JSON.stringify(posts), {
-    headers: {
-      "Content-Type": "application/json",
-      "Cache-Control": "s-maxage=300, stale-while-revalidate",
-    },
-  });
 };

@@ -1,9 +1,9 @@
+import type { BBSItem } from "@teamstep/design-system";
 import { site } from "../../site.config";
-import type { UnifiedPost } from "./types";
 
 const BASE = "https://public.api.bsky.app/xrpc";
 
-export const fetchBluesky = async (): Promise<UnifiedPost[]> => {
+export const fetchBluesky = async (): Promise<BBSItem[]> => {
   const handle = site.social.bluesky.handle;
   const res = await fetch(
     `${BASE}/app.bsky.feed.getAuthorFeed?actor=${handle}&limit=10`,
@@ -21,11 +21,10 @@ export const fetchBluesky = async (): Promise<UnifiedPost[]> => {
   };
 
   return feed.map(({ post }) => ({
-    platform: "bluesky",
     id: post.cid,
-    author: post.author.handle,
-    text: post.record.text,
-    url: `https://bsky.app/profile/${post.author.handle}/post/${post.uri.split("/").pop()}`,
-    date: post.record.createdAt,
+    name: post.author.handle,
+    href: `https://bsky.app/profile/${post.author.handle}/post/${post.uri.split("/").pop()}`,
+    body: post.record.text,
+    publishedAt: post.record.createdAt,
   }));
-}
+};

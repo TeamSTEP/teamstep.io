@@ -18,17 +18,18 @@
     "ds:watch": "CI=true pnpm --dir ../brand-assets --filter @teamstep/design-system dev"
   },
   "dependencies": {
-    "@astrojs/react": "^6.0.5",
+    "@astrojs/react": "^7.1.2",
     "@astrojs/sitemap": "^3.7.4",
-    "@astrojs/vercel": "^11.0.10",
-    "@teamstep/design-system": "^1.1.2",
+    "@astrojs/vercel": "^11.0.17",
+    "@teamstep/design-system": "^1.2.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "astro": "^7.3.2",
-    "fast-xml-parser": "^5.2.5",
-    "motion": "^12.42.2",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "astro": "^7.4.4",
+    "fast-xml-parser": "^5.11.2",
+    "motion": "^12.43.0",
+    "oxc-transform-react": "^0.145.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "allowScripts": {
     "esbuild": true,

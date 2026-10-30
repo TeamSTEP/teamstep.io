@@ -15,7 +15,6 @@ Team STEP is an independent game studio building the home for the indie game wor
 - Website: https://teamstep.io
 - Email: hello@teamstep.io
 - Bluesky: https://bsky.app/profile/teamstep.io
-- Substack: https://teamstep.substack.com
 - YouTube: https://www.youtube.com/@teamstep
 - Discord: https://discord.gg/JPUaPmQvSZ
 - itch.io: https://teamstep.itch.io
