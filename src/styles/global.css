@@ -42,7 +42,9 @@ body {
   overflow-x: hidden;
 }
 
-[data-reveal] {
+/* Only chapters opted into .reveal-animate (below the fold) start hidden —
+   so a failed chapter-reveal module never leaves the page blank. */
+[data-reveal].reveal-animate {
   opacity: 0;
   transform: translateY(1.125rem);
   transition:
@@ -50,7 +52,8 @@ body {
     transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-[data-reveal="visible"] {
+[data-reveal="visible"],
+[data-reveal].reveal-animate[data-reveal="visible"] {
   opacity: 1;
   transform: none;
 }
@@ -60,7 +63,7 @@ body {
     scroll-behavior: auto;
   }
 
-  [data-reveal] {
+  [data-reveal].reveal-animate {
     opacity: 1;
     transform: none;
     transition: none;
