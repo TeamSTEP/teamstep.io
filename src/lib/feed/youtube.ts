@@ -1,8 +1,8 @@
 import { XMLParser } from "fast-xml-parser";
+import type { BBSItem } from "@teamstep/design-system";
 import { site } from "../../site.config";
-import type { UnifiedPost } from "./types";
 
-export const fetchYouTube = async (): Promise<UnifiedPost[]> => {
+export const fetchYouTube = async (): Promise<BBSItem[]> => {
   const channelId = site.social.youtube.channelId;
   if (!channelId) return [];
 
@@ -22,14 +22,15 @@ export const fetchYouTube = async (): Promise<UnifiedPost[]> => {
     const thumb = media?.["media:thumbnail"] as
       | Record<string, string>
       | undefined;
+    const title = String(entry.title ?? "");
     return {
-      platform: "youtube" as const,
       id,
-      author: site.name,
-      text: String(entry.title ?? ""),
-      url: `https://www.youtube.com/watch?v=${id}`,
-      date: new Date(String(entry.published ?? Date.now())).toISOString(),
-      thumb: thumb?.["@_url"],
+      name: title,
+      href: `https://www.youtube.com/watch?v=${id}`,
+      publishedAt: new Date(String(entry.published ?? Date.now())).toISOString(),
+      thumbnail: thumb?.["@_url"]
+        ? { src: thumb["@_url"], alt: "" }
+        : undefined,
     };
   });
-}
+};

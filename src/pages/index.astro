@@ -12,7 +12,7 @@ import {
 import { getFeaturedGame, toFeaturedStage, toQuestLog } from "../lib/games";
 import { toPortfolioCards } from "../lib/portfolio";
 import { FeaturedSection } from "../components/FeaturedSection";
-import { SocialFeed } from "../components/SocialFeed";
+import { SignalBoard } from "../components/SignalBoard";
 import { WorkSection } from "../components/WorkSection";
 import { site, socialLinks } from "../site.config";
 import "../styles/sections.css";
@@ -85,11 +85,7 @@ const hudItems = site.nav.map(({ label, sectionId }) => ({ label, sectionId }));
     <section id="bbs-board" data-section="feed" class="signal" data-reveal>
       <div class="signal__inner">
         <h2 class="signal__heading">{site.feed.heading}</h2>
-        <SocialFeed
-          client:load
-          discordServerId={site.social.discord.serverId || "0"}
-          fetchEndpoint={site.feed.endpoint}
-        />
+        <SignalBoard client:load fetchEndpoint={site.feed.endpoint} />
       </div>
     </section>
 
