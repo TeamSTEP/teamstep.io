@@ -1,7 +1,7 @@
 // @ts-check
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import react from "@astrojs/react";
 import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
@@ -16,6 +16,20 @@ export default defineConfig({
   output: "static",
   adapter: vercel(),
   integrations: [react(), sitemap()],
+  env: {
+    schema: {
+      REDDIT_CLIENT_ID: envField.string({
+        context: "server",
+        access: "secret",
+        optional: true,
+      }),
+      REDDIT_CLIENT_SECRET: envField.string({
+        context: "server",
+        access: "secret",
+        optional: true,
+      }),
+    },
+  },
   vite: {
     resolve: {
       dedupe: ["react", "react-dom", "motion"],

@@ -54,6 +54,8 @@ The client island is `src/components/SignalBoard.tsx`; the proxy is `GET /api/fe
 
 Substack already has a fetcher — enable it by adding a tab entry in `FEED_SOURCES`.
 
+The Reddit tab lists the latest posts and comments of `site.social.reddit.username`. Reddit no longer serves RSS or logged-out JSON, so the fetcher uses the OAuth API with an app-only token: set `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` (locally in `.env`, in production as Vercel environment variables) from a Reddit app approved for Data API access. Without them the tab shows the retry state.
+
 ## Stack
 
 - Astro 7 (static pages + `/api/feed` on Vercel)

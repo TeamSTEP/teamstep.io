@@ -56,6 +56,11 @@ export const site = {
       href: "https://www.youtube.com/@teamstep",
       label: "Team STEP on YouTube",
     },
+    reddit: {
+      username: "teamstep",
+      href: "https://www.reddit.com/user/teamstep",
+      label: "Team STEP on Reddit",
+    },
     discord: {
       /** Snowflake ID for the Discord widget embed. */
       serverId: "773053159270514728",
@@ -96,5 +101,6 @@ export const sameAs = [
   site.social.itch.href,
   site.social.substack.href,
   site.social.youtube.href,
+  site.social.reddit.href,
   site.social.discord.href,
 ];

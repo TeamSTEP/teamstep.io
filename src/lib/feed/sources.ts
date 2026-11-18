@@ -49,6 +49,14 @@ export const FEED_SOURCES: readonly FeedSource[] = [
     thumbnailFit: "cover",
   },
   {
+    id: "reddit",
+    kind: "list",
+    desktopLabel: "Reddit",
+    mobileLabel: "RDT",
+    icon: "reddit",
+    density: "comfortable",
+  },
+  {
     id: "discord",
     kind: "iframe",
     desktopLabel: "Discord",
