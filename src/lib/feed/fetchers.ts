@@ -1,5 +1,6 @@
 import type { BBSItem } from "@teamstep/design-system";
 import { fetchBluesky } from "./bluesky";
+import { fetchReddit } from "./reddit";
 import { fetchSubstack } from "./substack";
 import { fetchYouTube } from "./youtube";
 
@@ -9,6 +10,7 @@ type FeedFetcher = () => Promise<BBSItem[]>;
 const FETCHERS: Record<string, FeedFetcher> = {
   bluesky: fetchBluesky,
   youtube: fetchYouTube,
+  reddit: fetchReddit,
   substack: fetchSubstack,
 };
 
